@@ -1,0 +1,1 @@
+<?php \n\n\trequire_once __DIR__.'/../vendor/autoload.php'; \n\n\t$app = new Silex\Application(); \n\n\t$app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path' => __DIR__.'/../views')); \n\n\t$app->get('/', function(){return 'Hello, World!';}); \n\n\treturn $app; \n\n?>
