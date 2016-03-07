@@ -1,3 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Cardo:400,700,400italic|Montserrat:400,700);
+body {
+  margin: 0; }
 
+header {
+  font-family: 'Montserrat', serif;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  bordeR: 1px solid black; }
+  header h4 {
+    margin-left: 20px; }
+  header nav a {
+    margin-right: 20px; }
 
 /*# sourceMappingURL=styles.css.map */
