@@ -129,5 +129,19 @@ class GrowersStrains
     {
         $GLOBALS['DB']->exec("DELETE FROM growers_strains;");
     }
+
+    static function findById($search_id)
+  {
+      $found_strain = null;
+      $strains = GrowersStrains::getAll();
+
+      foreach($strains as $strain) {
+          $strain_id = $strain->getId();
+          if ($strain_id == $search_id) {
+              $found_strain = $strain;
+          }
+      }
+      return $found_strain;
+  }
 }
 ?>

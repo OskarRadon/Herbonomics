@@ -15,7 +15,7 @@
     {
         GrowersStrains::deleteAll();
     }
-        function testGetInfo()
+        function test_GetInfo()
         {
             //Arrange
             $id = 1;
@@ -49,7 +49,7 @@
             $this->assertEquals($price, $result8);
         }
 
-        function testSave()
+        function test_Save()
         {
             //Arrange
             $id = 1;
@@ -61,13 +61,73 @@
             $price = 1400;
             $growers_id = 2;
             $test_growers_strains = new GrowersStrains($id, $strain_name, $pheno, $thc, $cbd, $cgc, $price, $growers_id);
+            $test_growers_strains->save();
+
+            $id2 = 2;
+            $strain_name2 = "Cannatonic";
+            $pheno2 = "Sativa";
+            $thc2 = 2.43;
+            $cbd2 = 15.54;
+            $cgc2 = 1;
+            $price2 = 1000;
+            $growers_id2 = 2;
+            $test_growers_strains2 = new GrowersStrains($id2, $strain_name2, $pheno2, $thc2, $cbd2, $cgc2, $price2, $growers_id2);
+            $test_growers_strains2->save();
 
             //Act
-            $test_growers_strains->save();
+
             $result = GrowersStrains::getAll();
 
             //Assert
-            $this->assertEquals($test_growers_strains, $result[0]);
+            $this->assertEquals([$test_growers_strains, $test_growers_strains2], $result);
+        }
+
+
+
+
+        function test_findById()
+        {//finding a specific strain by Id
+            //Arrange
+            $id = 1;
+            $strain_name = "Northern Lights";
+            $pheno = "Indica";
+            $thc = 22.96;
+            $cbd = 0.18;
+            $cgc = 1;
+            $price = 1400;
+            $growers_id = 2;
+            $test_growers_strains = new GrowersStrains($id, $strain_name, $pheno, $thc, $cbd, $cgc, $price, $growers_id);
+            $test_growers_strains->save();
+
+
+            $id2 = 2;
+            $strain_name2 = "Cannatonic";
+            $pheno2 = "Sativa";
+            $thc2 = 2.43;
+            $cbd2 = 15.54;
+            $cgc2 = 1;
+            $price2 = 1000;
+            $growers_id = 2;
+            $test_growers_strains2 = new GrowersStrains($id2, $strain_name2, $pheno2, $thc2, $cbd2, $cgc2, $price2, $growers_id);
+            $test_growers_strains2->save();
+
+            $id3 = 3;
+            $strain_name3 = "Girl Scout Cookies";
+            $pheno3 = "Hybrid";
+            $thc3 = 22.43;
+            $cbd3 = 1.54;
+            $cgc3 = 0;
+            $price3 = 1500;
+            $growers_id2 = 6;
+            $test_growers_strains3 = new GrowersStrains($id3, $strain_name3, $pheno3, $thc3, $cbd3, $cgc3, $price3, $growers_id2);
+            $test_growers_strains3->save();
+
+            //Act
+            $result = GrowersStrains::findById($test_growers_strains2->getId());
+
+            //Assert
+            $this->assertEquals($test_growers_strains2, $result);
+
         }
     }
 ?>
