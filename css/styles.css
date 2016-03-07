@@ -14,6 +14,7 @@ body {
   background-size: cover;
   height: 75vh; }
   .hero header {
+    position: absolute;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -45,11 +46,12 @@ body {
           .hero header nav a {
             font-size: 1em; } }
   .hero .search-wrap {
+    border: 3px solid red;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: calc(100% - 100px);
+    height: 100%;
     text-align: center; }
     .hero .search-wrap h3 {
       padding: 0 20px; }
