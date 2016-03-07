@@ -1,1 +1,0 @@
-<?php \n\t class Name\n\t\t{\n\t\tprivate property;\n\n\t\t function getProperty(){\n\t\t\treturn $this->property;\n\t\t\t}\n\n\t\tfunction setProperty(){\n\t\t\t$this->property = $property;\n\t\t}\n\t}\n ?>
