@@ -48,6 +48,51 @@ class GrowersStrains
         $this->pheno = $new_pheno;
     }
 
-    function 
+    function getPheno()
+    {
+        return $this->pheno;
+    }
+
+    function setThc($new_thc)
+    {
+        $this->thc = $new_thc;
+    }
+
+    function getThc()
+    {
+        return $this->thc;
+    }
+
+    function setCbd($new_cbd)
+    {
+        $this->cbd = $new_cbd;
+    }
+
+    function getCbd()
+    {
+        return $this->cbd;
+    }
+
+    function setCgc($new_cgc)
+    {
+        $this->cgc = $new_cgc;
+    }
+
+    function getCgc()
+    {
+        return $this->cgc;
+    }
+
+    function setPrice($new_price)
+    {
+        $this->price = $new_price;
+    }
+
+    function getPrice()
+    {
+        return $this->price;
+    }
+
+
 }
 ?>
