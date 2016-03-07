@@ -197,5 +197,6 @@
             $this->assertEquals($new_password, $result5);
         }
 
+        //getStrains, add a strain
     }
 ?>

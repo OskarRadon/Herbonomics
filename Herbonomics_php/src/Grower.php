@@ -9,7 +9,7 @@ class Grower
     private $username;
     private $password;
 
-    function __construct($id=null, $name, $website, $email, $username, $password)
+    function __construct($id = null, $name, $website, $email, $username, $password)
     {
         $this->id = $id;
         $this->name = $name;
@@ -140,6 +140,7 @@ class Grower
         $this->setUsername($new_username);
         $this->setPassword($new_password);
     }
+
 }
 
  ?>
