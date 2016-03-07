@@ -1,0 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Cardo:400,700,400italic|Montserrat:400,700);
+
+@mixin Cardo($weight:400, $style:normal) {
+  font-family: 'Cardo', serif;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin Montserrat($weight:400, $style:normal) {
+  font-family: 'Montserrat', serif;
+  font-weight: $weight;
+  font-style: $style;
+}
