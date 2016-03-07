@@ -189,13 +189,17 @@
             $result3 = $test_grower->getEmail();
             $result4 = $test_grower->getUsername();
             $result5 = $test_grower->getPassword();
+            $test_grower->save();
+
+            $db_output = Grower::getAll();
+            $found_grower = $db_output[0];
 
             // Assert
-            $this->assertEquals($new_name, $result1);
-            $this->assertEquals($new_website, $result2);
-            $this->assertEquals($new_email, $result3);
-            $this->assertEquals($new_username, $result4);
-            $this->assertEquals($new_password, $result5);
+            $this->assertEquals($found_grower->getName(), $result1);
+            $this->assertEquals($found_grower->getWebsite(), $result2);
+            $this->assertEquals($found_grower->getEmail(), $result3);
+            $this->assertEquals($found_grower->getUsername(), $result4);
+            $this->assertEquals($found_grower->getPassword(), $result5);
         }
 
         function test_deleteOneGrower()
@@ -224,7 +228,7 @@
             // Assert
             $this->assertEquals([$test_grower2], $result);
         }
-        
+
         //getStrains, add a strain
     }
 ?>
