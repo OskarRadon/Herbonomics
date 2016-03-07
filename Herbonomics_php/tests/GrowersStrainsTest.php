@@ -6,7 +6,7 @@
     require_once "src/GrowersStrains.php";
     $server = 'mysql:host=localhost;dbname=herbonomics_test'; //Might need to alter localhost port
     $user = 'root';
-    $password = 'root';
+    $password = 'kontiki1234qwer';
     $DB = new PDO($server, $user, $password);
     class GrowersStrainsTest extends PHPUnit_Framework_TestCase
 
@@ -19,14 +19,14 @@
         {
             //Arrange
             $id = 1;
-            $growers_id = 2;
             $strain_name = "Northern Lights";
             $pheno = "Indica";
             $thc = 22.14;
             $cbd = 0.18;
             $cgc = 1;
             $price = 1400;
-            $test_growers_strains = new GrowersStrains($id, $growers_id, $strain_name, $pheno, $thc, $cbd, $cgc, $price);
+            $growers_id = 2;
+            $test_growers_strains = new GrowersStrains($id, $strain_name, $pheno, $thc, $cbd, $cgc, $price, $growers_id);
 
             //Act
             $result1 = $test_growers_strains->getId();
@@ -47,6 +47,27 @@
             $this->assertEquals($cbd, $result6);
             $this->assertEquals($cgc, $result7);
             $this->assertEquals($price, $result8);
+        }
+
+        function testSave()
+        {
+            //Arrange
+            $id = 1;
+            $strain_name = "Northern Lights";
+            $pheno = "Indica";
+            $thc = 22.14;
+            $cbd = 0.18;
+            $cgc = 1;
+            $price = 1400;
+            $growers_id = 2;
+            $test_growers_strains = new GrowersStrains($id, $strain_name, $pheno, $thc, $cbd, $cgc, $price, $growers_id);
+
+            //Act
+            $test_growers_strains->save();
+            $result = GrowersStrains::getAll();
+
+            //Assert
+            $this->assertEquals($test_growers_strains, $result[0]);
         }
     }
 ?>
