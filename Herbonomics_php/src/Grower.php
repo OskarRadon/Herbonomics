@@ -104,13 +104,27 @@ class Grower
     }
 
     static function findById($search_id)
+    {
+        $found_grower = null;
+        $growers = Grower::getAll();
+
+        foreach($growers as $grower) {
+            $grower_id = $grower->getId();
+            if ($grower_id == $search_id) {
+                $found_grower = $grower;
+            }
+        }
+        return $found_grower;
+    }
+
+    static function findByName($search_name)
         {
             $found_grower = null;
             $growers = Grower::getAll();
 
             foreach($growers as $grower) {
-                $grower_id = $grower->getId();
-                if ($grower_id == $search_id) {
+                $grower_name = $grower->getName();
+                if ($grower_name == $search_name) {
                     $found_grower = $grower;
                 }
             }

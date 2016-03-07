@@ -139,5 +139,28 @@
             $this->assertEquals($test_grower, $result);
         }
 
+        function test_findByName()
+        {
+            $name = "Chalice Farms";
+            $website = "chalicefarms.com";
+            $email = "chalice@farms.com";
+            $username = "chalice";
+            $password = "maryjane";
+            $test_grower = new Grower($id = null, $name, $website, $email, $username, $password);
+            $test_grower->save();
+
+            $name2 = "Urban Pharms";
+            $website2 = "urbanpharms.com";
+            $email2 = "urban@pharms.com";
+            $username2 = "urban";
+            $password2 = "fireweed";
+            $test_grower2 = new Grower($id2 = null, $name2, $website2, $email2, $username2, $password2);
+            $test_grower2->save();
+
+            $result = Grower::findByName($test_grower->getName());
+
+            $this->assertEquals($test_grower, $result);
+        }
+
     }
 ?>
