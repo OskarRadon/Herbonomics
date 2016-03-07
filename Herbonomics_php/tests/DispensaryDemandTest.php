@@ -109,6 +109,31 @@
 			$this->assertEquals([], DispensaryDemand::getAll());
 		}
 
+        function test_find()
+        {
+            //Arrange
+            $strain_name = "Blue Dream";
+            $dispensary_id = 1;
+            $pheno = "Indica";
+            $quantity = 1;
+            $id = null;
+            $test_dispensary_demand = new DispensaryDemand($strain_name, $dispensary_id, $pheno, $quantity, $id);
+        	$test_dispensary_demand->save();
+
+            $strain_name2 = "Purple Haze";
+            $dispensary_id2 = 2;
+            $pheno2 = "Sativa";
+            $quantity2 = 1;
+            $test_dispensary_demand2 = new DispensaryDemand($strain_name2, $dispensary_id2, $pheno2, $quantity2, $id);
+        	$test_dispensary_demand2->save();
+
+			//Act
+			$result = DispensaryDemand::find($test_dispensary_demand->getId());
+			//Assert
+			$this->assertEquals($test_dispensary_demand, $result);
+		}
+
+
     }
 
 ?>

@@ -84,6 +84,19 @@
 			$GLOBALS['DB']->exec("DELETE FROM dispensaries_demands");
 		}
 
+        static function find($id)
+		{
+			$all_dispensary_demands = DispensaryDemand::getAll();
+			$found_dispensary_demand = null;
+			foreach($all_dispensary_demands as $dispensary_demand) {
+				$dispensary_demand_id = $dispensary_demand->getId();
+				if ($dispensary_demand_id == $id) {
+					$found_dispensary_demand = $dispensary_demand;
+				}
+			}
+			return $found_dispensary_demand;
+		}
+
 
 
 
