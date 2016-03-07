@@ -203,6 +203,32 @@
 			$this->assertEquals($new_password, $found_dispensary->getPassword());
 		}
 
+		function test_signIn()
+		{
+			//Arrange
+			$name = "Alberta Street Dispensary";
+			$id = null;
+			$website = "www.absgh.com";
+			$email = "alberta@absgh.com";
+			$username = "alberta";
+			$password = "hello";
+			$test_dispensary = new Dispensary($name, $website, $email, $username, $password, $id);
+			$test_dispensary->save();
+
+			$sign_in_username = "alberta";
+			$sign_in_password = "hello";
+
+			//Act
+			$result = Dispensary::signIn($sign_in_username, $sign_in_password);
+
+			$db_output = Dispensary::getAll();
+			$found_dispensary = $db_output[0];
+
+
+			//Assert
+			$this->assertEquals($found_dispensary, $result);
+
+		}
 
 
   }

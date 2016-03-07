@@ -131,6 +131,20 @@
             $this->setPassword($new_password);
 		}
 
+        static function signIn($username, $password)
+        {
+            $all_dispensaries = Dispensary::getAll();
+            $user = null;
+            foreach($all_dispensaries as $dispensary){
+                $dispensary_username = $dispensary->getUsername();
+                $dispensary_password = $dispensary->getPassword();
+                if($dispensary_username == $username && $dispensary_password == $password) {
+                    $user = $dispensary;
+                }
+            }
+            return $user;
+        }
+
 
 
 
