@@ -153,7 +153,7 @@ class Grower
     }
 
     static function signIn($username, $password)
-   {
+    {
        $all_growers = Grower::getAll();
        $user = null;
        foreach($all_growers as $grower){
@@ -164,7 +164,7 @@ class Grower
            }
        }
        return $user;
-   }
+    }
 }
 
  ?>
