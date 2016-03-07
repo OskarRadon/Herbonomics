@@ -123,7 +123,7 @@
 
         function update($new_name, $new_website, $new_email, $new_username, $new_password)
 		{
-            $GLOBALS['DB']->exec("UPDATE dispencaries SET name = '{$new_name}', website = '{$new_website}', email = '{$new_email}', username = '{$new_username}', password = '{$new_password}' WHERE id={$this->getId()};");
+            $GLOBALS['DB']->exec("UPDATE dispensaries SET name = '{$new_name}', website = '{$new_website}', email = '{$new_email}', username = '{$new_username}', password = '{$new_password}' WHERE id={$this->getId()};");
             $this->setName($new_name);
             $this->setWebsite($new_website);
             $this->setEmail($new_email);

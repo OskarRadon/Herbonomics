@@ -5,7 +5,8 @@
 	* @backupStaticAttributes disabled
 	*/
 
-	require_once 'src/Dispensary.php';
+	require_once 'src/DispensaryDemand.php';
+    require_once 'src/Dispensary.php';
 
 	$server = 'mysql:host=localhost;dbname=herbonomics_test';
     $username = 'root';
@@ -17,6 +18,7 @@
 		protected function tearDown()
 		{
 			Dispensary::deleteAll();
+			DispensaryDemand::deleteAll();
 		}
 
 		function test_getters()
@@ -191,12 +193,14 @@
 			$new_password = "hello1";
 			//Act
 			$test_dispensary->update($new_name, $new_website, $new_email, $new_username, $new_password);
+			$db_output = Dispensary::getAll();
+			$found_dispensary = $db_output[0];
 			//Assert
-			$this->assertEquals($new_name, $test_dispensary->getName());
-			$this->assertEquals($new_website, $test_dispensary->getWebsite());
-			$this->assertEquals($new_email, $test_dispensary->getEmail());
-			$this->assertEquals($new_username, $test_dispensary->getUsername());
-			$this->assertEquals($new_password, $test_dispensary->getPassword());
+			$this->assertEquals($new_name, $found_dispensary->getName());
+			$this->assertEquals($new_website, $found_dispensary->getWebsite());
+			$this->assertEquals($new_email, $found_dispensary->getEmail());
+			$this->assertEquals($new_username, $found_dispensary->getUsername());
+			$this->assertEquals($new_password, $found_dispensary->getPassword());
 		}
 
 
