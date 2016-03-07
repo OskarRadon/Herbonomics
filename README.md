@@ -36,7 +36,7 @@ Similarly, as a farm you can make your own profile and can display what products
 
 6. `CREATE TABLE dispensaries_growers (id serial PRIMARY KEY, dispensary_id INT, grower_id INT);`
 
-7. `CREATE TABLE growers_strains (id serial PRIMARY KEY, strain_name VARCHAR(255), pheno VARCHAR(255), thc DECIMAL, cbd DECIMAL, cgc TINYINT, price DECIMAL, growers_id INT);`
+7. `CREATE TABLE growers_strains (id serial PRIMARY KEY, strain_name VARCHAR(255), pheno VARCHAR(255), thc FLOAT(5,2), cbd FLOAT(5,2), cgc TINYINT, price DECIMAL(11,0), growers_id INT(11,0));`
 
 ## Technologies Used
 
