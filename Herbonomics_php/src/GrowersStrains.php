@@ -131,17 +131,29 @@ class GrowersStrains
     }
 
     static function findById($search_id)
-  {
-      $found_strain = null;
-      $strains = GrowersStrains::getAll();
+    {
+        $found_strain = null;
+        $strains = GrowersStrains::getAll();
 
-      foreach($strains as $strain) {
+        foreach($strains as $strain) {
           $strain_id = $strain->getId();
           if ($strain_id == $search_id) {
               $found_strain = $strain;
           }
-      }
-      return $found_strain;
-  }
+        }
+        return $found_strain;
+    }
+
+    function update($strain_name, $pheno, $thc, $cbd, $cgc, $price)
+    {
+        $GLOBALS['DB']->exec("UPDATE strains_growers SET strain_name = '{$strain_name}', pheno = '{$pheno}', thc = {$thc}, cbd = {$cbd}, price = {$price} WHERE id = {$this->getId()}");
+        $this->setStrainName($strain_name);
+        $this->setPheno($pheno);
+        $this->setThc($thc);
+        $this->setCbd($cbd);
+        $this->setCgc($cgc);
+        $this->setPrice($price);
+    }
+
 }
 ?>

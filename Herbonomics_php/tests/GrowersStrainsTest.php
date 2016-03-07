@@ -82,9 +82,6 @@
             $this->assertEquals([$test_growers_strains, $test_growers_strains2], $result);
         }
 
-
-
-
         function test_findById()
         {//finding a specific strain by Id
             //Arrange
@@ -127,7 +124,29 @@
 
             //Assert
             $this->assertEquals($test_growers_strains2, $result);
+        }
 
+        function test_update()
+        {
+            //Arrange
+            $id = 1;
+            $strain_name = "Northern Lights";
+            $pheno = "Indica";
+            $thc = 22.96;
+            $cbd = 0.18;
+            $cgc = 1;
+            $price = 1400;
+            $growers_id = 2;
+            $test_growers_strains = new GrowersStrains($id, $strain_name, $pheno, $thc, $cbd, $cgc, $price, $growers_id);
+            $test_growers_strains->save();
+
+            //Act
+            $new_strain_name = "Master Kush";
+            $test_growers_strains->update($new_strain_name, $pheno, $thc, $cbd, $cgc, $price);
+            $result = $test_growers_strains->getStrainName();
+
+            //Assert
+            $this->assertEquals('Master Kush', $result);
         }
     }
 ?>
