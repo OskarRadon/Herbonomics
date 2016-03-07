@@ -55,12 +55,12 @@ class GrowersStrains
 
     function setThc($new_thc)
     {
-        $this->thc = (float) $new_thc;
+        $this->thc = $new_thc;
     }
 
     function getThc()
     {
-        return (float) $this->thc;
+        return $this->thc;
     }
 
     function setCbd($new_cbd)
@@ -95,7 +95,13 @@ class GrowersStrains
 
     function save()
     {//saves strain to specific grower's profile
-        $GLOBALS['DB']->exec("INSERT INTO growers_strains (strain_name, pheno, thc, cbd, cgc, price, growers_id) VALUES ('{$this->getStrainName()}', '{$this->getPheno()}', {$this->getThc()}, {$this->getCbd()}, {$this->getCgc()}, {$this->getPrice()}, {$this->getGrowersId()});");
+        $GLOBALS['DB']->exec("INSERT INTO growers_strains (strain_name, pheno, thc, cbd, cgc, price, growers_id) VALUES ('{$this->getStrainName()}',
+        '{$this->getPheno()}',
+        {$this->getThc()},
+        {$this->getCbd()},
+        {$this->getCgc()},
+        {$this->getPrice()},
+        {$this->getGrowersId()});");
         $this->id = $GLOBALS['DB']->lastInsertId();
     }
 
@@ -106,14 +112,14 @@ class GrowersStrains
 
         foreach($returned_strains as $strain) {
             $id = $strain['id'];
-            $strain_name = $strain['name'];
+            $strain_name = $strain['strain_name'];
             $pheno = $strain['pheno'];
-            $thc = $strain['thc'];
-            $cbd = $strain['cbd'];
-            $cgc = $strain['cgc'];
-            $price = $strain['price'];
-            $growers_id = $strain['growers_id'];
-            $new_strain = new GrowersStrains($id, $strain_name, $pheno, $thc, $cbd, $cgc, $price, $grower_id);
+            $thc = (float) $strain['thc'];
+            $cbd = (float) $strain['cbd'];
+            $cgc = (int) $strain['cgc'];
+            $price = (int) $strain['price'];
+            $growers_id = (int) $strain['growers_id'];
+            $new_strain = new GrowersStrains($id, $strain_name, $pheno, $thc, $cbd, $cgc, $price, $growers_id);
             array_push($strains, $new_strain);
         }
         return $strains;

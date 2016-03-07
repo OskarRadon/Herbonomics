@@ -55,7 +55,7 @@
             $id = 1;
             $strain_name = "Northern Lights";
             $pheno = "Indica";
-            $thc = 22.14;
+            $thc = 22.96;
             $cbd = 0.18;
             $cgc = 1;
             $price = 1400;
