@@ -118,19 +118,28 @@ class Grower
     }
 
     static function findByName($search_name)
-        {
-            $found_grower = null;
-            $growers = Grower::getAll();
+    {
+        $found_grower = null;
+        $growers = Grower::getAll();
 
-            foreach($growers as $grower) {
-                $grower_name = $grower->getName();
-                if ($grower_name == $search_name) {
-                    $found_grower = $grower;
-                }
+        foreach($growers as $grower) {
+            $grower_name = $grower->getName();
+            if ($grower_name == $search_name) {
+                $found_grower = $grower;
             }
-            return $found_grower;
         }
+        return $found_grower;
+    }
 
+    function update($new_name, $new_website, $new_email, $new_username, $new_password)
+    {
+        $GLOBALS['DB']->exec("UPDATE growers SET name = '{$new_name}', website = '{$new_website}', email = '{$new_email}', username = '{$new_username}', password = '{$new_password}' WHERE id = {$this->getId()};");
+        $this->setName($new_name);
+        $this->setWebsite($new_website);
+        $this->setEmail($new_email);
+        $this->setUsername($new_username);
+        $this->setPassword($new_password);
+    }
 }
 
  ?>

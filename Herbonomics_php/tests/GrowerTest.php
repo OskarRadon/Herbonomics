@@ -157,9 +157,44 @@
             $test_grower2 = new Grower($id2 = null, $name2, $website2, $email2, $username2, $password2);
             $test_grower2->save();
 
+            //Act
             $result = Grower::findByName($test_grower->getName());
 
+            //Assert
             $this->assertEquals($test_grower, $result);
+        }
+
+        function test_update()
+        {
+            // Arrange
+            $name = "Chalice Farms";
+            $website = "chalicefarms.com";
+            $email = "chalice@farms.com";
+            $username = "chalice";
+            $password = "maryjane";
+            $test_grower = new Grower($id = null, $name, $website, $email, $username, $password);
+            $test_grower->save();
+
+            $new_name = "Chalice Farmz";
+            $new_website = "chalicefarms.org";
+            $new_email = "chalice@farmz.org";
+            $new_username = "chalicefarmz";
+            $new_password = "ilovemaryjane";
+
+            // Act
+            $test_grower->update($new_name, $new_website, $new_email, $new_username, $new_password);
+            $result1 = $test_grower->getName();
+            $result2 = $test_grower->getWebsite();
+            $result3 = $test_grower->getEmail();
+            $result4 = $test_grower->getUsername();
+            $result5 = $test_grower->getPassword();
+
+            // Assert
+            $this->assertEquals($new_name, $result1);
+            $this->assertEquals($new_website, $result2);
+            $this->assertEquals($new_email, $result3);
+            $this->assertEquals($new_username, $result4);
+            $this->assertEquals($new_password, $result5);
         }
 
     }
