@@ -141,6 +141,11 @@ class Grower
         $this->setPassword($new_password);
     }
 
+    function deleteOneGrower()
+    {
+        $GLOBALS['DB']->exec("DELETE FROM growers WHERE id = {$this->getId()};");
+        // $GLOBALS['DB']->exec("DELETE FROM dispensaries_growers WHERE grower_id = {$this->getId()};");
+    }
 }
 
  ?>
