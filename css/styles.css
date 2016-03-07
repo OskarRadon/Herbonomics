@@ -37,6 +37,8 @@ body {
     justify-content: space-around;
     text-align: center;
     flex-direction: column; }
+    .hero .search-wrap h3 {
+      padding: 0 20px; }
     .hero .search-wrap form {
       margin-top: -80px; }
       .hero .search-wrap form input, .hero .search-wrap form button {
@@ -70,19 +72,28 @@ main {
     padding: 0 20px; }
 
 footer {
-  border: solid 2px red;
   display: flex;
   flex-direction: column;
   background: #545454;
   font-family: 'Montserrat', serif;
   font-weight: 400;
   font-style: normal;
-  height: 160px;
+  height: 180px;
   align-items: center;
   color: white; }
+  footer input, footer .hero .search-wrap form button, .hero .search-wrap form footer button, footer button {
+    font-size: .8em;
+    padding: 4px;
+    border: none;
+    text-align: center;
+    border-radius: 2px; }
+  footer button {
+    background: #FF473A;
+    color: white;
+    border-bottom: 3px solid #d30e00; }
   footer nav {
-    width: 120px;
-    padding-top: 1em;
+    width: 140px;
+    padding-top: 2em;
     display: flex;
     justify-content: space-around; }
     footer nav a {
