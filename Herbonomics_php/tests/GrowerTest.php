@@ -7,7 +7,7 @@
 
     require_once "src/Grower.php";
 
-    $server = 'mysql:host=localhost;dbname=herbonomics_test'; //Might need to alter localhost port
+    $server = 'mysql:host=localhost;dbname=herbonomics_test';
     $user = 'root';
     $password = 'root';
     $DB = new PDO($server, $user, $password);
@@ -139,32 +139,6 @@
             $this->assertEquals($test_grower, $result);
         }
 
-        function test_findByName()
-        {
-            //Arrange
-            $name = "Chalice Farms";
-            $website = "chalicefarms.com";
-            $email = "chalice@farms.com";
-            $username = "chalice";
-            $password = "maryjane";
-            $test_grower = new Grower($id = null, $name, $website, $email, $username, $password);
-            $test_grower->save();
-
-            $name2 = "Urban Pharms";
-            $website2 = "urbanpharms.com";
-            $email2 = "urban@pharms.com";
-            $username2 = "urban";
-            $password2 = "fireweed";
-            $test_grower2 = new Grower($id2 = null, $name2, $website2, $email2, $username2, $password2);
-            $test_grower2->save();
-
-            //Act
-            $result = Grower::findByName($test_grower->getName());
-
-            //Assert
-            $this->assertEquals($test_grower, $result);
-        }
-
         function test_update()
         {
             // Arrange
@@ -229,6 +203,33 @@
             $this->assertEquals([$test_grower2], $result);
         }
 
-        //getStrains, add a strain
-    }
+        function test_search()
+		{
+            //Arrange
+            $name = "Chalice Farms";
+            $website = "chalicefarms.com";
+            $email = "chalice@farms.com";
+            $username = "chalice";
+            $password = "maryjane";
+            $test_grower = new Grower($id = null, $name, $website, $email, $username, $password);
+            $test_grower->save();
+
+            $name2 = "Urban Pharms";
+            $website2 = "urbanpharms.com";
+            $email2 = "urban@pharms.com";
+            $username2 = "urban";
+            $password2 = "fireweed";
+            $test_grower2 = new Grower($id2 = null, $name2, $website2, $email2, $username2, $password2);
+            $test_grower2->save();
+
+            $search_term = "Urban";
+
+            //Act
+			$result = Grower::search($search_term);
+
+			//Assert
+			$this->assertEquals([$test_grower2], $result);
+		}
+
+}
 ?>

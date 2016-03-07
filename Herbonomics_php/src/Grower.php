@@ -117,19 +117,6 @@ class Grower
         return $found_grower;
     }
 
-    static function findByName($search_name)
-    {
-        $found_grower = null;
-        $growers = Grower::getAll();
-
-        foreach($growers as $grower) {
-            $grower_name = $grower->getName();
-            if ($grower_name == $search_name) {
-                $found_grower = $grower;
-            }
-        }
-        return $found_grower;
-    }
 
     function update($new_name, $new_website, $new_email, $new_username, $new_password)
     {
@@ -146,6 +133,26 @@ class Grower
         $GLOBALS['DB']->exec("DELETE FROM growers WHERE id = {$this->getId()};");
         // $GLOBALS['DB']->exec("DELETE FROM dispensaries_growers WHERE grower_id = {$this->getId()};");
     }
+
+    static function search($search_term)
+    {
+       $query = $GLOBALS['DB']->query("SELECT * FROM growers WHERE name LIKE '%{$search_term}%'");
+       $all_growers = $query->fetchAll(PDO::FETCH_ASSOC);
+       $found_growers = array();
+       foreach ($all_growers as $grower) {
+           $id = $grower['id'];
+           $name = $grower['name'];
+           $website = $grower['website'];
+           $email = $grower['email'];
+           $username = $grower['username'];
+           $password = $grower['password'];
+
+           $new_grower = new Grower($id, $name, $website, $email, $username, $password);
+           array_push($found_growers, $new_grower);
+       }
+       return $found_growers;
+    }
+
 }
 
  ?>
