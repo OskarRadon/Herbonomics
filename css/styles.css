@@ -1,17 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Cardo:400,700,400italic|Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Istok+Web:400,400italic,700,700italic);
 body {
   margin: 0;
-  background: #F7FCEF; }
+  background: white; }
 
 .hero {
+  color: white;
+  font-family: 'Montserrat', serif;
+  font-weight: 400;
+  font-style: normal;
   background: url(../img/hero.jpg);
   background-position: center;
   background-size: cover;
   height: 75vh; }
   .hero header {
-    font-family: 'Montserrat', serif;
-    font-weight: 400;
-    font-style: normal;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -19,7 +21,6 @@ body {
     height: 80px; }
     .hero header h4 {
       margin-left: 20px;
-      color: white;
       font-size: 1.2em; }
     .hero header nav {
       margin-right: 20px; }
@@ -33,22 +34,58 @@ body {
     height: calc(100% - 100px);
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center; }
-    .hero .search-wrap form input, .hero .search-wrap form button {
-      width: 70%;
-      font-size: 1em;
-      padding: 7px;
-      border: none;
-      border-radius: 2px;
-      outline: none;
-      text-align: center; }
-    .hero .search-wrap form button {
-      width: 90px;
-      border-radius: 2px;
-      margin-top: 10px;
-      background: #FF473A;
-      color: white;
-      border-bottom: 3px solid #d30e00; }
+    justify-content: space-around;
+    text-align: center;
+    flex-direction: column; }
+    .hero .search-wrap form {
+      margin-top: -80px; }
+      .hero .search-wrap form input, .hero .search-wrap form button {
+        width: 70%;
+        font-size: 1em;
+        padding: 7px;
+        border: none;
+        border-radius: 2px;
+        outline: none;
+        text-align: center; }
+      .hero .search-wrap form button {
+        width: 90px;
+        border-radius: 2px;
+        margin-top: 10px;
+        background: #FF473A;
+        color: white;
+        border-bottom: 3px solid #d30e00; }
+
+main {
+  font-family: 'Istok Web', serif;
+  font-weight: 400;
+  font-style: normal; }
+  main img {
+    width: calc(100% - 40px);
+    margin: 20px 20px 0;
+    border-radius: 2px; }
+  main h4 {
+    text-align: center;
+    margin-bottom: 0; }
+  main p {
+    padding: 0 20px; }
+
+footer {
+  border: solid 2px red;
+  display: flex;
+  flex-direction: column;
+  background: #545454;
+  font-family: 'Montserrat', serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 160px;
+  align-items: center;
+  color: white; }
+  footer nav {
+    width: 120px;
+    padding-top: 1em;
+    display: flex;
+    justify-content: space-around; }
+    footer nav a {
+      color: white; }
 
 /*# sourceMappingURL=styles.css.map */

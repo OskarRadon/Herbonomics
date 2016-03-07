@@ -4,16 +4,17 @@
 
 body {
   margin: 0;
-  background: #F7FCEF;
+  background: white;
 }
 
 .hero {
+  color: white;
+  @include Montserrat();
   background: url(../img/hero.jpg);
   background-position: center;
   background-size: cover;
   height: 75vh;
   header {
-    @include Montserrat();
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,7 +22,6 @@ body {
     height: 80px;
     h4 {
       margin-left: 20px;
-      color: white;
       font-size: 1.2em;
     }
     nav {
@@ -40,9 +40,11 @@ body {
       height: calc(100% - 100px);
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
       text-align: center;
+      flex-direction: column;
       form {
+        margin-top: -80px;
         input {
           width: 70%;
           font-size: 1em;
@@ -60,8 +62,44 @@ body {
         background: #FF473A;
         color: white;
         border-bottom: 3px solid darken(#FF473A, 20%);
-
       }
     }
   }
+}
+
+main {
+  @include Istok();
+  img {
+    width: calc(100% - 40px);
+    margin: 20px 20px 0;
+    border-radius: 2px;
+  }
+  h4 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  p {
+    padding: 0 20px;
+  }
+}
+
+footer {
+  border: solid 2px red;
+  display: flex;
+  flex-direction: column;
+  background: lighten(#212121, 20%);
+  @include Montserrat();
+  height: 160px;
+  align-items: center;
+  color: white;
+  nav {
+    width: 120px;
+    padding-top: 1em;
+    display: flex;
+    justify-content: space-around;
+    a {
+      color: white;
+    }
+  }
+
 }
