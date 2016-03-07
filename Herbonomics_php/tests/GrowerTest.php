@@ -91,7 +91,7 @@
         }
 
         function testDeleteAll()
-		{
+        {
 			//Arrange
             $name = "Chalice Farms";
             $website = "chalicefarms.com";
@@ -109,14 +109,12 @@
             $test_grower2 = new Grower($id2 = null, $name2, $website2, $email2, $username2, $password2);
             $test_grower2->save();
 
-			//Act
-			Grower::deleteAll();
-			$result = Grower::getAll();
-
-			//Assert
-			$this->assertEquals([], $result);
-		}
-
+            //Act
+            Grower::deleteAll();
+            $result = Grower::getAll();
+            //Assert
+            $this->assertEquals([], $result);
+        }
 
     }
 ?>
