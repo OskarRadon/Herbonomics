@@ -1,3 +1,5 @@
+@import 'utils/module';
+
 @import url(https://fonts.googleapis.com/css?family=Cardo:400,700,400italic|Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Istok+Web:400,400italic,700,700italic);
 
@@ -11,4 +13,23 @@
   font-family: 'Montserrat', serif;
   font-weight: $weight;
   font-style: $style;
+}
+
+@mixin flex($flex-direction:row, $align-items:center, $justify-content:center) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin tablet {
+  @media (min-width: $first-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $second-breakpoint) {
+    @content;
+  }
 }
