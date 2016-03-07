@@ -118,6 +118,7 @@
 
         function test_findById()
         {
+            //Arrange
             $name = "Chalice Farms";
             $website = "chalicefarms.com";
             $email = "chalice@farms.com";
@@ -126,6 +127,7 @@
             $test_grower = new Grower($id = null, $name, $website, $email, $username, $password);
             $test_grower->save();
 
+            //Act
             $name2 = "Urban Pharms";
             $website2 = "urbanpharms.com";
             $email2 = "urban@pharms.com";
@@ -136,6 +138,7 @@
 
             $result = Grower::findById($test_grower->getId());
 
+            //Assert
             $this->assertEquals($test_grower, $result);
         }
 
@@ -231,5 +234,49 @@
 			$this->assertEquals([$test_grower2], $result);
 		}
 
+        function test_signIn()
+        {
+            //Arrange
+            $name = "Chalice Farms";
+            $website = "chalicefarms.com";
+            $email = "chalice@farms.com";
+            $username = "chalice";
+            $password = "maryjane";
+            $test_grower = new Grower($id = null, $name, $website, $email, $username, $password);
+            $test_grower->save();
+
+            $sign_in_username = "chalice";
+    		$sign_in_password = "maryjane";
+
+            //Act
+            $result = Grower::signIn($sign_in_username, $sign_in_password);
+			$db_output = Grower::getAll();
+			$found_grower = $db_output[0];
+
+            //Assert
+            $this->assertEquals($found_grower, $result);
+
+        }
+
+        // function test_signIn()
+		// {
+		// 	//Arrange
+		// 	$name = "Alberta Street Dispensary";
+		// 	$id = null;
+		// 	$website = "www.absgh.com";
+		// 	$email = "alberta@absgh.com";
+		// 	$username = "alberta";
+		// 	$password = "hello";
+		// 	$test_dispensary = new Dispensary($name, $website, $email, $username, $password, $id);
+		// 	$test_dispensary->save();
+		// 	$sign_in_username = "alberta";
+		// 	$sign_in_password = "hello";
+		// 	//Act
+		// 	$result = Dispensary::signIn($sign_in_username, $sign_in_password);
+		// 	$db_output = Dispensary::getAll();
+		// 	$found_dispensary = $db_output[0];
+		// 	//Assert
+		// 	$this->assertEquals($found_dispensary, $result);
+		// }
 }
 ?>

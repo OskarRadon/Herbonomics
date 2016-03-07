@@ -117,7 +117,6 @@ class Grower
         return $found_grower;
     }
 
-
     function update($new_name, $new_website, $new_email, $new_username, $new_password)
     {
         $GLOBALS['DB']->exec("UPDATE growers SET name = '{$new_name}', website = '{$new_website}', email = '{$new_email}', username = '{$new_username}', password = '{$new_password}' WHERE id = {$this->getId()};");
@@ -153,6 +152,19 @@ class Grower
        return $found_growers;
     }
 
+    static function signIn($username, $password)
+   {
+       $all_growers = Grower::getAll();
+       $user = null;
+       foreach($all_growers as $grower){
+           $grower_username = $grower->getUsername();
+           $grower_password = $grower->getPassword();
+           if($grower_username == $username && $grower_password == $password) {
+               $user = $grower;
+           }
+       }
+       return $user;
+   }
 }
 
  ?>
