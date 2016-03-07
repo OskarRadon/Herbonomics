@@ -1,19 +1,54 @@
 @import url(https://fonts.googleapis.com/css?family=Cardo:400,700,400italic|Montserrat:400,700);
 body {
-  margin: 0; }
+  margin: 0;
+  background: #F7FCEF; }
 
-header {
-  font-family: 'Montserrat', serif;
-  font-weight: 400;
-  font-style: normal;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  bordeR: 1px solid black; }
-  header h4 {
-    margin-left: 20px; }
-  header nav a {
-    margin-right: 20px; }
+.hero {
+  background: url(../img/hero.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 75vh; }
+  .hero header {
+    font-family: 'Montserrat', serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px; }
+    .hero header h4 {
+      margin-left: 20px;
+      color: white;
+      font-size: 1.2em; }
+    .hero header nav {
+      margin-right: 20px; }
+      .hero header nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9em; }
+        .hero header nav a:first-of-type {
+          margin-right: 5px; }
+  .hero .search-wrap {
+    height: calc(100% - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; }
+    .hero .search-wrap form input, .hero .search-wrap form button {
+      width: 70%;
+      font-size: 1em;
+      padding: 7px;
+      border: none;
+      border-radius: 2px;
+      outline: none;
+      text-align: center; }
+    .hero .search-wrap form button {
+      width: 90px;
+      border-radius: 2px;
+      margin-top: 10px;
+      background: #FF473A;
+      color: white;
+      border-bottom: 3px solid #d30e00; }
 
 /*# sourceMappingURL=styles.css.map */
