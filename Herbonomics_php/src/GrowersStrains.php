@@ -161,5 +161,12 @@ class GrowersStrains
         // $GLOBALS['DB']->exec("DELETE FROM dispensaries_growers WHERE grower_id = {$this->getId()};");
     }
 
+    function findGrowerName($growers_id)
+    {
+        $query = $GLOBALS['DB']->query("SELECT name FROM growers JOIN growers_strains ON (growers.id = growers_strains.growers_id) WHERE growers.id = {$growers_id}");
+        $growers = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $growers[0]['name'];
+    }
 }
 ?>
