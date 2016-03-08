@@ -30,5 +30,17 @@
         //home page
         return $app['twig']->render('index.html.twig');
     });
+
+    $app->get("/dispensary/sign_in", function() use ($app) {//get or post?
+
+        $dispensary = Dispensary::signIn($_GET['username'], $_GET['password']);
+
+        if($dispensary = null) {
+            return $app['twig']->render('login.html.twig');
+        } else
+
+        return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary));
+    });
+
     return $app;
 ?>
