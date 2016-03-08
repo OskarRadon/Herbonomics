@@ -67,12 +67,13 @@ body {
         border-radius: 2px;
         outline: none;
         text-align: center;
+        display: inline-block;
       }
       button {
         @extend input;
         width: 90px;
         border-radius: 2px;
-        margin: 10px 0 0 20px;
+        margin-top: 10px;
         background: $color-red;
         color: $color-background;
         border-bottom: 3px solid $color-darkred;

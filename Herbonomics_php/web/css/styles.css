@@ -60,11 +60,12 @@ body {
         border: none;
         border-radius: 2px;
         outline: none;
-        text-align: center; }
+        text-align: center;
+        display: inline-block; }
       .hero .search-wrap form button {
         width: 90px;
         border-radius: 2px;
-        margin: 10px 0 0 20px;
+        margin-top: 10px;
         background: #FF473A;
         color: white;
         border-bottom: 3px solid #d30e00; }
