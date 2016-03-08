@@ -7,7 +7,7 @@
     </head>
     <body>
         <h2>{{ dispensary.getName }} Account</h2>
-
+        <a href="/dispensary/{{ dispensary.getId }}/edit_account_info">Edit</a>
         <h3>Here are your existing demands:</h3>
 
         {% if demands is not empty %}

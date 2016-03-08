@@ -109,5 +109,30 @@
         return $app['twig']->render('dispensary_demand_edit.html.twig', array('demand' => $demand));
     });
 
+    $app->patch("/dispensary/{id}/edit_post", function($id) use ($app) {
+        $demand = DispensaryDemand::find($id);
+        $demand->update($_POST['strain_name'], $_POST['pheno'], $_POST['quantity']);
+
+        $dispensary = Dispensary::find($demand->getDispensaryId());
+        $demands = DispensaryDemand::findByDispensary($demand->getDispensaryId());
+
+        return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
+    });
+
+    $app->get("/dispensary/{id}/edit_account_info", function($id) use ($app) {
+        $dispensary = Dispensary::find($id);
+        return $app['twig']->render('dispensary_edit_account_info.html.twig', array('dispensary' => $dispensary));
+    });
+
+    $app->patch("/dispensary/{id}/edit_account_info", function($id) use ($app) {
+        $dispensary = Dispensary::find($id);
+        $dispensary->update($_POST['name'], $_POST['website'], $_POST['email'], $_POST['username'], $_POST['password']);
+
+        $demands = DispensaryDemand::findByDispensary($id);
+
+        return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
+    });
+
+
     return $app;
 ?>
