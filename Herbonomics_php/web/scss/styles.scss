@@ -109,11 +109,12 @@ footer {
   display: flex;
   flex-direction: column;
   background: $color-darkgray;
+  margin-top: 40px;
   @include Montserrat();
-  height: 180px;
   align-items: center;
   color: $color-background;
   input {
+    outline: none;
     font-size: .8em;
     padding: 4px;
     border: none;
@@ -128,11 +129,14 @@ footer {
   }
   nav {
     width: 140px;
-    padding-top: 2em;
+    padding: 40px 0 20px;
     display: flex;
     justify-content: space-around;
     a {
       color: $color-background;
+      &:hover {
+        color: $color-red;
+      }
     }
   }
 }

@@ -93,13 +93,14 @@ footer {
   display: flex;
   flex-direction: column;
   background: #444;
+  margin-top: 40px;
   font-family: 'Montserrat', serif;
   font-weight: 400;
   font-style: normal;
-  height: 180px;
   align-items: center;
   color: white; }
   footer input, footer .hero .search-wrap form button, .hero .search-wrap form footer button, footer button {
+    outline: none;
     font-size: .8em;
     padding: 4px;
     border: none;
@@ -111,10 +112,12 @@ footer {
     border-bottom: 3px solid #d30e00; }
   footer nav {
     width: 140px;
-    padding-top: 2em;
+    padding: 40px 0 20px;
     display: flex;
     justify-content: space-around; }
     footer nav a {
       color: white; }
+      footer nav a:hover {
+        color: #FF473A; }
 
 /*# sourceMappingURL=styles.css.map */
