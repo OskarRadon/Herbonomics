@@ -232,9 +232,9 @@
         	$test_dispensary_demand2->save();
 
 			//Act
-			$result = DispensaryDemand::find($test_dispensary_demand->getId());
+			$result = DispensaryDemand::findByDispensary($test_dispensary_demand->getDispensaryId());
 			//Assert
-			$this->assertEquals($test_dispensary_demand, $result);
+			$this->assertEquals([$test_dispensary_demand], $result);
 		}
 
 
