@@ -176,11 +176,11 @@
             $test_growers_strains3->save();
 
             //Act
-            $test_growers_strains->delete();
+            $test_growers_strains->deleteOneStrain();
             $result = GrowersStrains::getAll();
 
             //Assert
-            $this->assertEquals($test_growers_strains3, $result);
+            $this->assertEquals([$test_growers_strains3], $result);
         }
     }
 ?>
