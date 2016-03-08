@@ -34,7 +34,11 @@
                         {{ strain.getPrice }}
                     </td>
                     <td>
-                        {{ strain.getCgc }}
+                        {% if task.getCgc == 1 %}
+                            &#10004;
+                        {% else %}
+                            &#x2718;
+                        {% endif %}
                     </td>
                     <td>
                         {{ strain.getGrowersId }}
