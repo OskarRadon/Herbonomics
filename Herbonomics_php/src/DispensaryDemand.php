@@ -110,6 +110,14 @@
 			return $found_dispensary_demand;
 		}
 
+        function findDispensaryName($dispensary_id)
+        {
+            $query = $GLOBALS['DB']->query("SELECT name FROM dispensaries JOIN dispensaries_demands ON (dispensaries.id = dispensaries_demands.dispensary_id) WHERE dispensaries.id = {$dispensary_id}");
+            $dispensaries = $query->fetchAll(PDO::FETCH_ASSOC);
+            var_dump($dispensaries);
+            return $dispensaries[0]['name'];
+        }
+
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM dispensaries_demands WHERE id = {$this->getId()};");

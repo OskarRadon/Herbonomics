@@ -7,24 +7,44 @@
     <body>
         <h3>Dispensary Demand:</h3>
 
-        <!-- <form class="" action="/dispensary_demand/{{ demand.getId }}/search" method="post">
-            <input name="_method" type="hidden" value="">
-            <input name="dispensary_id" type="hidden" value="{{ demand.getDispensaryId }}">
-            <label>New Strain Name</label>
-            <input type="text" name="strain_name" value="{{ demand.getStrainName }}">
-          <button type="submit" name="button">Edit</button>
-        </form> -->
+        <form class="" action="/dispensary_demands/search" method="get">
+            <label>Search Strain Name</label>
+            <input type="text" name="search">
+          <button type="submit" name="button">Search</button>
+        </form>
 
-        {% if demands is not empty %}
-        {% for demand in demands %}
-        <h4>Strain Name: {{ demand.getStrainName }}</h4>
-        <p>Phenotype: {{ demand.getPheno }}</p>
-        <p>Quantity: {{ demand.getQuantity }}</p>
-        {% endfor %}
-        {% else %}
-        <p>
-            No demands meet your criteria.
-        </p>
-        {% endif %}
+        <table border = "1" cellpadding = "15">
+            <tr>
+                <th>Strain</th>
+                <th>Phenotype</th>
+                <th>Quantity</th>
+                <th>Dispensary</th>
+            </tr>
+            {% if demands is not empty %}
+                {% for demand in demands %}
+                <tr>
+                    <td>
+                        {{ demand.getStrainName }}
+                    </td>
+                    <td>
+                        {{ demand.getPheno }}
+                    </td>
+                    <td>
+                        {{ demand.getQuantity }}
+                    </td>
+                    <td>
+                        {{ demand.getId }}
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan = "7">
+                     No Strains Available
+                </td>
+            </tr>
+            {% endif %}
+        </table>
+
     </body>
 </html>
