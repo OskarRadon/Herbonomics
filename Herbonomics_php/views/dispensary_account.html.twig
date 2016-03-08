@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include '/includes/head.html.twig' %}
+        <meta charset="utf-8">
+        <title>Herbonomics</title>
+    </head>
+    <body>
+        <h2>{{ dispensary.getName }} Account</h2>
+        <a href="/dispensary/{{ dispensary.getId }}/edit_account_info">Edit</a>
+        <h3>Here are your existing demands:</h3>
+
+        {% if demands is not empty %}
+        {% for demand in demands %}
+        <h4>Strain Name: {{ demand.getStrainName }}</h4>
+
+        <p>Phenotype: {{ demand.getPheno }}</p>
+        <p>Quantity: {{ demand.getQuantity }}</p>
+        <a href="/dispensary_demand/{{ demand.getId }}/edit">Edit</a>
+        {% endfor %}
+        {% else %}
+        <p>
+            No demands added yet.
+        </p>
+        {% endif %}
+        
+
+
+
+        <h3>Add a new demand:</h3>
+        <form class="" action="/dispensary/demand_add" method="post">
+            <input name="dispensary_id" type="hidden" value="{{ dispensary.getId }}">
+            <label>Strain Name</label>
+            <input type="text" name="strain_name">
+            <label>Phenotype</label>
+            <select class="" name="pheno">
+                <option value="Sativa">Sativa</option>
+                <option value="Indica">Indica</option>
+                <option value="Hybrid">Hybrid</option>
+            </select>
+            <label>Quantity</label>
+            <input type="number" name="quantity">
+          <button type="submit" name="button">Add this Demand</button>
+        </form>
+
+    </body>
+</html>

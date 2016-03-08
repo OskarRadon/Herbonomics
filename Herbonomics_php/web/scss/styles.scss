@@ -25,6 +25,9 @@ body {
         font-size: 1.6em;
         margin-left: 40px;
       }
+      @include desktop {
+        font-size: 1.8em;
+      }
     }
     nav {
       margin-right: 20px;
@@ -44,6 +47,9 @@ body {
         @include tablet {
           font-size: 1em;
         }
+        @include desktop {
+          font-size: 1.2em;
+        }
       }
     }
   }
@@ -53,19 +59,33 @@ body {
     height: 100%;
     text-align: center;
     h3 {
-      margin-top: 5vh;
+      margin-top: 15vh;
       padding: 0 20px;
+      @include tablet {
+        font-size: 2.5em;
+      }
     }
     form {
       margin-top: 15vh;
+      padding: 0 20px;
+      @include tablet {
+        margin-top: 25vh;
+      }
       input {
-        width: 70%;
+        width: 90%;
         font-size: 1em;
         padding: 7px;
         border: none;
         border-radius: 2px;
         outline: none;
         text-align: center;
+        display: inline-block;
+        @include tablet {
+          display: inline;
+          font-size: 1.5em;
+          width: calc(90% - 130px);
+          padding: 15px 0;
+        }
       }
       button {
         @extend input;
@@ -75,24 +95,59 @@ body {
         background: $color-red;
         color: $color-background;
         border-bottom: 3px solid $color-darkred;
+        @include tablet {
+          width: 120px;
+          margin: 0 0 0 10px;
+        }
       }
     }
+    // img {
+    //   margin-top: 200px;
+    //   width: 150px;
+    // }
   }
 }
 
 main {
   @include Istok();
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 20px;
+  }
   img {
+    display: flex;
     width: calc(100% - 40px);
-    margin: 20px 20px 0;
     border-radius: 2px;
+    @include tablet {
+      width: calc(50% - 40px);
+      &:first-of-type {
+        justify-content: flex-start;
+      }
+    }
   }
   h4 {
+    @include Montserrat();
     text-align: center;
+    font-size: 1.4em;
     margin-bottom: 0;
+    color: #009B3E;
+    @include tablet {
+      width: 100%;
+    }
+    &:first-of-type {
+      @include tablet {
+        order: -1;
+      }
+    }
   }
   p {
-    padding: 0 20px;
+    display: flex;
+    // padding: 0 20px;
+    @include tablet {
+      width: calc(50% - 40px);
+      justify-content: flex-end;
+    }
   }
 }
 
@@ -100,30 +155,42 @@ footer {
   display: flex;
   flex-direction: column;
   background: $color-darkgray;
+  margin-top: 40px;
   @include Montserrat();
-  height: 180px;
   align-items: center;
   color: $color-background;
   input {
+    outline: none;
     font-size: .8em;
     padding: 4px;
     border: none;
     text-align: center;
     border-radius: 2px;
+    @include tablet {
+      font-size: 1em;
+      padding: 10px;
+      width: 250px;
+    }
   }
   button {
     @extend input;
     background: $color-red;
     color: $color-background;
     border-bottom: 3px solid $color-darkred;
+    @include tablet {
+      width: 100px;
+    }
   }
   nav {
     width: 140px;
-    padding-top: 2em;
+    padding: 40px 0 20px;
     display: flex;
     justify-content: space-around;
     a {
       color: $color-background;
+      &:hover {
+        color: $color-red;
+      }
     }
   }
 }

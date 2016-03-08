@@ -97,6 +97,19 @@
 			return $found_dispensary_demand;
 		}
 
+        static function findByDispensary($dispensary_id)
+		{
+			$all_dispensary_demands = DispensaryDemand::getAll();
+			$found_dispensary_demand = array();
+			foreach($all_dispensary_demands as $dispensary_demand) {
+				$dispensary_demand_id = $dispensary_demand->getDispensaryId();
+				if ($dispensary_demand_id == $dispensary_id) {
+					array_push($found_dispensary_demand, $dispensary_demand);
+				}
+			}
+			return $found_dispensary_demand;
+		}
+
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM dispensaries_demands WHERE id = {$this->getId()};");

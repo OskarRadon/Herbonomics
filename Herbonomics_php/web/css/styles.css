@@ -27,6 +27,9 @@ body {
         .hero header h4 {
           font-size: 1.6em;
           margin-left: 40px; } }
+      @media all and (min-width: 1200px) {
+        .hero header h4 {
+          font-size: 1.8em; } }
     .hero header nav {
       margin-right: 20px; }
       @media (min-width: 600px) {
@@ -44,22 +47,39 @@ body {
         @media (min-width: 600px) {
           .hero header nav a {
             font-size: 1em; } }
+        @media all and (min-width: 1200px) {
+          .hero header nav a {
+            font-size: 1.2em; } }
   .hero .search-wrap {
     height: 100%;
     text-align: center; }
     .hero .search-wrap h3 {
-      margin-top: 5vh;
+      margin-top: 15vh;
       padding: 0 20px; }
+      @media (min-width: 600px) {
+        .hero .search-wrap h3 {
+          font-size: 2.5em; } }
     .hero .search-wrap form {
-      margin-top: 15vh; }
+      margin-top: 15vh;
+      padding: 0 20px; }
+      @media (min-width: 600px) {
+        .hero .search-wrap form {
+          margin-top: 25vh; } }
       .hero .search-wrap form input, .hero .search-wrap form button {
-        width: 70%;
+        width: 90%;
         font-size: 1em;
         padding: 7px;
         border: none;
         border-radius: 2px;
         outline: none;
-        text-align: center; }
+        text-align: center;
+        display: inline-block; }
+        @media (min-width: 600px) {
+          .hero .search-wrap form input, .hero .search-wrap form button {
+            display: inline;
+            font-size: 1.5em;
+            width: calc(90% - 130px);
+            padding: 15px 0; } }
       .hero .search-wrap form button {
         width: 90px;
         border-radius: 2px;
@@ -67,47 +87,87 @@ body {
         background: #FF473A;
         color: white;
         border-bottom: 3px solid #d30e00; }
+        @media (min-width: 600px) {
+          .hero .search-wrap form button {
+            width: 120px;
+            margin: 0 0 0 10px; } }
 
 main {
   font-family: 'Istok Web', serif;
   font-weight: 400;
   font-style: normal; }
+  @media (min-width: 600px) {
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 20px; } }
   main img {
+    display: flex;
     width: calc(100% - 40px);
-    margin: 20px 20px 0;
     border-radius: 2px; }
+    @media (min-width: 600px) {
+      main img {
+        width: calc(50% - 40px); }
+        main img:first-of-type {
+          justify-content: flex-start; } }
   main h4 {
+    font-family: 'Montserrat', serif;
+    font-weight: 400;
+    font-style: normal;
     text-align: center;
-    margin-bottom: 0; }
+    font-size: 1.4em;
+    margin-bottom: 0;
+    color: #009B3E; }
+    @media (min-width: 600px) {
+      main h4 {
+        width: 100%; } }
+    @media (min-width: 600px) {
+      main h4:first-of-type {
+        order: -1; } }
   main p {
-    padding: 0 20px; }
+    display: flex; }
+    @media (min-width: 600px) {
+      main p {
+        width: calc(50% - 40px);
+        justify-content: flex-end; } }
 
 footer {
   display: flex;
   flex-direction: column;
   background: #444;
+  margin-top: 40px;
   font-family: 'Montserrat', serif;
   font-weight: 400;
   font-style: normal;
-  height: 180px;
   align-items: center;
   color: white; }
   footer input, footer .hero .search-wrap form button, .hero .search-wrap form footer button, footer button {
+    outline: none;
     font-size: .8em;
     padding: 4px;
     border: none;
     text-align: center;
     border-radius: 2px; }
+    @media (min-width: 600px) {
+      footer input, footer .hero .search-wrap form button, .hero .search-wrap form footer button, footer button {
+        font-size: 1em;
+        padding: 10px;
+        width: 250px; } }
   footer button {
     background: #FF473A;
     color: white;
     border-bottom: 3px solid #d30e00; }
+    @media (min-width: 600px) {
+      footer button {
+        width: 100px; } }
   footer nav {
     width: 140px;
-    padding-top: 2em;
+    padding: 40px 0 20px;
     display: flex;
     justify-content: space-around; }
     footer nav a {
       color: white; }
+      footer nav a:hover {
+        color: #FF473A; }
 
 /*# sourceMappingURL=styles.css.map */
