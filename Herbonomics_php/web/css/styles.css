@@ -59,11 +59,6 @@ body {
       @media (min-width: 600px) {
         .hero .search-wrap h3 {
           font-size: 2.5em; } }
-      @media all and (min-width: 1200px) {
-        .hero .search-wrap h3 {
-          width: 800px;
-          margin: 15vh auto 0;
-          font-size: 2.8em; } }
     .hero .search-wrap form {
       margin-top: 15vh;
       padding: 0 20px; }
@@ -85,9 +80,6 @@ body {
             font-size: 1.5em;
             width: calc(90% - 130px);
             padding: 15px 0; } }
-        @media all and (min-width: 1200px) {
-          .hero .search-wrap form input, .hero .search-wrap form button {
-            width: calc(70% - 130px); } }
       .hero .search-wrap form button {
         width: 90px;
         border-radius: 2px;
