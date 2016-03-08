@@ -48,12 +48,13 @@ body {
     height: 100%;
     text-align: center; }
     .hero .search-wrap h3 {
-      margin-top: 5vh;
+      margin-top: 15vh;
       padding: 0 20px; }
     .hero .search-wrap form {
-      margin-top: 15vh; }
+      margin-top: 15vh;
+      padding: 0 20px; }
       .hero .search-wrap form input, .hero .search-wrap form button {
-        width: 70%;
+        width: 90%;
         font-size: 1em;
         padding: 7px;
         border: none;
@@ -63,7 +64,7 @@ body {
       .hero .search-wrap form button {
         width: 90px;
         border-radius: 2px;
-        margin-top: 10px;
+        margin: 10px 0 0 20px;
         background: #FF473A;
         color: white;
         border-bottom: 3px solid #d30e00; }

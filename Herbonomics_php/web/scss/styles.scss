@@ -53,13 +53,14 @@ body {
     height: 100%;
     text-align: center;
     h3 {
-      margin-top: 5vh;
+      margin-top: 15vh;
       padding: 0 20px;
     }
     form {
       margin-top: 15vh;
+      padding: 0 20px;
       input {
-        width: 70%;
+        width: 90%;
         font-size: 1em;
         padding: 7px;
         border: none;
@@ -71,12 +72,17 @@ body {
         @extend input;
         width: 90px;
         border-radius: 2px;
-        margin-top: 10px;
+        margin: 10px 0 0 20px;
         background: $color-red;
         color: $color-background;
         border-bottom: 3px solid $color-darkred;
       }
     }
+    // img {
+    //   margin-top: 200px;
+    //   width: 150px;
+    //
+    // }
   }
 }
 
