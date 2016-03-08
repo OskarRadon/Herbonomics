@@ -31,6 +31,7 @@
         return $app['twig']->render('index.html.twig');
     });
 
+
     $app->get("/login", function() use ($app) {
         return $app['twig']->render('login.html.twig');
     });
@@ -133,6 +134,13 @@
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
     });
 
+    $app->get("/allstrains", function() use ($app) {
+        //all strains page
+        $strains = GrowersStrains::getAll();
+        return $app['twig']->render('grower_supply.html.twig', array(
+            'strains' => $strains
+        ));
+    });
 
     return $app;
 ?>
