@@ -80,7 +80,9 @@ main {
     border-radius: 2px; }
   main h4 {
     text-align: center;
-    margin-bottom: 0; }
+    font-size: 1.4em;
+    margin-bottom: 0;
+    color: #009B3E; }
   main p {
     padding: 0 20px; }
 
