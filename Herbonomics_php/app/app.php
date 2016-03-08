@@ -56,12 +56,16 @@
     $app->get("/grower/sign_in", function() use ($app) {//get or post?
 
         $grower = Grower::signIn($_GET['username'], $_GET['password']);
+        $strains = GrowersStrains::findByGrower($grower->getId());
 
         if ($grower == null) {
             return $app['twig']->render('login.html.twig');
         } else
 
-        return $app['twig']->render('grower_account.html.twig', array('grower' => $grower));
+        return $app['twig']->render('grower_account.html.twig', array(
+            'grower' => $grower,
+            'strains' => $strains
+        ));
     });
 
 
@@ -71,13 +75,20 @@
         return $app['twig']->render('grower_account.html.twig', array('$grower' => $grower));
     });
 
-  
     //*takes user to the edit account information page*//
     $app->get("/grower/{id}/edit_account_info", function($id) use ($app) {
-        $grower = Grower::find($id);
+        $grower = Grower::findById($id);
 
         return $app['twig']->render('grower_edit_account_info.html.twig', array('grower' => $grower));
     });
+
+    //*takes grower to the add strain page*//
+    $app->get("/grower/{id}/add_strain", function($id) use ($app) {
+        $grower = Grower::findById($id);
+        return $app['twig']->render('grower_strain_add.html.twig', array('grower' => $grower));
+    });
+
+
 
     $app->post("/dispensary/sign_up", function() use ($app) {//get or post?
         $name = $_POST['name'];
@@ -124,6 +135,24 @@
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
     });
 
+    //*adds new strain to growers inventory returns to growers account page*//
+    $app->post("/grower/add_strain", function() use ($app) {//get or post?
+        $strain_name = $_POST['strain_name'];
+        $pheno = $_POST['pheno'];
+        $thc = $_POST['thc'];
+        $cbd = $_POST['cbd'];
+        $cgc = $_POST['cgc'];
+        $price = $_POST['price'];
+        $growers_id = $_POST['growers_id'];
+        $grower_strain = new GrowersStrains($id = null, $strain_name, $pheno, $thc, $cbd, $cgc, $price, $growers_id);
+        $grower_strain->save();
+
+        $grower = Grower::findById($growers_id);
+        $strains = GrowersStrains::findByGrower($growers_id);
+
+        return $app['twig']->render('grower_account.html.twig', array('grower' => $grower, 'strains' => $strains));
+    });
+
     $app->get("/dispensary_demand/{id}/edit", function($id) use ($app) {
         $demand = DispensaryDemand::find($id);
         return $app['twig']->render('dispensary_demand_edit.html.twig', array('demand' => $demand));
@@ -155,12 +184,12 @@
 
     //*Updates grower account detail information and routes back to individual account home*//
     $app->patch("/grower/{id}/edit_account_info", function($id) use ($app) {
-        $grower = Grower::find($id);
+        $grower = Grower::findById($id);
         $grower->update($_POST['name'], $_POST['website'], $_POST['email'], $_POST['username'], $_POST['password']);
 
-        $strains = GrowerStrains::findById($id);
+        $strains = GrowersStrains::findById($id);
 
-        return $app['twig']->render('grower_account.html.twig', array('grower' => $grower, '$strains' => $strains));
+        return $app['twig']->render('grower_account.html.twig', array('grower' => $grower, 'strains' => $strains));
     });
 
     $app->get("/allstrains", function() use ($app) {

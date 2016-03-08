@@ -144,6 +144,21 @@ class GrowersStrains
         return $found_strain;
     }
 
+    static function findByGrower($grower_id)
+    {
+        $all_grower_strains = GrowersStrains::getAll();
+        $found_grower_strain = array();
+        foreach($all_grower_strains as $grower_strain) {
+            $grower_strain_id = $grower_strain->getGrowersId();
+            if ($grower_strain_id == $grower_id) {
+                array_push($found_grower_strain, $grower_strain);
+            }
+        }
+        return $found_grower_strain;
+    }
+
+
+
     function update($strain_name, $pheno, $thc, $cbd, $cgc, $price)
     {
         $GLOBALS['DB']->exec("UPDATE strains_growers SET strain_name = '{$strain_name}', pheno = '{$pheno}', thc = {$thc}, cbd = {$cbd}, price = {$price} WHERE id = {$this->getId()}");
