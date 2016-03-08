@@ -13,8 +13,12 @@
          <p> Email: {{ grower.getEmail }}</p>
          <p> Username: {{ grower.getUsername}}</p>
          <p> Password: {{ grower.getPassword }}</p>
+         <p?> Account Id: {{ grower.getId }}</p>
 
-         <p><a href="/grower/{{ grower.getId }}/edit_account_info">Edit Account Details</a></p>
+         <form action="/grower/{{ grower.getId }}/edit_account_info" method="get">
+              <button type="submit">Edit Account Details</button>
+            </form>
+
 
          <p><a href="/grower/{{ grower.getId }}/add_strain">Add a Strain</a></p>
 

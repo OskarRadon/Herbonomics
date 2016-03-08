@@ -56,12 +56,16 @@
     $app->get("/grower/sign_in", function() use ($app) {//get or post?
 
         $grower = Grower::signIn($_GET['username'], $_GET['password']);
+        $strains = GrowersStrains::getAll();
 
         if ($grower == null) {
             return $app['twig']->render('login.html.twig');
         } else
 
-        return $app['twig']->render('grower_account.html.twig', array('grower' => $grower));
+        return $app['twig']->render('grower_account.html.twig', array(
+            'grower' => $grower,
+            'strains' => $strains
+        ));
     });
 
 
@@ -70,9 +74,6 @@
         $grower = Grower::find($id);
         return $app['twig']->render('grower_account.html.twig', array('$grower' => $grower));
     });
-
-    $app->get("/grower/{id}/account", function() use ($app) {
-
 
     //*takes user to the edit account information page*//
     $app->get("/grower/{id}/edit_account_info", function($id) use ($app) {
