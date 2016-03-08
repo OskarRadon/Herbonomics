@@ -1,1 +1,34 @@
-<?php \n\n\trequire_once __DIR__.'/../vendor/autoload.php'; \n\n\t$app = new Silex\Application(); \n\n\t$app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path' => __DIR__.'/../views')); \n\n\t$app->get('/', function(){return 'Hello, World!';}); \n\n\treturn $app; \n\n?>
+
+<?php
+    require_once __DIR__."/../vendor/autoload.php";
+    require_once __DIR__."/../src/Dispensary.php";
+    require_once __DIR__."/../src/DispensaryDemand.php";
+    require_once __DIR__."/../src/Grower.php";
+    require_once __DIR__."/../src/GrowersStrains.php";
+
+
+    $server = 'mysql:host=localhost;dbname=herbonomics';
+    $username = 'root';
+    $password = 'root';
+    $DB = new PDO($server, $username, $password);
+
+    use Symfony\Component\HttpFoundation\Request;
+    Request::enableHttpMethodParameterOverride();
+
+    $app = new Silex\Application();
+
+    use Symfony\Component\Debug\Debug;
+    $app['debug'] = true;
+
+    $app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__.'/../views'
+    ));
+ // instantiate Silex app, add twig capability to app
+
+
+    $app->get("/", function() use ($app) {
+        //home page
+        return $app['twig']->render('index.html.twig');
+    });
+    return $app;
+?>

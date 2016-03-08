@@ -6,7 +6,7 @@
     require_once "src/GrowersStrains.php";
     $server = 'mysql:host=localhost;dbname=herbonomics_test'; //Might need to alter localhost port
     $user = 'root';
-    $password = 'kontiki1234qwer';
+    $password = 'root';
     $DB = new PDO($server, $user, $password);
     class GrowersStrainsTest extends PHPUnit_Framework_TestCase
 
