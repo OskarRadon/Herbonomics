@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include '/includes/head.html.twig' %}
+        <meta charset="utf-8">
+        <title>Herbonomics</title>
+    </head>
+    <body>
+        <h2>{{ demand.getStrainName }}</h2>
+        <h3>Edit demand:</h3>
+        <form class="" action="/dispensary_demand/{{ demand.getId }}/edit_post" method="post">
+            <input name="dispensary_id" type="hidden" value="{{ demand.getDispensaryId }}">
+            <label>New Strain Name</label>
+            <input type="text" name="strain_name" value="{{ demand.getStrainName }}">
+            <label>New Phenotype</label>
+            <select class="" name="pheno" value="{{ demand.getPheno }}">
+                <option value="Sativa">Sativa</option>
+                <option value="Indica">Indica</option>
+                <option value="Hybrid">Hybrid</option>
+            </select>
+            <label>Quantity</label>
+            <input type="number" name="quantity" value="{{ demand.getQuantity }}">
+          <button type="submit" name="button">Edit</button>
+        </form>
+
+    </body>
+</html>

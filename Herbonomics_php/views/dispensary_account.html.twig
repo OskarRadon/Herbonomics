@@ -12,15 +12,19 @@
 
         {% if demands is not empty %}
         {% for demand in demands %}
-        <h4>{{ demand.getStrainName }}</h4>
-        {{ demand.getPheno }}
-        {{ demand.getQuantity }}
+        <h4>Strain Name: {{ demand.getStrainName }}</h4>
+
+        <p>Phenotype: {{ demand.getPheno }}</p>
+        <p>Quantity: {{ demand.getQuantity }}</p>
+        <a href="/dispensary_demand/{{ demand.getId }}/edit">Edit</a>
         {% endfor %}
         {% else %}
         <p>
             No demands added yet.
         </p>
         {% endif %}
+
+
 
         <h3>Add a new demand:</h3>
         <form class="" action="/dispensary/demand_add" method="post">

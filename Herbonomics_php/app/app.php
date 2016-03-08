@@ -104,6 +104,10 @@
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
     });
 
+    $app->get("/dispensary_demand/{id}/edit", function($id) use ($app) {
+        $demand = DispensaryDemand::find($id);
+        return $app['twig']->render('dispensary_demand_edit.html.twig', array('demand' => $demand));
+    });
 
     return $app;
 ?>
