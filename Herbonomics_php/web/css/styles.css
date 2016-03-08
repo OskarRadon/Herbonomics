@@ -50,9 +50,15 @@ body {
     .hero .search-wrap h3 {
       margin-top: 15vh;
       padding: 0 20px; }
+      @media (min-width: 600px) {
+        .hero .search-wrap h3 {
+          font-size: 2.5em; } }
     .hero .search-wrap form {
       margin-top: 15vh;
       padding: 0 20px; }
+      @media (min-width: 600px) {
+        .hero .search-wrap form {
+          margin-top: 25vh; } }
       .hero .search-wrap form input, .hero .search-wrap form button {
         width: 90%;
         font-size: 1em;
@@ -62,6 +68,12 @@ body {
         outline: none;
         text-align: center;
         display: inline-block; }
+        @media (min-width: 600px) {
+          .hero .search-wrap form input, .hero .search-wrap form button {
+            display: inline;
+            font-size: 1.5em;
+            width: calc(90% - 130px);
+            padding: 15px 0; } }
       .hero .search-wrap form button {
         width: 90px;
         border-radius: 2px;
@@ -69,6 +81,10 @@ body {
         background: #FF473A;
         color: white;
         border-bottom: 3px solid #d30e00; }
+        @media (min-width: 600px) {
+          .hero .search-wrap form button {
+            width: 120px;
+            margin: 0 0 0 10px; } }
 
 main {
   font-family: 'Istok Web', serif;
@@ -106,10 +122,18 @@ footer {
     border: none;
     text-align: center;
     border-radius: 2px; }
+    @media (min-width: 600px) {
+      footer input, footer .hero .search-wrap form button, .hero .search-wrap form footer button, footer button {
+        font-size: 1em;
+        padding: 10px;
+        width: 250px; } }
   footer button {
     background: #FF473A;
     color: white;
     border-bottom: 3px solid #d30e00; }
+    @media (min-width: 600px) {
+      footer button {
+        width: 100px; } }
   footer nav {
     width: 140px;
     padding: 40px 0 20px;

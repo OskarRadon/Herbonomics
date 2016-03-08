@@ -55,10 +55,16 @@ body {
     h3 {
       margin-top: 15vh;
       padding: 0 20px;
+      @include tablet {
+        font-size: 2.5em;
+      }
     }
     form {
       margin-top: 15vh;
       padding: 0 20px;
+      @include tablet {
+        margin-top: 25vh;
+      }
       input {
         width: 90%;
         font-size: 1em;
@@ -68,6 +74,12 @@ body {
         outline: none;
         text-align: center;
         display: inline-block;
+        @include tablet {
+          display: inline;
+          font-size: 1.5em;
+          width: calc(90% - 130px);
+          padding: 15px 0;
+        }
       }
       button {
         @extend input;
@@ -77,6 +89,10 @@ body {
         background: $color-red;
         color: $color-background;
         border-bottom: 3px solid $color-darkred;
+        @include tablet {
+          width: 120px;
+          margin: 0 0 0 10px;
+        }
       }
     }
     // img {
@@ -120,12 +136,20 @@ footer {
     border: none;
     text-align: center;
     border-radius: 2px;
+    @include tablet {
+      font-size: 1em;
+      padding: 10px;
+      width: 250px;
+    }
   }
   button {
     @extend input;
     background: $color-red;
     color: $color-background;
     border-bottom: 3px solid $color-darkred;
+    @include tablet {
+      width: 100px;
+    }
   }
   nav {
     width: 140px;
