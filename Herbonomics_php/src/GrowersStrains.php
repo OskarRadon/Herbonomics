@@ -155,5 +155,11 @@ class GrowersStrains
         $this->setPrice($price);
     }
 
+    function deleteOneStrain()
+    {
+        $GLOBALS['DB']->exec("DELETE FROM growers_strains WHERE id = {$this->getId()};");
+        // $GLOBALS['DB']->exec("DELETE FROM dispensaries_growers WHERE grower_id = {$this->getId()};");
+    }
+
 }
 ?>

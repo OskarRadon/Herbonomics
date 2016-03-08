@@ -12,9 +12,9 @@
   </head>
   <body>
       <div class="container">
-          <h1>Update {{ .getName }} account details:</h1>
+          <h1>Edit your account details:</h1>
 
-          <form action="/grower/{{ grower.getId }}/edit" method="post">
+          <form action="/grower/{{ grower.getId }}/edit_account_info" method="post">
             <input name="_method" type="hidden" value="patch">
 
             <label for="name">Update Name:</label>
