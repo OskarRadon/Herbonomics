@@ -107,14 +107,24 @@ body {
 // MODAL STYLING
 
 .remodal {
-  padding: 40px;
+  height: 90%;
+  width: 90%;
+  padding: 0;
   border-radius: 3px;
   @include Istok();
   text-align: center;
+  @include tablet {
+    height: 50%;
+    width: 60%;
+  }
   h2 {
     @include Montserrat();
     font-size: 1.4em;
     color: #009B3E;
+    @include tablet {
+      margin-top: 40px;
+    }
+
   }
   form {
     display: flex;
