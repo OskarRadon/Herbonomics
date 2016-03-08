@@ -260,7 +260,6 @@
 
 			//Act
 			$result = $test_dispensary_demand->findDispensaryName($test_dispensary_demand->getDispensaryId());
-			var_dump($result);
 
 			//Assert
 			$this->assertEquals("Alberta Street Dispensary", $result);
