@@ -101,31 +101,115 @@ body {
         }
       }
     }
-    // img {
-    //   margin-top: 200px;
-    //   width: 150px;
-    // }
   }
 }
 
-main {
+// MODAL STYLING
+
+.remodal {
+  padding: 40px;
+  border-radius: 3px;
   @include Istok();
-  padding: 0 20px;
-  h4 {
+  text-align: center;
+  h2 {
     @include Montserrat();
-    text-align: center;
     font-size: 1.4em;
-    margin: 20px 0;
     color: #009B3E;
-    @include tablet {
-      width: 100%;
-      margin-bottom: 30px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input {
+      width: 70%;
+      border: 1px solid darkgray;
+      border-radius: 3px;
+      padding: 3px;
+    }
+    label:nth-of-type(even) {
+      margin-top: 10px;
+    }
+   button {
+      margin-top: 10px;
+      width: 80px;
+      padding: 5px;
+      border: none;
+      font-size: .9em;
+      background: $color-red;
+      color: $color-background;
+      border-bottom: 3px solid $color-darkred;
     }
   }
-  img {
-    width: 100%;
-  }
 }
+
+
+// main {
+//   @include Istok();
+//   padding: 0 20px;
+//   display: flex;
+//   flex-direction: column;
+//   @include tablet {
+//     display: block;
+//   }
+//   h4 {
+//     @include Montserrat();
+//     text-align: center;
+//     font-size: 1.4em;
+//     margin: 20px 0;
+//     color: #009B3E;
+//     @include tablet {
+//       width: 100%;
+//       margin-bottom: 30px;
+//     }
+//   }
+//   article {
+//     width: 100%;
+//     overflow: auto;
+//     display: flex;
+//     flex-direction: column;
+//     @include tablet {
+//       display: block;
+//     }
+//     .wrap {
+//       @include tablet {
+//         width: 50%;
+//       }
+//       &:nth-of-type(1) {
+//         @include tablet {
+//           float: left;
+//         }
+//       }
+//       &:nth-of-type(2) {
+//         @include tablet {
+//           float: right;
+//         }
+//       }
+//       &:nth-of-type(3) {
+//         @include tablet {
+//           float: right;
+//         }
+//       }
+//       &:nth-of-type(4) {
+//         order: -1;
+//         @include tablet {
+//           float: left;
+//         }
+//       }
+//       p {
+//         @include tablet {
+//           // width: calc(50% - 20px);
+//         }
+//       }
+//       img {
+//         width: 100%;
+//         @include tablet {
+//           // width: calc(50% - 20px);
+//         }
+//       }
+//     }
+//
+//   }
+// }
 
 footer {
   display: flex;

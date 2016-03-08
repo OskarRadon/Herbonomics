@@ -181,5 +181,35 @@
             //Assert
             $this->assertEquals([$test_growers_strains3], $result);
         }
+
+        function test_findGrowerName()
+		{
+			//Arrange
+            $id = 1;
+            $name = "Chalice Farms";
+            $website = "chalicefarms.com";
+            $email = "chalice@farms.com";
+            $username = "chalice";
+            $password = "maryjane";
+            $test_grower = new Grower($id, $name, $website, $email, $username, $password);
+            $test_grower->save();
+
+            $strain_name = "Northern Lights";
+            $pheno = "Indica";
+            $thc = 22.96;
+            $cbd = 0.18;
+            $cgc = 1;
+            $price = 1400;
+            $growers_id = $test_grower->getId();
+            $test_growers_strains = new GrowersStrains($id = null, $strain_name, $pheno, $thc, $cbd, $cgc, $price, $growers_id);
+            $test_growers_strains->save();
+
+			//Act
+			$result = $test_growers_strains->findGrowerName($test_growers_strains->getGrowersId());
+
+			//Assert
+			$this->assertEquals("Chalice Farms", $result);
+		}
+
     }
 ?>

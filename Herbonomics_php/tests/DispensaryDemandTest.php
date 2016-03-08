@@ -237,6 +237,34 @@
 			$this->assertEquals([$test_dispensary_demand], $result);
 		}
 
+		function test_findDispensaryName()
+		{
+			//Arrange
+
+			$name = "Alberta Street Dispensary";
+			$id = 1;
+			$website = "www.absgh.com";
+			$email = "alberta@absgh.com";
+			$username = "alberta";
+			$password = "hello";
+			$test_dispensary = new Dispensary($name, $website, $email, $username, $password, $id);
+			$test_dispensary->save();
+
+			$strain_name = "Blue Dream";
+			$dispensary_id = $test_dispensary->getId();
+			$pheno = "Indica";
+			$quantity = 1;
+			$id = null;
+			$test_dispensary_demand = new DispensaryDemand($strain_name, $dispensary_id, $pheno, $quantity, $id);
+			$test_dispensary_demand->save();
+
+			//Act
+			$result = $test_dispensary_demand->findDispensaryName($test_dispensary_demand->getDispensaryId());
+
+			//Assert
+			$this->assertEquals("Alberta Street Dispensary", $result);
+		}
+
 
     }
 

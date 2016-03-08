@@ -92,25 +92,39 @@ body {
             width: 120px;
             margin: 0 0 0 10px; } }
 
-main {
+.remodal {
+  padding: 40px;
+  border-radius: 3px;
   font-family: 'Istok Web', serif;
   font-weight: 400;
   font-style: normal;
-  padding: 0 20px; }
-  main h4 {
+  text-align: center; }
+  .remodal h2 {
     font-family: 'Montserrat', serif;
     font-weight: 400;
     font-style: normal;
-    text-align: center;
     font-size: 1.4em;
-    margin: 20px 0;
     color: #009B3E; }
-    @media (min-width: 600px) {
-      main h4 {
-        width: 100%;
-        margin-bottom: 30px; } }
-  main img {
-    width: 100%; }
+  .remodal form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .remodal form input, .remodal .hero .search-wrap form button, .hero .search-wrap .remodal form button, .remodal form footer button, footer .remodal form button {
+      width: 70%;
+      border: 1px solid darkgray;
+      border-radius: 3px;
+      padding: 3px; }
+    .remodal form label:nth-of-type(even) {
+      margin-top: 10px; }
+    .remodal form button {
+      margin-top: 10px;
+      width: 80px;
+      padding: 5px;
+      border: none;
+      font-size: .9em;
+      background: #FF473A;
+      color: white;
+      border-bottom: 3px solid #d30e00; }
 
 footer {
   display: flex;
