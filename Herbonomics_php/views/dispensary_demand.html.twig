@@ -1,1 +1,22 @@
-<!--This is an overall demand page that shows every single strain that is needed by dispensaries. -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dispensary Demand</title>
+    </head>
+    <body>
+        <h3>Dispensary Demand:</h3>
+
+        {% if demands is not empty %}
+        {% for demand in demands %}
+        <h4>Strain Name: {{ demand.getStrainName }}</h4>
+        <p>Phenotype: {{ demand.getPheno }}</p>
+        <p>Quantity: {{ demand.getQuantity }}</p>
+        {% endfor %}
+        {% else %}
+        <p>
+            No demands meet your criteria.
+        </p>
+        {% endif %}
+    </body>
+</html>
