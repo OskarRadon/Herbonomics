@@ -114,7 +114,7 @@ body {
   @include Istok();
   text-align: center;
   @include tablet {
-    height: 50%;
+    height: 68%;
     width: 60%;
   }
   h2 {
@@ -124,7 +124,6 @@ body {
     @include tablet {
       margin-top: 40px;
     }
-
   }
   form {
     display: flex;
@@ -135,6 +134,9 @@ body {
       border: 1px solid darkgray;
       border-radius: 3px;
       padding: 3px;
+      @include tablet {
+        width: 50%;
+      }
     }
     label:nth-of-type(even) {
       margin-top: 10px;

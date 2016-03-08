@@ -103,7 +103,7 @@ body {
   text-align: center; }
   @media (min-width: 600px) {
     .remodal {
-      height: 50%;
+      height: 68%;
       width: 60%; } }
   .remodal h2 {
     font-family: 'Montserrat', serif;
@@ -123,6 +123,9 @@ body {
       border: 1px solid darkgray;
       border-radius: 3px;
       padding: 3px; }
+      @media (min-width: 600px) {
+        .remodal form input, .remodal .hero .search-wrap form button, .hero .search-wrap .remodal form button, .remodal form footer button, footer .remodal form button {
+          width: 50%; } }
     .remodal form label:nth-of-type(even) {
       margin-top: 10px; }
     .remodal form button {
