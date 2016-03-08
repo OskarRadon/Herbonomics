@@ -19,8 +19,10 @@
               <button type="submit">Edit Account Details</button>
             </form>
 
+            <form action="/grower/{{ grower.getId }}/add_strain" method="get">
+                 <button type="submit">Add a Strain</button>
+               </form>
 
-         <p><a href="/grower/{{ grower.getId }}/add_strain">Add a Strain</a></p>
 
          {% include '/includes/all_strains.html.twig' %}
 

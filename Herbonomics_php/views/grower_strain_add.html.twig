@@ -6,28 +6,31 @@
     </head>
     <body><h4>Add a strain to your inventory:</h4>
 
-        <form action='/add_strain' method='post'>
-           <input id="add_strain" name="add_strain" type="hidden"value="{{ grower.getId }}">
+        <form action='/grower/add_strain' method='post'>
+            <input id="growers_id" name="growers_id" type="hidden" value="{{ grower.getId }}">
 
-           <label for="strain_name">Strain Name</label>
-           <input id='strain_name' name='strain_name' type='text'>
+            <label for="strain_name">Strain Name</label>
+            <input id='strain_name' name='strain_name' type='text'>
 
-           <label for='pheno'>Pheno Type</label>
-           <input id='pheno' name='pheno' type='text'>
+            <label for='pheno'>Pheno Type</label>
+            <input id='pheno' name='pheno' type='text'>
 
-           <label for='thc'>THC Content</label>
-           <input id='thc' name='thc' type='float'>
+            <label for='thc'>THC Content</label>
+            <input id='thc' name='thc' type='number'>
 
-           <label for='cbd'>CBD Content</label>
-           <input id='cbd' name='cbd' type='float'>
+            <label for='cbd'>CBD Content</label>
+            <input id='cbd' name='cbd' type='number'>
 
-           <label for='cgc'>Clean Grean Certified?</label>
-           <input id='cgc' name='cgc' type='int'>
+            <label>Clean Grean Certified?</label>
+            <select class="" name="cgc">
+               <option value="1">Yes</option>
+               <option value="0">No></option>
+            </select>
 
-           <label for='price'>Price</label>
-           <input id='price' name='price' type='int'>
+            <label for='price'>Price</label>
+            <input id='price' name='price' type='int'>
 
-           <button class="info" type='submit'>Add the Strain</button>
+            <button class="info" type='submit'>Add the Strain</button>
         </form>
 
     </body>
