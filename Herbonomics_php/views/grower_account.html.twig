@@ -1,0 +1,26 @@
+<!--The grower's account page allows the user to have CRUD capability for their strains and their bio. When they sign in they should be taken here. :)-->
+
+<html>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+   <link rel='stylesheet' href='/styles.css'>
+   <title>Grower Account</title>
+</head>
+    <body>
+      <div class='container'>
+        <h1>{{ grower.getName }}</h1>
+        <p> Website: {{ grower.getWebsite }}</p>
+         <p> Email: {{ grower.getEmail }}</p>
+         <p> Username: {{ grower.getUsername}}</p>
+         <p> Password: {{ grower.getPassword }}</p>
+
+         <p><a href="/grower/{{ grower.getId }}/edit">Edit Account Details</a></p>
+
+         <p><a href="/grower/{{ grower.getId }}/edit">Add a Strain</a></p>
+
+         {% include '/includes/all_strains.html.twig' %}
+
+        <!-- <p><a href='/'>Home</a></p> -->
+    </div>
+</body>
+</html>

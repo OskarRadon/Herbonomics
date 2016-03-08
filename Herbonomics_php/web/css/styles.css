@@ -95,41 +95,35 @@ body {
 main {
   font-family: 'Istok Web', serif;
   font-weight: 400;
-  font-style: normal; }
-  @media (min-width: 600px) {
-    main {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0 20px; } }
-  main img {
-    display: flex;
-    width: calc(100% - 40px);
-    border-radius: 2px; }
-    @media (min-width: 600px) {
-      main img {
-        width: calc(50% - 40px); }
-        main img:first-of-type {
-          justify-content: flex-start; } }
+  font-style: normal;
+  padding: 0 20px; }
   main h4 {
     font-family: 'Montserrat', serif;
     font-weight: 400;
     font-style: normal;
     text-align: center;
     font-size: 1.4em;
-    margin-bottom: 0;
+    margin: 20px 0;
     color: #009B3E; }
     @media (min-width: 600px) {
       main h4 {
-        width: 100%; } }
-    @media (min-width: 600px) {
-      main h4:first-of-type {
-        order: -1; } }
-  main p {
-    display: flex; }
-    @media (min-width: 600px) {
-      main p {
-        width: calc(50% - 40px);
-        justify-content: flex-end; } }
+        width: 100%;
+        margin-bottom: 30px; } }
+  @media (min-width: 600px) {
+    main p {
+      width: calc(50% - 40px); } }
+  main .farmer img, main .dispensary img {
+    width: 100%;
+    border-radius: 2px; }
+  @media (min-width: 600px) {
+    main .farmer, main .dispensary {
+      height: 40vh;
+      display: flex;
+      justify-content: center; }
+      main .farmer img, main .dispensary img {
+        width: calc(50% - 40px); } }
+  main .dispensary p {
+    order: -1; }
 
 footer {
   display: flex;

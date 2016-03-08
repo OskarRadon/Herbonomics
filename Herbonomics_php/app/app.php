@@ -1,4 +1,3 @@
-
 <?php
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Dispensary.php";
@@ -62,6 +61,12 @@
         } else
 
         return $app['twig']->render('grower_account.html.twig', array('grower' => $grower));
+    });
+
+    $app->get("/grower/{id}/account"), function() use ($app) {
+
+        $grower = Grower::find($id);
+        return $app['twig']->render('grower_account.html.twig', array('$grower' => $grower))
     });
 
     $app->post("/dispensary/sign_up", function() use ($app) {//get or post?
