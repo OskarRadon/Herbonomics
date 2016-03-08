@@ -3,6 +3,7 @@
     * @backupGlobals disabled
     * @backupStaticAttributes disabled
     */
+
     require_once "src/GrowersStrains.php";
     $server = 'mysql:host=localhost;dbname=herbonomics_test'; //Might need to alter localhost port
     $user = 'root';
