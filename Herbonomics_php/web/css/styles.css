@@ -79,6 +79,9 @@ main {
     margin: 20px 20px 0;
     border-radius: 2px; }
   main h4 {
+    font-family: 'Montserrat', serif;
+    font-weight: 400;
+    font-style: normal;
     text-align: center;
     font-size: 1.4em;
     margin-bottom: 0;

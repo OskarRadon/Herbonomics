@@ -94,6 +94,7 @@ main {
     border-radius: 2px;
   }
   h4 {
+    @include Montserrat();
     text-align: center;
     font-size: 1.4em;
     margin-bottom: 0;
