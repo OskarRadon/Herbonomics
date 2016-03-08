@@ -47,7 +47,10 @@
             return $app['twig']->render('login.html.twig');
         } else
 
-        return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary));
+        $demands =
+        DispensaryDemand::findByDispensary($dispensary->getId());
+
+        return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
     });
 
     $app->get("/grower/sign_in", function() use ($app) {//get or post?
@@ -70,7 +73,9 @@
         $dispensary = new Dispensary($name, $website, $email, $username, $password);
         $dispensary->save();
 
-        return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary));
+        $demands = array();
+
+        return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
     });
 
     $app->post("/grower/sign_up", function() use ($app) {//get or post?
@@ -84,6 +89,21 @@
 
         return $app['twig']->render('grower_account.html.twig', array('grower' => $grower));
     });
+
+    $app->post("/dispensary/demand_add", function() use ($app) {//get or post?
+        $strain_name = $_POST['strain_name'];
+        $pheno = $_POST['pheno'];
+        $dispensary_id = $_POST['dispensary_id'];
+        $quantity = $_POST['quantity'];
+        $dispensary_demand = new DispensaryDemand($strain_name, $dispensary_id, $pheno, $quantity);
+        $dispensary_demand->save();
+
+        $dispensary = Dispensary::find($dispensary_id);
+        $demands = DispensaryDemand::findByDispensary($dispensary_id);
+
+        return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
+    });
+
 
     return $app;
 ?>
