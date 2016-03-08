@@ -104,10 +104,20 @@ main {
   font-family: 'Istok Web', serif;
   font-weight: 400;
   font-style: normal; }
+  @media (min-width: 600px) {
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 20px; } }
   main img {
+    display: flex;
     width: calc(100% - 40px);
-    margin: 20px 20px 0;
     border-radius: 2px; }
+    @media (min-width: 600px) {
+      main img {
+        width: calc(50% - 40px); }
+        main img:first-of-type {
+          justify-content: flex-start; } }
   main h4 {
     font-family: 'Montserrat', serif;
     font-weight: 400;
@@ -116,8 +126,18 @@ main {
     font-size: 1.4em;
     margin-bottom: 0;
     color: #009B3E; }
+    @media (min-width: 600px) {
+      main h4 {
+        width: 100%; } }
+    @media (min-width: 600px) {
+      main h4:first-of-type {
+        order: -1; } }
   main p {
-    padding: 0 20px; }
+    display: flex; }
+    @media (min-width: 600px) {
+      main p {
+        width: calc(50% - 40px);
+        justify-content: flex-end; } }
 
 footer {
   display: flex;
