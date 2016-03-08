@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Herbonomics</title>
+    </head>
+    <body>
+        <table border = "1" cellpadding = "15">
+            <tr>
+                <th>Strain</th>
+                <th>Phenotype</th>
+                <th>THC %</th>
+                <th>CBD %</th>
+                <th>Price ($/lb)</th>
+                <th>Clean Green Certified</th>
+                <th>Grower</th>
+            </tr>
+            {% if strains is not empty %}
+                {% for strains in strain %}
+                <tr>
+                    <td>
+                        {{ strain.getStrainName }}
+                    </td>
+                    <td>
+                        {{ strain.getPheno }}
+                    </td>
+                    <td>
+                        {{ strain.getThc }}
+                    </td>
+                    <td>
+                        {{ strain.getCbd }}
+                    </td>
+                    <td>
+                        {{ strain.getPrice }}
+                    </td>
+                    <td>
+                        {{ strain.getCgc }}
+                    </td>
+                    <td>
+                        {{ strain.getGrowersId }}
+                        <!--How do I get the specific grower's name here?-->
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan = "7">
+                     No Strains Available
+                </td>
+            </tr>
+            {% endif %}
+        </table>
+            {% include '/includes/home_form.html.twig' %}
+    </body>
+</html>
