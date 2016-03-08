@@ -1,4 +1,4 @@
-<!--The grower's account page allows the user to have CRUD capability for their strains and their bio. WHen they sign in they should be taken here. :)-->
+<!--The grower's account page allows the user to have CRUD capability for their strains and their bio. When they sign in they should be taken here. :)-->
 
 <html>
 <head>
@@ -9,39 +9,26 @@
     <body>
       <div class='container'>
         <h1>{{ grower.getName }}</h1>
+        <p> Website: {{ grower.getWebsite }}</p>
+         <p> Email: {{ grower.getEmail }}</p>
+         <p> Username: {{ grower.getUsername}}</p>
+         <p> Password: {{ grower.getPassword }}</p>
 
-        <h4>Add a brand this store carries!</h4>
+         <p><a href="/grower/{{ grower.getId }}/edit">Edit Account Details</a></p>
+
+         <p><a href="/grower/{{ grower.getId }}/edit">Add a Strain</a></p>
+
+         {% include '/includes/all_strains.html.twig' %}
 
 
-        <form action='/add_brands' method='post'>
-            <input id="store_id" name="store_id" type="hidden" value="{{ store.getId }}">
-            <label for="brand_id">Select a brand</label>
-            <select id='brand_id' name='brand_id' type='text'>
-              {% for brand in all_brands %}
-                <option value="{{ brand.getId }}"> {{ brand.getBrandName }} </option>
-              {% endfor %}
-            </select>
-            <button class="info" type='submit'>Add a Brand</button>
-        </form>
 
-        {% if brands is not empty %}
-            <h3>Here are the brands for this store:</h3>
-            <ul>
-                {% for brand in brands %}
-                    <li>{{ brand.getBrandName }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
 
-        <form action="/delete_store/{{ store.getId }}" method='post'>
+        <!-- <form action="/delete_store/{{ store.getId }}" method='post'>
         <input name="_method" type="hidden" value="delete">
-            <button class='btn-danger' type='submit'>Delete This Store!</button>
+            <button class='btn-danger' type='submit'>Delete This Store!</button> -->
         </form>
 
-        <p><a href="/store/{{ store.getId }}/edit">Edit this Store</a></p>
-
-        <p><a href='/'>Home</a></p>
+        <!-- <p><a href='/'>Home</a></p> -->
     </div>
 </body>
 </html>
-Status API Training Shop Blog About Pricing

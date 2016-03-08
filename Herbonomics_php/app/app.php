@@ -30,5 +30,11 @@
         //home page
         return $app['twig']->render('index.html.twig');
     });
+
+    $app->get("/grower/{id}/account"), function() use ($app) {
+
+        $grower = Grower::find($id);
+        return $app['twig']->render('grower_account.html.twig', array('$grower' => $grower))
+    });
     return $app;
 ?>
