@@ -29,7 +29,7 @@
 }
 
 @mixin desktop {
-  @media (min-width: $second-breakpoint) {
+  @media all and (min-width: $second-breakpoint) {
     @content;
   }
 }
