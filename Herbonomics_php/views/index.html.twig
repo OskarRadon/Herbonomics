@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/remodal.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="../css/remodal-default-theme.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="../css/styles.css" media="screen" title="no title" charset="utf-8">
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js" charset="utf-8"></script>
+  <script src="js/remodal.js" charset="utf-8"></script>
   <script src="js/scripts.js" charset="utf-8"></script>
   <meta charset="utf-8">
   <title>Herbonomics</title>
@@ -15,7 +18,7 @@
         <h4>Herbonomics</h4>
         <nav>
           <a href="#">Sign Up</a>
-          <a href="#">Log In</a>
+          <a href="#sign-in">Log In</a>
         </nav>
       </header>
       <div class="search-wrap">
@@ -26,8 +29,29 @@
         </form>
       </div>
     </div>
-    <main>
 
+    <!-- MODAL -->
+    <div class="remodal" data-remodal-id="sign-in">
+      <button data-remodal-action="close" class="remodal-close"></button>
+      <h2>Dispensary Sign In</h2>
+      <form class="" action="/dispensary/sign_in" method="get">
+        <label>Username</label>
+        <input type="text" name="username">
+        <label>Password</label>
+        <input type="password" name="password">
+        <button type="submit" name="button">Sign In</button>
+      </form>
+      <h2>Grower Sign In</h2>
+      <form class="" action="/grower/sign_in" method="get">
+        <label>Username</label>
+        <input type="text" name="username">
+        <label>Password</label>
+        <input type="password" name="password">
+        <button type="submit" name="button">Sign In</button>
+      </form>
+    </div>
+
+    <!-- <main>
       <h4>Connect your business</h4>
       <article>
         <div class="wrap">
@@ -51,7 +75,7 @@
           <img src="img/dispensary.jpg" alt="" />
         </div>
       </article>
-    </main>
+    </main> -->
     <footer>
       <p>Subscribe to our newsletter</p>
       <form class="email-sign-up">
