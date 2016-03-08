@@ -71,9 +71,7 @@
         return $app['twig']->render('grower_account.html.twig', array('$grower' => $grower));
     });
 
-    $app->get("/grower/{id}/account", function() use ($app) {
-
-
+  
     //*takes user to the edit account information page*//
     $app->get("/grower/{id}/edit_account_info", function($id) use ($app) {
         $grower = Grower::find($id);
