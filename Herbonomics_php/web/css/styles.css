@@ -109,21 +109,8 @@ main {
       main h4 {
         width: 100%;
         margin-bottom: 30px; } }
-  @media (min-width: 600px) {
-    main p {
-      width: calc(50% - 40px); } }
-  main .farmer img, main .dispensary img {
-    width: 100%;
-    border-radius: 2px; }
-  @media (min-width: 600px) {
-    main .farmer, main .dispensary {
-      height: 40vh;
-      display: flex;
-      justify-content: center; }
-      main .farmer img, main .dispensary img {
-        width: calc(50% - 40px); } }
-  main .dispensary p {
-    order: -1; }
+  main img {
+    width: 100%; }
 
 footer {
   display: flex;
