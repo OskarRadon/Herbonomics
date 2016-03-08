@@ -149,5 +149,38 @@
             //Assert
             $this->assertEquals('Master Kush', $result);
         }
+
+        function test_delete_singe()
+        {
+            //Arrange
+            $id = 1;
+            $strain_name = "Northern Lights";
+            $pheno = "Indica";
+            $thc = 22.96;
+            $cbd = 0.18;
+            $cgc = 1;
+            $price = 1400;
+            $growers_id = 2;
+            $test_growers_strains = new GrowersStrains($id, $strain_name, $pheno, $thc, $cbd, $cgc, $price, $growers_id);
+            $test_growers_strains->save();
+
+            $id3 = 3;
+            $strain_name3 = "Girl Scout Cookies";
+            $pheno3 = "Hybrid";
+            $thc3 = 22.43;
+            $cbd3 = 1.54;
+            $cgc3 = 0;
+            $price3 = 1500;
+            $growers_id2 = 6;
+            $test_growers_strains3 = new GrowersStrains($id3, $strain_name3, $pheno3, $thc3, $cbd3, $cgc3, $price3, $growers_id2);
+            $test_growers_strains3->save();
+
+            //Act
+            $test_growers_strains->delete();
+            $result = GrowersStrains::getAll();
+
+            //Assert
+            $this->assertEquals($test_growers_strains3, $result);
+        }
     }
 ?>
