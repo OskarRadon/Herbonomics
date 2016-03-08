@@ -133,6 +133,11 @@
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
     });
 
+    $app->get("/dispensary_demands", function() use ($app) {
+        $demands = DispensaryDemand::getAll();
+        return $app['twig']->render('dispensary_demand.html.twig', array('demands' => $demands));
+    });
+
 
     return $app;
 ?>
