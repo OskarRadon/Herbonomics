@@ -110,11 +110,12 @@ body {
 
 main {
   @include Istok();
+  padding: 0 20px;
   h4 {
     @include Montserrat();
     text-align: center;
     font-size: 1.4em;
-    margin-bottom: 0;
+    margin: 20px 0;
     color: #009B3E;
     @include tablet {
       width: 100%;
@@ -122,22 +123,26 @@ main {
     }
   }
   p {
-    padding: 0 20px;
+    // padding: 0 20px;
     @include tablet {
       width: calc(50% - 40px);
     }
   }
-  img {
-    width: calc(100% - 40px);
-    border-radius: 2px;
-  }
+  // img {
+  //   width: calc(100% - 40px);
+  //   border-radius: 2px;
+  // }
 
   .farmer {
+    img {
+      width: 100%;
+      border-radius: 2px;
+    }
     @include tablet {
+      height: 40vh;
       display: flex;
       justify-content: center;
       img {
-        height: 50vh;
         width: calc(50% - 40px);
       }
     }
