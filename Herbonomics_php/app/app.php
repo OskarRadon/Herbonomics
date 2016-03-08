@@ -64,10 +64,21 @@
         return $app['twig']->render('grower_account.html.twig', array('grower' => $grower));
     });
 
-    $app->get("/grower/{id}/account", function() use ($app) {
 
+    //*takes user to the individual grower account page*//
+    $app->get("/grower/{id}/account", function() use ($app) {
         $grower = Grower::find($id);
         return $app['twig']->render('grower_account.html.twig', array('$grower' => $grower));
+    });
+
+    $app->get("/grower/{id}/account", function() use ($app) {
+
+
+    //*takes user to the edit account information page*//
+    $app->get("/grower/{id}/edit_account_info", function($id) use ($app) {
+        $grower = Grower::find($id);
+
+        return $app['twig']->render('grower_edit_account_info.html.twig', array('grower' => $grower));
     });
 
     $app->post("/dispensary/sign_up", function() use ($app) {//get or post?
@@ -93,7 +104,12 @@
         $grower = new Grower($name, $website, $email, $username, $password);
         $grower->save();
 
-        return $app['twig']->render('grower_account.html.twig', array('grower' => $grower));
+        $strains = array();
+
+        return $app['twig']->render('grower_account.html.twig', array(
+            'grower' => $grower,
+            'strains' => $strains
+        ));
     });
 
     $app->post("/dispensary/demand_add", function() use ($app) {//get or post?
@@ -139,6 +155,15 @@
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
     });
 
+    //*Updates grower account detail information and routes back to individual account home*//
+    $app->patch("/grower/{id}/edit_account_info", function($id) use ($app) {
+        $grower = Grower::find($id);
+        $grower->update($_POST['name'], $_POST['website'], $_POST['email'], $_POST['username'], $_POST['password']);
+
+        $strains = GrowerStrains::findById($id);
+
+        return $app['twig']->render('grower_account.html.twig', array('grower' => $grower, '$strains' => $strains));
+    });
 
     $app->get("/allstrains", function() use ($app) {
         //all strains page
