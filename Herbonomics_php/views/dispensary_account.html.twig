@@ -6,7 +6,37 @@
         <title>Herbonomics</title>
     </head>
     <body>
-        <h2>(Dispensary.getName??) Account</h2>
+        <h2>{{ dispensary.getName }} Account</h2>
+
+        <h3>Here are your existing demands:</h3>
+
+        {% if demands is not empty %}
+        {% for demand in demands %}
+        <h4>{{ demand.getStrainName }}</h4>
+        {{ demand.getPheno }}
+        {{ demand.getQuantity }}
+        {% endfor %}
+        {% else %}
+        <p>
+            No demands added yet.
+        </p>
+        {% endif %}
+
+        <h3>Add a new demand:</h3>
+        <form class="" action="/dispensary/demand_add" method="post">
+            <input name="dispensary_id" type="hidden" value="{{ dispensary.getId }}">
+            <label>Strain Name</label>
+            <input type="text" name="name">
+            <label>Phenotype</label>
+            <select class="" name="pheno">
+                <option value="Sativa">Sativa</option>
+                <option value="Indica">Indica</option>
+                <option value="Hybrid">Hybrid</option>
+            </select>
+            <label>Quantity</label>
+            <input type="number" name="quantity">
+          <button type="submit" name="button">Add this Demand</button>
+        </form>
 
     </body>
 </html>

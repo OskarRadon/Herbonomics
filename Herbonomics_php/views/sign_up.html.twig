@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include '/includes/head.html.twig' %}
+    <meta charset="utf-8">
+    <title>Herbonomics</title>
+  </head>
+  <body>
+    <h2>Dispensary Sign Up</h2>
+    <form class="" action="/dispensary/sign_up" method="post">
+        <label>Company Name</label>
+        <input type="text" name="name">
+        <label>Website Link</label>
+        <input type="text" name="website">
+        <label>New Email</label>
+        <input type="text" name="email">
+        <label>New Username</label>
+        <input type="text" name="username">
+        <label>Password</label>
+        <input type="password" name="password">
+      <button type="submit" name="button">Sign In</button>
+    </form>
+    <h2>Grower Sign Up</h2>
+    <form class="" action="/grower/sign_up" method="post">
+        <label>Company Name</label>
+        <input type="text" name="name">
+        <label>Website Link</label>
+        <input type="text" name="website">
+        <label>New Email</label>
+        <input type="text" name="email">
+        <label>New Username</label>
+        <input type="text" name="username">
+        <label>Password</label>
+        <input type="password" name="password">
+        <button type="submit" name="button">Sign In</button>
+    </form>
+  </body>
+</html>
