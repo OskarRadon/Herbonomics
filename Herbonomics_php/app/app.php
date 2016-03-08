@@ -77,7 +77,7 @@
 
     //*takes user to the edit account information page*//
     $app->get("/grower/{id}/edit_account_info", function($id) use ($app) {
-        $grower = Grower::find($id);
+        $grower = Grower::findById($id);
 
         return $app['twig']->render('grower_edit_account_info.html.twig', array('grower' => $grower));
     });
@@ -158,12 +158,12 @@
 
     //*Updates grower account detail information and routes back to individual account home*//
     $app->patch("/grower/{id}/edit_account_info", function($id) use ($app) {
-        $grower = Grower::find($id);
+        $grower = Grower::findById($id);
         $grower->update($_POST['name'], $_POST['website'], $_POST['email'], $_POST['username'], $_POST['password']);
 
-        $strains = GrowerStrains::findById($id);
+        $strains = GrowersStrains::findById($id);
 
-        return $app['twig']->render('grower_account.html.twig', array('grower' => $grower, '$strains' => $strains));
+        return $app['twig']->render('grower_account.html.twig', array('grower' => $grower, 'strains' => $strains));
     });
 
     $app->get("/allstrains", function() use ($app) {
