@@ -109,6 +109,11 @@ header {
   }
 }
 
+.wrapper {
+  max-width: $wrapper-width;
+  margin: 0 auto;
+}
+
 footer {
   display: flex;
   flex-direction: column;

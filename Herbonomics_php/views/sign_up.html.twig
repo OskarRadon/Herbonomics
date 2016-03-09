@@ -10,42 +10,42 @@
 
     <!-- MODAL -->
     {% include '/includes/sign-in.html.twig' %}
-    <main>
-      <div class="dispensary">
-        <h2>Dispensary Sign Up</h2>
-        <form class="dispensary" action="/dispensary/sign_up" method="post">
-          <label>Company Name</label>
-          <input type="text" name="name">
-          <label>Website Link</label>
-          <input type="text" name="website">
-          <label>New Email</label>
-          <input type="text" name="email">
-          <label>New Username</label>
-          <input type="text" name="username">
-          <label>Password</label>
-          <input type="password" name="password">
-          <button type="submit" name="button">Sign Up</button>
+      <main>
+        <div class="dispensary">
+          <h2>Dispensary Sign Up</h2>
+          <form class="dispensary" action="/dispensary/sign_up" method="post">
+            <label>Company Name</label>
+            <input type="text" name="name">
+            <label>Website Link</label>
+            <input type="text" name="website">
+            <label>New Email</label>
+            <input type="text" name="email">
+            <label>New Username</label>
+            <input type="text" name="username">
+            <label>Password</label>
+            <input type="password" name="password">
+            <button type="submit" name="button">Sign Up</button>
+          </form>
+        </div>
+        <div class="sep">
+
+        </div>
+        <div class="grower">
+        <h2>Grower Sign Up</h2>
+          <form class="" action="/grower/sign_up" method="post">
+            <label>Company Name</label>
+            <input type="text" name="name">
+            <label>Website Link</label>
+            <input type="text" name="website">
+            <label>New Email</label>
+            <input type="text" name="email">
+            <label>New Username</label>
+            <input type="text" name="username">
+            <label>Password</label>
+            <input type="password" name="password">
+            <button type="submit" name="button">Sign Up</button>
         </form>
       </div>
-      <div class="sep">
-
-      </div>
-      <div class="grower">
-      <h2>Grower Sign Up</h2>
-        <form class="" action="/grower/sign_up" method="post">
-          <label>Company Name</label>
-          <input type="text" name="name">
-          <label>Website Link</label>
-          <input type="text" name="website">
-          <label>New Email</label>
-          <input type="text" name="email">
-          <label>New Username</label>
-          <input type="text" name="username">
-          <label>Password</label>
-          <input type="password" name="password">
-          <button type="submit" name="button">Sign Up</button>
-      </form>
-    </div>
     </main>
 
     {% include '/includes/footer.html.twig' %}
