@@ -169,6 +169,13 @@
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
     });
 
+    $app->get("/dispensary_profile/{id}", function($id) use ($app) {
+        $dispensary = Dispensary::find($id);
+        return $app['twig']->render('dispensary_profile.html.twig', array(
+          'dispensary' => $dispensary
+        ));
+    });
+
     $app->get("/demand/{id}/delete", function($id) use ($app) {
         $demand = DispensaryDemand::find($id);
         $demand_id = $demand->getDispensaryId();
