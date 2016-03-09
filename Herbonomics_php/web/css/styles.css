@@ -141,6 +141,23 @@ body {
       color: white;
       border-bottom: 3px solid #d30e00; }
 
+main {
+  font-family: 'Istok Web', serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column; }
+  main article {
+    width: 100%; }
+    main article h4 {
+      text-align: center;
+      font-size: 1.4em;
+      color: #009B3E; }
+    main article img {
+      width: 100%;
+      border-radius: 3px; }
+
 footer {
   display: flex;
   flex-direction: column;
