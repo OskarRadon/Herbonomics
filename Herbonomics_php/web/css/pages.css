@@ -62,7 +62,8 @@ header {
   height: 80px;
   font-family: 'Montserrat', serif;
   font-weight: 400;
-  font-style: normal; }
+  font-style: normal;
+  color: #009B3E; }
   header h4 {
     margin-left: 20px;
     font-size: 1.2em; }
@@ -79,6 +80,7 @@ header {
       header nav {
         margin-right: 40px; } }
     header nav a {
+      color: #009B3E;
       text-decoration: none;
       font-size: 0.9em; }
       header nav a:first-of-type {
