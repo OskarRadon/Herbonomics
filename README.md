@@ -13,7 +13,15 @@ Similarly, as a farm you can make your own profile and can display what products
 
 ## Bug list
 
+<<<<<<< HEAD
+1. Updated grower account name, but upon return to grower account page all strains are missing.
+
+2. Upon editing a strain user is taken to the incorrect grower account page.
+
+3. If I attempt to sign in and mess up my password or username, I am taken back to the home screen. When I click "log in" again, nothing happens. Something is funky with the URL that we are routing too. 
+=======
 1. None at this time.
+>>>>>>> master
 
 ## Setup
 
