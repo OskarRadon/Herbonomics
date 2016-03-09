@@ -10,6 +10,8 @@
     <body>
         <h2>{{ dispensary.getName }} Account</h2>
         <a href="/dispensary/{{ dispensary.getId }}/edit_account_info">Edit</a>
+        <a href="/dispensary_profile/{{ dispensary.getId }}">View Profile</a>
+
         <h3>Here are your existing demands:</h3>
 
         <table border = "1" cellpadding = "15">
@@ -61,14 +63,14 @@
                 <option value="Indica">Indica</option>
                 <option value="Hybrid">Hybrid</option>
             </select>
-            <label>Quantity</label>
-            <input type="number" name="quantity">
+            <label>Quantity (lbs)</label>
+            <input type="number" name="quantity" step="any" min="0">
           <button type="submit" name="button">Add this Demand</button>
         </form>
         <br>
         <a href="/dispensary_demands">Browse Dispensary Demands</a><br>
         <a href="/grower_supply">Browse Grower Supply</a><br>
-        <a href="/">Home</a>
+        {% include '/includes/home_form.html.twig' %}
 
     </body>
 </html>
