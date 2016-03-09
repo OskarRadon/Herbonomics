@@ -7,6 +7,7 @@
                <th>Price ($/lb)</th>
                <th>Clean Green Certified</th>
                <th>Grower</th>
+               <th>Tools</th>
            </tr>
            {% if strains is not empty %}
                {% for strain in strains %}
@@ -27,11 +28,20 @@
                        {{ strain.getPrice }}
                    </td>
                    <td>
-                       {{ strain.getCgc }}
+                       {% if strain.getCgc == 1 %}
+                           &#10004;
+                       {% else %}
+                           &#x2718;
+                       {% endif %}
                    </td>
                    <td>
-                       {{ strain.getGrowersId }}
-                       <!--How do I get the specific grower's name here?-->
+                       {{ strain.findGrowerName(strain.getGrowersId) }}
+                   </td>
+                   <td>
+                       <a href='/strain/{{strain.getId}}/edit_strain'>Edit</a>
+                       <p>
+                           delete
+                       </p>
                    </td>
                </tr>
                {% endfor %}

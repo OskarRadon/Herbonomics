@@ -11,6 +11,12 @@ As a dispensary, you can make your own profile and display what strains and the 
 
 Similarly, as a farm you can make your own profile and can display what products you have on hand.  You can search for dispensaries or strains and see the current product demand on the market.  If you see a dispensary that suits your need, you can contact them and make them an offer for your product.
 
+## Bug list
+
+1.Updated grower account name, but upon return to grower account page all strains are missing.
+
+2.Upon editing a strain user is taken to the incorrect grower account page.
+
 ## Setup
 
 1. Clone this repository using the command `git clone https://github.com/OskarRadon/Herbonomics.git`.
