@@ -183,5 +183,26 @@ class GrowersStrains
 
         return $growers[0]['name'];
     }
+
+    static function search($search_term)
+    {
+        $query = $GLOBALS['DB']->query("SELECT * FROM growers_strains WHERE strain_name LIKE '%{$search_term}%'");
+        $all_growers_strains = $query->fetchAll(PDO::FETCH_ASSOC);
+        $found_growers_strains = array();
+        foreach ($all_growers_strains as $strain) {
+            $id = $strain['id'];
+            $strain_name = $strain['strain_name'];
+            $pheno = $strain['pheno'];
+            $thc = (float) $strain['thc'];
+            $cbd = (float) $strain['cbd'];
+            $cgc = (int) $strain['cgc'];
+            $price = (int) $strain['price'];
+            $growers_id = (int) $strain['growers_id'];
+            $new_strain = new GrowersStrains($id, $strain_name, $pheno, $thc, $cbd, $cgc, $price, $growers_id);
+            array_push($found_growers_strains, $new_strain);
+        }
+        return $found_growers_strains;
+    }
+
 }
 ?>

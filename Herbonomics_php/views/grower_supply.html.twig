@@ -4,7 +4,14 @@
         <title>Herbonomics</title>
     </head>
     <body>
-        <h3>search bar goes here</h3>
+        <h3>Growers Strains</h3>
+
+        <form class="" action="/grower_supply/search" method="get">
+            <label>Search Strain Name</label>
+            <input type="text" name="search">
+          <button type="submit" name="button">Search</button>
+        </form>
+
         <table border = "1" cellpadding = "15">
             <tr>
                 <th>Strain</th>
@@ -16,7 +23,7 @@
                 <th>Grower</th>
             </tr>
             {% if strains is not empty %}
-                {% for strains in strain %}
+                {% for strain in strains %}
                 <tr>
                     <td>
                         {{ strain.getStrainName }}
@@ -34,7 +41,7 @@
                         {{ strain.getPrice }}
                     </td>
                     <td>
-                        {% if task.getCgc == 1 %}
+                        {% if strain.getCgc == 1 %}
                             &#10004;
                         {% else %}
                             &#x2718;
