@@ -14,9 +14,10 @@
              <button type="submit">View Profile</button>
         </form>
 
+               {% include '/includes/dispensary_demands.html.twig' %}<br>
+               {% include '/includes/grower_supply.html.twig' %}<br>
+               {% include '/includes/home_form.html.twig' %}
 
-               <h3>Here are your existing strains:</h3>
-         {% include '/includes/all_strains.html.twig' %}
 
          <h3>Add a new strain:</h3>
          <form action='/grower/add_strain' method='post'>
