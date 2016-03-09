@@ -14,45 +14,6 @@ body {
   margin: 0;
   background: white; }
 
-footer {
-  display: flex;
-  flex-direction: column;
-  background: darkgray;
-  margin-top: 40px;
-  font-family: 'Montserrat', serif;
-  font-weight: 400;
-  font-style: normal;
-  align-items: center;
-  color: white; }
-  footer input, footer button {
-    outline: none;
-    font-size: .8em;
-    padding: 4px;
-    border: none;
-    text-align: center;
-    border-radius: 2px; }
-    @media (min-width: 600px) {
-      footer input, footer button {
-        font-size: 1em;
-        padding: 10px;
-        width: 250px; } }
-  footer button {
-    background: #FF473A;
-    color: white;
-    border-bottom: 3px solid #d30e00; }
-    @media (min-width: 600px) {
-      footer button {
-        width: 100px; } }
-  footer nav {
-    width: 140px;
-    padding: 40px 0 20px;
-    display: flex;
-    justify-content: space-around; }
-    footer nav a {
-      color: white; }
-      footer nav a:hover {
-        color: #FF473A; }
-
 header {
   display: flex;
   flex-direction: row;
@@ -95,4 +56,49 @@ header {
         header nav a {
           font-size: 1.2em; } }
 
-/*# sourceMappingURL=pages.css.map */
+footer {
+  display: flex;
+  flex-direction: column;
+  background: darkgray;
+  margin-top: 40px;
+  font-family: 'Montserrat', serif;
+  font-weight: 400;
+  font-style: normal;
+  align-items: center;
+  color: white; }
+  footer input, footer button {
+    outline: none;
+    font-size: .8em;
+    padding: 4px;
+    border: none;
+    text-align: center;
+    border-radius: 2px; }
+    @media (min-width: 600px) {
+      footer input, footer button {
+        font-size: 1em;
+        padding: 10px;
+        width: 250px; } }
+  footer button {
+    background: #FF473A;
+    color: white;
+    border-bottom: 3px solid #d30e00; }
+    @media (min-width: 600px) {
+      footer button {
+        width: 100px; } }
+  footer nav {
+    width: 140px;
+    padding: 40px 0 20px;
+    display: flex;
+    justify-content: space-around; }
+    footer nav a {
+      color: white; }
+      footer nav a:hover {
+        color: #FF473A; }
+
+button {
+  border: none;
+  background: #FF473A;
+  color: white;
+  border-bottom: 3px solid #d30e00; }
+
+/*# sourceMappingURL=sign-up.css.map */
