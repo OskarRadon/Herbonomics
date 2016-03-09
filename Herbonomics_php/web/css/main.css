@@ -70,6 +70,55 @@ header {
         header nav a {
           font-size: 1.2em; } }
 
+.remodal {
+  height: 90%;
+  width: 90%;
+  padding: 0;
+  border-radius: 3px;
+  text-align: center;
+  font-family: 'Istok Web', serif;
+  font-weight: 400;
+  font-style: normal; }
+  @media (min-width: 600px) {
+    .remodal {
+      height: 68%;
+      width: 60%; } }
+  @media (orientation: landscape) {
+    .remodal {
+      font-size: .8rem; } }
+  .remodal h2 {
+    font-family: 'Montserrat', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.4em;
+    color: #009B3E; }
+    @media (min-width: 600px) {
+      .remodal h2 {
+        margin-top: 40px; } }
+  .remodal form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .remodal form input, .remodal form footer button, footer .remodal form button, .remodal .hero .search-wrap form button, .hero .search-wrap .remodal form button {
+      width: 70%;
+      border: 1px solid #353535;
+      border-radius: 3px;
+      padding: 3px; }
+      @media (min-width: 600px) {
+        .remodal form input, .remodal form footer button, footer .remodal form button, .remodal .hero .search-wrap form button, .hero .search-wrap .remodal form button {
+          width: 50%; } }
+    .remodal form label:nth-of-type(even) {
+      margin-top: 10px; }
+    .remodal form button {
+      margin-top: 10px;
+      width: 80px;
+      padding: 5px;
+      border: none;
+      font-size: .9em;
+      background: #FF473A;
+      color: white;
+      border-bottom: 3px solid #d30e00; }
+
 footer {
   display: flex;
   flex-direction: column;
@@ -203,55 +252,6 @@ button {
             width: 120px;
             margin: 0 0 0 10px; } }
 
-.remodal {
-  height: 90%;
-  width: 90%;
-  padding: 0;
-  border-radius: 3px;
-  text-align: center;
-  font-family: 'Istok Web', serif;
-  font-weight: 400;
-  font-style: normal; }
-  @media (min-width: 600px) {
-    .remodal {
-      height: 68%;
-      width: 60%; } }
-  @media (orientation: landscape) {
-    .remodal {
-      font-size: .8rem; } }
-  .remodal h2 {
-    font-family: 'Montserrat', serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.4em;
-    color: #009B3E; }
-    @media (min-width: 600px) {
-      .remodal h2 {
-        margin-top: 40px; } }
-  .remodal form {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-    .remodal form input, .remodal form footer button, footer .remodal form button, .remodal .hero .search-wrap form button, .hero .search-wrap .remodal form button {
-      width: 70%;
-      border: 1px solid #353535;
-      border-radius: 3px;
-      padding: 3px; }
-      @media (min-width: 600px) {
-        .remodal form input, .remodal form footer button, footer .remodal form button, .remodal .hero .search-wrap form button, .hero .search-wrap .remodal form button {
-          width: 50%; } }
-    .remodal form label:nth-of-type(even) {
-      margin-top: 10px; }
-    .remodal form button {
-      margin-top: 10px;
-      width: 80px;
-      padding: 5px;
-      border: none;
-      font-size: .9em;
-      background: #FF473A;
-      color: white;
-      border-bottom: 3px solid #d30e00; }
-
 main {
   font-family: 'Istok Web', serif;
   font-weight: 400;
@@ -277,5 +277,8 @@ main {
       text-align: center;
       font-size: 1.4em;
       color: #009B3E; }
+
+.hero header h4 {
+  color: white; }
 
 /*# sourceMappingURL=main.css.map */
