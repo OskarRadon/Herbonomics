@@ -2,31 +2,63 @@
 
 <html>
 <head>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-   <link rel='stylesheet' href='/styles.css'>
    <title>Grower Account</title>
 </head>
     <body>
-      <div class='container'>
+      <div>
         <h1>{{ grower.getName }}</h1>
-        <p> Website: {{ grower.getWebsite }}</p>
-         <p> Email: {{ grower.getEmail }}</p>
-         <p> Username: {{ grower.getUsername}}</p>
-         <p> Password: {{ grower.getPassword }}</p>
-         <p?> Account Id: {{ grower.getId }}</p>
-
          <form action="/grower/{{ grower.getId }}/edit_account_info" method="get">
               <button type="submit">Edit Account Details</button>
-            </form>
+        </form>
+        <form action="" method="get">
+             <button type="submit">View Profile</button>
+        </form>
 
-            <form action="/grower/{{ grower.getId }}/add_strain" method="get">
-                 <button type="submit">Add a Strain</button>
-               </form>
 
-
+               <h3>Here are your existing strains:</h3>
          {% include '/includes/all_strains.html.twig' %}
 
-        <!-- <p><a href='/'>Home</a></p> -->
+         <h3>Add a new strain:</h3>
+         <form action='/grower/add_strain' method='post'>
+             <input id="growers_id" name="growers_id" type="hidden" value="{{ grower.getId }}">
+
+             <label for="strain_name">Strain Name</label>
+             <input id='strain_name' name='strain_name' type='text'>
+
+             <label for='pheno'>Pheno Type</label>
+             <select class="" name="pheno">
+                <option value="Sativa">Sativa</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Indica">Indica</option>
+             </select>
+
+             <label for='thc'>THC Content</label>
+             <input id='thc' name='thc' type='number' step="any" min="0"/>
+
+             <label for='cbd'>CBD Content</label>
+             <input id='cbd' name='cbd' type='number' step="any" min="0"/>
+
+             <label>Clean Grean Certified?</label>
+             <select class="" name="cgc">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+             </select>
+
+             <label for='price'>Price</label>
+             <input id='price' name='price' type='int'>
+
+             <button class="info" type='submit'>Add the Strain</button>
+         </form>
+
+         <form action="/dispensary_demands" method="get">
+              <button type="submit">Browse Retailer Demands</button>
+         </form>
+
+         <form action="/grower_supply" method="get">
+              <button type="submit">Browse Cultivator Supply</button>
+         </form>
+
+         {% include '/includes/home_form.html.twig' %}
     </div>
 </body>
 </html>
