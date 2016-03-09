@@ -114,7 +114,7 @@
   h2 {
     @include Montserrat();
     font-size: 1.4em;
-    color: #009B3E;
+    color: $color-green;
     @include tablet {
       margin-top: 40px;
     }
@@ -125,7 +125,7 @@
     align-items: center;
     input {
       width: 70%;
-      border: 1px solid darkgray;
+      border: 1px solid $color-darkgray;
       border-radius: 3px;
       padding: 3px;
       @include tablet {
@@ -173,7 +173,7 @@ main {
     h4 {
       text-align: center;
       font-size: 1.4em;
-      color: #009B3E;
+      color: $color-green;
     }
   }
 }
