@@ -148,15 +148,34 @@ main {
   padding: 0 20px;
   display: flex;
   flex-direction: column; }
+  @media (min-width: 600px) {
+    main {
+      flex-direction: row; } }
   main article {
     width: 100%; }
+    @media (min-width: 600px) {
+      main article {
+        width: calc(100% - 10px); } }
+    main article:first-of-type {
+      margin-right: 20px; }
+    main article .image {
+      width: 100%;
+      border-radius: 3px;
+      height: 30vh; }
     main article h4 {
       text-align: center;
       font-size: 1.4em;
       color: #009B3E; }
-    main article img {
-      width: 100%;
-      border-radius: 3px; }
+
+#img1 {
+  background: url("../img/1.jpg");
+  background-position: top;
+  background-size: cover; }
+
+#img2 {
+  background: url("../img/2.jpg");
+  background-position: top;
+  background-size: cover; }
 
 footer {
   display: flex;

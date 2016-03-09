@@ -163,17 +163,35 @@ main {
   padding: 0 20px;
   display: flex;
   flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+  }
   article {
     width: 100%;
+    @include tablet {
+      width: calc(100% - 10px);
+    }
+    &:first-of-type {
+      margin-right: 20px;
+    }
+    .image {
+      width: 100%;
+      border-radius: 3px;
+      height: 30vh;
+    }
     h4 {
       text-align: center;
       font-size: 1.4em;
       color: #009B3E;
     }
-    img {
-      width: 100%;
-      border-radius: 3px;
-    }
+  }
+}
+
+@for $i from 1 through 2 {
+  #img#{$i} {
+    background: url('../img/#{$i}.jpg');
+    background-position: top;
+    background-size: cover;
   }
 }
 
