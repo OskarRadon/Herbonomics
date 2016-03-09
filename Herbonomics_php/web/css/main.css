@@ -38,7 +38,8 @@ header {
   height: 80px;
   background: white;
   position: fixed;
-  top: 0; }
+  top: 0;
+  box-shadow: 0 1px 20px #353535; }
   header a {
     color: #009B3E;
     text-decoration: none; }

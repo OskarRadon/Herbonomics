@@ -2,20 +2,34 @@
 
 
 
-h2  {
-  @include Montserrat;
-  text-align: center;
-  color: $color-green;
-}
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  input {
-    width: 70%;
-    border: 1px solid $color-darkgray;
-    border-radius: 3px;
-    padding: 3px;
+main {
+  padding-top: 10px;
+  h2  {
+    @include Montserrat;
+    text-align: center;
+    color: $color-green;
+    padding: 20px 0 15px;
+    margin-bottom: 0;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    label {
+      @include Istok;
+      margin: 5px 0 2px;
+    }
+    input {
+      width: 70%;
+      border: 1px solid $color-darkgray;
+      border-radius: 3px;
+      padding: 3px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      font-size: 1em;
+    }
   }
 }
