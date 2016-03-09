@@ -159,7 +159,7 @@
         return $app['twig']->render('dispensary_demand_edit.html.twig', array('demand' => $demand));
     });
 
-    $app->patch("/dispensary/{id}/edit_post", function($id) use ($app) {
+    $app->patch("/dispensary_demand/{id}/edit_post", function($id) use ($app) {
         $demand = DispensaryDemand::find($id);
         $demand->update($_POST['strain_name'], $_POST['pheno'], $_POST['quantity']);
 
