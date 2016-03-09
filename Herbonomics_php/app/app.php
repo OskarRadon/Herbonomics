@@ -169,6 +169,7 @@
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
     });
 
+    //*Deletes single demand from dispensaries account and returns to dispensary account page*//
     $app->get("/demand/{id}/delete", function($id) use ($app) {
         $demand = DispensaryDemand::find($id);
         $demand_id = $demand->getDispensaryId();
@@ -177,6 +178,17 @@
         $demands = DispensaryDemand::findByDispensary($demand_id);
 
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
+    });
+
+    //*Deletes single strain from growers account and returns to the growers account page*//
+    $app->get("/strain/{id}/delete_strain", function($id) use ($app) {
+        $strain = GrowersStrains::findById($id);
+        $strain_id = $strain->getGrowersId();
+        $strain->deleteOneStrain();
+        $grower = Grower::findById($strain_id);
+        $strains = GrowersStrains::findByGrower($strain_id);
+
+        return $app['twig']->render('grower_account.html.twig', array('grower' => $grower, 'strains' => $strains));
     });
 
     $app->get("/dispensary/{id}/edit_account_info", function($id) use ($app) {

@@ -13,7 +13,7 @@ Similarly, as a farm you can make your own profile and can display what products
 
 ## Bug list
 
-1.Upon editing a strain user is taken to the incorrect grower account page.
+1. None at this time.
 
 ## Setup
 
