@@ -9,7 +9,7 @@
     </head>
     <body>
 
-        <h2>{{ dispensary.getName }}</h2>
+        <h1>{{ dispensary.getName }}</h1>
         {% include '/includes/dispensary_edit.html.twig' %}
         {% include '/includes/view_dispensary_profile.html.twig' %}
 
@@ -21,7 +21,6 @@
                 <th>Strain</th>
                 <th>Phenotype</th>
                 <th>Quantity</th>
-                <th>Dispensary</th>
                 <th>Edit</th>
             </tr>
             {% if demands is not empty %}
@@ -35,9 +34,6 @@
                     </td>
                     <td>
                         {{ demand.getQuantity }}lbs
-                    </td>
-                    <td>
-                        {{ demand.findDispensaryName(demand.getDispensaryId) }}
                     </td>
                     <td>
                         <a href="/dispensary_demand/{{ demand.getId }}/edit"><img style="height: 2em;" class="glyph" src="/img/glyph_edit.png" alt="" /></a> <a href="/demand/{{ demand.getId }}/delete"><img class="glyph" style="height: 2em;" src="/img/glyph_delete.png" alt="" /></a>
