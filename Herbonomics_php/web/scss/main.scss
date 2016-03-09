@@ -3,8 +3,15 @@
 @import 'layout/global';
 @import 'layout/landing-page';
 
+body {
+  margin: 0;
+}
+
 .hero {
   header {
+    background: none;
+    box-shadow: none;
+    position: relative;
     h4 {
       color: $color-white;
     }

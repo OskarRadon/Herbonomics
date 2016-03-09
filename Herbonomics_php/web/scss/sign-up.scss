@@ -1,8 +1,5 @@
 @import 'layout/global';
 
-
-
-
 main {
   padding-top: 10px;
   h2  {
@@ -22,7 +19,7 @@ main {
     }
     input {
       width: 70%;
-      border: 1px solid $color-darkgray;
+      border: 1px solid $color-border;
       border-radius: 3px;
       padding: 3px;
     }

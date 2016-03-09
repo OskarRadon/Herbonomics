@@ -63,6 +63,7 @@ header {
   padding: 0;
   border-radius: 3px;
   text-align: center;
+  background: $color-background;
   @include Istok();
   @include tablet {
     height: 68%;
@@ -85,7 +86,7 @@ header {
     align-items: center;
     input {
       width: 70%;
-      border: 1px solid $color-darkgray;
+      border: 1px solid $color-border;
       border-radius: 3px;
       padding: 3px;
       @include tablet {

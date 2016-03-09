@@ -68,6 +68,7 @@ header {
   padding: 0;
   border-radius: 3px;
   text-align: center;
+  background: #E1DEE3;
   font-family: 'Istok Web', serif;
   font-weight: 400;
   font-style: normal; }
@@ -93,7 +94,7 @@ header {
     align-items: center; }
     .remodal form input, .remodal form footer button, footer .remodal form button {
       width: 70%;
-      border: 1px solid #353535;
+      border: 1px solid #bababa;
       border-radius: 3px;
       padding: 3px; }
       @media (min-width: 600px) {
@@ -178,7 +179,7 @@ main {
       margin: 5px 0 2px; }
     main form input, main form footer button, footer main form button {
       width: 70%;
-      border: 1px solid #353535;
+      border: 1px solid #bababa;
       border-radius: 3px;
       padding: 3px; }
     main form button {

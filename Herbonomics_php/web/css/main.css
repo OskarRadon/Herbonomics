@@ -80,6 +80,7 @@ header {
   padding: 0;
   border-radius: 3px;
   text-align: center;
+  background: #E1DEE3;
   font-family: 'Istok Web', serif;
   font-weight: 400;
   font-style: normal; }
@@ -105,7 +106,7 @@ header {
     align-items: center; }
     .remodal form input, .remodal form footer button, footer .remodal form button, .remodal .hero .search-wrap form button, .hero .search-wrap .remodal form button {
       width: 70%;
-      border: 1px solid #353535;
+      border: 1px solid #bababa;
       border-radius: 3px;
       padding: 3px; }
       @media (min-width: 600px) {
@@ -283,7 +284,14 @@ main {
       font-size: 1.4em;
       color: #009B3E; }
 
-.hero header h4 {
-  color: white; }
+body {
+  margin: 0; }
+
+.hero header {
+  background: none;
+  box-shadow: none;
+  position: relative; }
+  .hero header h4 {
+    color: white; }
 
 /*# sourceMappingURL=main.css.map */
