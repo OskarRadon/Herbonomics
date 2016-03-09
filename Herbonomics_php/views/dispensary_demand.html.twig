@@ -33,7 +33,7 @@
                         {{ demand.getQuantity }}lbs
                     </td>
                     <td>
-                        {{ demand.findDispensaryName(demand.getDispensaryId) }}
+                        <a href="/dispensary_profile/{{ demand.getDispensaryId }}">{{ demand.findDispensaryName(demand.getDispensaryId) }}</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -46,5 +46,9 @@
             {% endif %}
         </table>
 
+        <br>
+        <a href="/dispensary_demands">Browse Dispensary Demands</a><br>
+        <a href="/grower_supply">Browse Grower Supply</a><br>
+        {% include '/includes/home_form.html.twig' %}
     </body>
 </html>

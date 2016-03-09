@@ -7,7 +7,7 @@
                <th>Price ($/lb)</th>
                <th>Clean Green Certified</th>
                <th>Grower</th>
-               <th>Tools</th>
+               <th>Edit</th>
            </tr>
            {% if strains is not empty %}
                {% for strain in strains %}
@@ -38,16 +38,15 @@
                        {{ strain.findGrowerName(strain.getGrowersId) }}
                    </td>
                    <td>
-                       <a href='/strain/{{strain.getId}}/edit_strain'>Edit</a>
-                       <p>
-                           delete
-                       </p>
+                       <a href='/strain/{{strain.getId}}/edit_strain'><img style="height: 2em;" class="glyph" src="/img/glyph_edit.png" alt="" /></a>
+
+                       <a href='/strain/{{strain.getId}}/delete_strain'><img class="glyph" style="height: 2em;" src="/img/glyph_delete.png" alt="" /></a>
                    </td>
                </tr>
                {% endfor %}
            {% else %}
            <tr>
-               <td colspan = "7">
+               <td colspan = "8">
                     No Strains Available
                </td>
            </tr>

@@ -5,11 +5,18 @@
         {% include '/includes/head.html.twig' %}
          <link rel="stylesheet" href="../css/styles.css" media="screen" title="no title" charset="utf-8">
         <meta charset="utf-8">
-        <title>Herbonomics</title>
+        <title>Dispensary Account</title>
     </head>
     <body>
-        <h2>{{ dispensary.getName }} Account</h2>
-        <a href="/dispensary/{{ dispensary.getId }}/edit_account_info">Edit</a>
+        <h2>{{ dispensary.getName }} </h2>
+
+        <form action="/dispensary/{{ dispensary.getId }}/edit_account_info" method="get">
+             <button type="submit">Edit Account Details</button>
+        </form>
+        <form action="/dispensary_profile/{{ dispensary.getId }}" method="get">
+                <button type="submit">View Profile</button>
+        </form>
+
         <h3>Here are your existing demands:</h3>
 
         <table border = "1" cellpadding = "15">
@@ -61,14 +68,19 @@
                 <option value="Indica">Indica</option>
                 <option value="Hybrid">Hybrid</option>
             </select>
-            <label>Quantity</label>
-            <input type="number" name="quantity">
+            <label>Quantity (lbs)</label>
+            <input type="number" name="quantity" step="any" min="0">
           <button type="submit" name="button">Add this Demand</button>
         </form>
         <br>
-        <a href="/dispensary_demands">Browse Dispensary Demands</a><br>
-        <a href="/grower_supply">Browse Grower Supply</a><br>
-        <a href="/">Home</a>
+        <form action="/dispensary_demands" method="get">
+             <button type="submit">Browse Retailer Demands</button>
+        </form>
+
+        <form action="/grower_supply" method="get">
+             <button type="submit">Browse Cultivator Supply</button>
+        </form>
+        {% include '/includes/home_form.html.twig' %}
 
     </body>
 </html>

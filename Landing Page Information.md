@@ -14,6 +14,3 @@ Our live marketplace can be accessed anytime, anywhere. Cloud based supply-chain
 
 #### 24/7 Call and Support
 You can call us anytime. We mean it. The Tetra support team is here to help.
-
-
-## 
