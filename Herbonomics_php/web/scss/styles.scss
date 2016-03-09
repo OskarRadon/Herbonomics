@@ -107,14 +107,26 @@ body {
 // MODAL STYLING
 
 .remodal {
-  padding: 40px;
+  height: 90%;
+  width: 90%;
+  padding: 0;
   border-radius: 3px;
-  @include Istok();
   text-align: center;
+  @include Istok();
+  @include tablet {
+    height: 68%;
+    width: 60%;
+  }
+  @media (orientation: landscape) {
+    font-size: .8rem;
+  }
   h2 {
     @include Montserrat();
     font-size: 1.4em;
     color: #009B3E;
+    @include tablet {
+      margin-top: 40px;
+    }
   }
   form {
     display: flex;
@@ -125,11 +137,14 @@ body {
       border: 1px solid darkgray;
       border-radius: 3px;
       padding: 3px;
+      @include tablet {
+        width: 50%;
+      }
     }
     label:nth-of-type(even) {
       margin-top: 10px;
     }
-   button {
+    button {
       margin-top: 10px;
       width: 80px;
       padding: 5px;

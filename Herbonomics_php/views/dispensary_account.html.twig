@@ -3,6 +3,7 @@
 <html>
     <head>
         {% include '/includes/head.html.twig' %}
+         <link rel="stylesheet" href="../css/styles.css" media="screen" title="no title" charset="utf-8">
         <meta charset="utf-8">
         <title>Herbonomics</title>
     </head>
@@ -11,21 +12,42 @@
         <a href="/dispensary/{{ dispensary.getId }}/edit_account_info">Edit</a>
         <h3>Here are your existing demands:</h3>
 
-        {% if demands is not empty %}
-        {% for demand in demands %}
-        <h4>Strain Name: {{ demand.getStrainName }}</h4>
-
-        <p>Phenotype: {{ demand.getPheno }}</p>
-        <p>Quantity: {{ demand.getQuantity }}</p>
-        <a href="/dispensary_demand/{{ demand.getId }}/edit">Edit</a>
-        {% endfor %}
-        {% else %}
-        <p>
-            No demands added yet.
-        </p>
-        {% endif %}
-
-
+        <table border = "1" cellpadding = "15">
+            <tr>
+                <th>Strain</th>
+                <th>Phenotype</th>
+                <th>Quantity</th>
+                <th>Dispensary</th>
+                <th>Edit</th>
+            </tr>
+            {% if demands is not empty %}
+                {% for demand in demands %}
+                <tr>
+                    <td>
+                        {{ demand.getStrainName }}
+                    </td>
+                    <td>
+                        {{ demand.getPheno }}
+                    </td>
+                    <td>
+                        {{ demand.getQuantity }}lbs
+                    </td>
+                    <td>
+                        {{ demand.findDispensaryName(demand.getDispensaryId) }}
+                    </td>
+                    <td>
+                        <a href="/dispensary_demand/{{ demand.getId }}/edit"><img style="height: 2em;" class="glyph" src="/img/glyph_edit.png" alt="" /></a> <a href="/demand/{{ demand.getId }}/delete"><img class="glyph" style="height: 2em;" src="/img/glyph_delete.png" alt="" /></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan = "7">
+                     No Strains Available
+                </td>
+            </tr>
+            {% endif %}
+        </table>
 
 
         <h3>Add a new demand:</h3>

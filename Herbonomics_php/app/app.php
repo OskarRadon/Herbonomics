@@ -56,18 +56,18 @@
     $app->get("/grower/sign_in", function() use ($app) {//get or post?
 
         $grower = Grower::signIn($_GET['username'], $_GET['password']);
-        $strains = GrowersStrains::findByGrower($grower->getId());
+
 
         if ($grower == null) {
             return $app['twig']->render('login.html.twig');
         } else
 
+        $strains = GrowersStrains::findByGrower($grower->getId());
         return $app['twig']->render('grower_account.html.twig', array(
             'grower' => $grower,
             'strains' => $strains
         ));
     });
-
 
     //*takes user to the individual grower account page*//
     $app->get("/grower/{id}/account", function() use ($app) {
@@ -173,6 +173,16 @@
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
     });
 
+    $app->get("/demand/{id}/delete", function($id) use ($app) {
+        $demand = DispensaryDemand::find($id);
+        $demand_id = $demand->getDispensaryId();
+        $demand->delete();
+        $dispensary = Dispensary::find($demand_id);
+        $demands = DispensaryDemand::findByDispensary($demand_id);
+
+        return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
+    });
+
     $app->get("/dispensary/{id}/edit_account_info", function($id) use ($app) {
         $dispensary = Dispensary::find($id);
         return $app['twig']->render('dispensary_edit_account_info.html.twig', array('dispensary' => $dispensary));
@@ -210,6 +220,14 @@
     $app->get("/allstrains", function() use ($app) {
         //all strains page
         $strains = GrowersStrains::getAll();
+        return $app['twig']->render('grower_supply.html.twig', array(
+            'strains' => $strains
+        ));
+    });
+
+    $app->get("/grower_supply/search", function() use ($app) {
+        //all strains page
+        $strains = GrowersStrains::search($_GET['search']);
         return $app['twig']->render('grower_supply.html.twig', array(
             'strains' => $strains
         ));
