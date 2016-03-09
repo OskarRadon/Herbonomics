@@ -1,0 +1,103 @@
+@import 'utils/module';
+@import 'base/module';
+
+body {
+  margin: 0;
+  background: $color-background;
+}
+
+header {
+  @include flex(row,center, space-between);
+  width: 100%;
+  height: 80px;
+  @include Montserrat();
+  a {
+    color: $color-green;
+    text-decoration: none;
+  }
+  h4 {
+    margin-left: 20px;
+    font-size: 1.2em;
+    @include tablet {
+      font-size: 1.6em;
+      margin-left: 40px;
+    }
+    @include desktop {
+      font-size: 1.8em;
+    }
+  }
+  nav {
+    margin-right: 20px;
+    @include tablet {
+      margin-right: 40px;
+    }
+    a {
+      color: $color-green;
+      text-decoration: none;
+      font-size: 0.9em;
+      &:first-of-type {
+        margin-right: 5px;
+        @include tablet {
+          margin-right: 20px;
+        }
+      }
+      @include tablet {
+        font-size: 1em;
+      }
+      @include desktop {
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  background: $color-darkgray;
+  margin-top: 40px;
+  @include Montserrat();
+  align-items: center;
+  color: $color-background;
+  input {
+    outline: none;
+    font-size: .8em;
+    padding: 4px;
+    border: none;
+    text-align: center;
+    border-radius: 2px;
+    @include tablet {
+      font-size: 1em;
+      padding: 10px;
+      width: 250px;
+    }
+  }
+  button {
+    @extend input;
+    background: $color-red;
+    color: $color-background;
+    border-bottom: 3px solid $color-darkred;
+    @include tablet {
+      width: 100px;
+    }
+  }
+  nav {
+    width: 140px;
+    padding: 40px 0 20px;
+    display: flex;
+    justify-content: space-around;
+    a {
+      color: $color-background;
+      &:hover {
+        color: $color-red;
+      }
+    }
+  }
+}
+
+button {
+  border: none;
+  background: $color-red;
+  color: $color-background;
+  border-bottom: 3px solid $color-darkred;
+}

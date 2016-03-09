@@ -2,10 +2,11 @@
 <html>
   <head>
     {% include '/includes/head.html.twig' %}
-    <meta charset="utf-8">
-    <title>Herbonomics</title>
+    <link rel="stylesheet" href="css/sign-up.css" media="screen" title="no title" charset="utf-8">
+    <title>Herbonomics | Sign Up</title>
   </head>
   <body>
+    {% include '/includes/header.html.twig' %}
     <h2>Dispensary Sign Up</h2>
     <form class="" action="/dispensary/sign_up" method="post">
         <label>Company Name</label>
@@ -34,5 +35,6 @@
         <input type="password" name="password">
         <button type="submit" name="button">Sign In</button>
     </form>
+    {% include '/includes/footer.html.twig' %}
   </body>
 </html>

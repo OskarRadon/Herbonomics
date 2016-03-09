@@ -3,6 +3,7 @@
 @import url(https://fonts.googleapis.com/css?family=Cardo:400,700,400italic|Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Istok+Web:400,400italic,700,700italic);
 
+// Font mixins
 @mixin Istok($weight:400, $style:normal) {
   font-family: 'Istok Web', serif;
   font-weight: $weight;
@@ -22,6 +23,7 @@
   justify-content: $justify-content;
 }
 
+// Media query mixins
 @mixin tablet {
   @media (min-width: $first-breakpoint) {
     @content;
@@ -31,5 +33,15 @@
 @mixin desktop {
   @media all and (min-width: $second-breakpoint) {
     @content;
+  }
+}
+
+
+// Generate background images for main div articles
+@for $i from 1 through 2 {
+  #img#{$i} {
+    background: url('../img/#{$i}.jpg');
+    background-position: top;
+    background-size: cover;
   }
 }
