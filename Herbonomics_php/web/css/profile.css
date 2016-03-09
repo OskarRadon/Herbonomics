@@ -223,4 +223,13 @@ table {
     .account .account-buttons button {
       margin-right: 20px; }
 
+.supply h3 {
+  text-align: center; }
+.supply label {
+  margin-bottom: 20px; }
+.supply input, .supply footer button, footer .supply button {
+  margin: 0 20px 20px 0; }
+.supply table {
+  margin: 0 auto; }
+
 /*# sourceMappingURL=profile.css.map */
