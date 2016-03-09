@@ -20,3 +20,7 @@ Search results page
 Header for all Pages w/ white background
 
 Use wrapper?
+
+- Status: Signed-in
+ Main page still has log-in & sign-up visible
+ No navigation to other parts of site/app.
