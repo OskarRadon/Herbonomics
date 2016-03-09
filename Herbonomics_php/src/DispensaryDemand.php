@@ -114,7 +114,7 @@
         {
             $query = $GLOBALS['DB']->query("SELECT name FROM dispensaries JOIN dispensaries_demands ON (dispensaries.id = dispensaries_demands.dispensary_id) WHERE dispensaries.id = {$dispensary_id}");
             $dispensaries = $query->fetchAll(PDO::FETCH_ASSOC);
-            
+
             return $dispensaries[0]['name'];
         }
 
@@ -124,16 +124,33 @@
         }
 
         function update($new_strain_name, $new_pheno, $new_quantity)
-		{
-            $GLOBALS['DB']->exec("UPDATE dispensaries_demands SET strain_name = '{$new_strain_name}', pheno = '{$new_pheno}', quantity = '{$new_quantity}' WHERE id={$this->getId()};");
-            $this->setStrainName($new_strain_name);
-            $this->setPheno($new_pheno);
-            $this->setQuantity($new_quantity);
-		}
+    		{
+                $GLOBALS['DB']->exec("UPDATE dispensaries_demands SET strain_name = '{$new_strain_name}', pheno = '{$new_pheno}', quantity = '{$new_quantity}' WHERE id={$this->getId()};");
+                $this->setStrainName($new_strain_name);
+                $this->setPheno($new_pheno);
+                $this->setQuantity($new_quantity);
+    		}
 
         static function search($search_term)
         {
             $query = $GLOBALS['DB']->query("SELECT * FROM dispensaries_demands WHERE strain_name LIKE '%{$search_term}%'");
+            $all_dispensaries_demands = $query->fetchAll(PDO::FETCH_ASSOC);
+            $found_dispensaries_demands = array();
+            foreach ($all_dispensaries_demands as $demand) {
+                $strain_name = $demand['strain_name'];
+                $dispensary_id = $demand['dispensary_id'];
+                $pheno = $demand['pheno'];
+                $quantity = $demand['quantity'];
+                $id = $demand['id'];
+                $new_demand = new DispensaryDemand($strain_name, $dispensary_id, $pheno, $quantity, $id);
+                array_push($found_dispensaries_demands, $new_demand);
+            }
+            return $found_dispensaries_demands;
+        }
+
+        static function filterPhenotype($phenotype)
+        {
+            $query = $GLOBALS['DB']->query("SELECT * FROM dispensaries_demands WHERE pheno LIKE '%{$phenotype}%'");
             $all_dispensaries_demands = $query->fetchAll(PDO::FETCH_ASSOC);
             $found_dispensaries_demands = array();
             foreach ($all_dispensaries_demands as $demand) {
