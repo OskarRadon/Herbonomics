@@ -269,14 +269,12 @@
         return $app['twig']->render('dispensary_demand.html.twig', array('demands' => $demands));
     });
 
+    //*Searching by strain on retailer demand page*//
     $app->get("/dispensary_demands/search", function() use ($app) {
         $demands = DispensaryDemand::search($_GET['search']);
 
         return $app['twig']->render('dispensary_demand.html.twig', array('demands' => $demands));
     });
-
-
-
 
 
     return $app;

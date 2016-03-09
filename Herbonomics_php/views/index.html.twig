@@ -12,8 +12,13 @@
         <div class="search-wrap">
           <h3>Join our growing community of farms and dispensaries</h3>
           <form class="search">
-            <input type="text" name="name" placeholder="Search for any strain...">
-            <button type="button" name="btn-submit">Search</button>
+
+            <input type="text" name="search" placeholder="Search for any strain...">
+
+            <button type="submit" name="btn-submit" class="search" formaction="/dispensary_demands/search" method="get">Search Retailers</button>
+
+            <button type="submit" name="btn-submit" class="search" formaction="/grower_supply/search" method="get">Search Cultivators</button>
+
           </form>
         </div>
       <!-- </div> -->
