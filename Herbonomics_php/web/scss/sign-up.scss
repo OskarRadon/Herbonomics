@@ -5,15 +5,17 @@ main {
   display: flex;
   flex-direction: column;
   padding-top: 10px;
+  flex-grow: 1;
   @include tablet {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    .sep {
-      align-self: flex-end;
-      height: 290px;
-      border-right: 1px solid $color-border;
-    }
+    // .sep {
+    //   align-self: flex-end;
+    //   height: 290px;
+    //   margin-bottom: calc(100vh - 200px);
+    //   border-right: 1px solid $color-border;
+    // }
   }
   h2  {
     @include Montserrat;
@@ -37,6 +39,7 @@ main {
       padding: 3px;
       @include tablet {
         width: 40vw;
+        margin-bottom: 20px;
       }
     }
     button {

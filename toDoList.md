@@ -18,3 +18,5 @@ Sign up page
 Search results page
 
 Header for all Pages w/ white background
+
+Use wrapper?
