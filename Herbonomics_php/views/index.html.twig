@@ -2,12 +2,7 @@
 <html>
 <head>
   {% include '/includes/head.html.twig' %}
-  <link rel="stylesheet" href="../css/remodal.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="../css/remodal-default-theme.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="../css/main.css" media="screen" title="no title" charset="utf-8">
-  <script src="https://code.jquery.com/jquery-2.2.1.min.js" charset="utf-8"></script>
-  <script src="js/remodal.js" charset="utf-8"></script>
-  <script src="js/scripts.js" charset="utf-8"></script>
   <title>Herbonomics</title>
 </head>
   <body>
@@ -23,25 +18,7 @@
     </div>
 
     <!-- MODAL -->
-    <div class="remodal" data-remodal-id="sign-in">
-      <button data-remodal-action="close" class="remodal-close"></button>
-      <h2>Dispensary Sign In</h2>
-      <form class="" action="/dispensary/sign_in" method="get">
-        <label>Username</label>
-        <input type="text" name="username">
-        <label>Password</label>
-        <input type="password" name="password">
-        <button type="submit" name="button">Sign In</button>
-      </form>
-      <h2>Grower Sign In</h2>
-      <form class="" action="/grower/sign_in" method="get">
-        <label>Username</label>
-        <input type="text" name="username">
-        <label>Password</label>
-        <input type="password" name="password">
-        <button type="submit" name="button">Sign In</button>
-      </form>
-    </div>
+    {% include '/includes/sign-in.html.twig' %}
 
     <main>
       <article>
