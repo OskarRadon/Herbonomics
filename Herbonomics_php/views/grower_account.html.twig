@@ -9,7 +9,7 @@
         <h1>{{ grower.getName }}</h1>
               {% include '/includes/grower_edit.html.twig' %}<br>
               {% include '/includes/view_grower_profile.html.twig' %}<br>
-
+              <h3>Here is your current supply:</h3>
               <table border = "1" cellpadding = "15">
                          <tr>
                              <th>Strain</th>
@@ -36,7 +36,7 @@
                                      {{ strain.getCbd }}
                                  </td>
                                  <td>
-                                     {{ strain.getPrice }}
+                                     ${{ strain.getPrice }}
                                  </td>
                                  <td>
                                      {% if strain.getCgc == 1 %}
