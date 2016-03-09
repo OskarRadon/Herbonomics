@@ -42,9 +42,10 @@
                     </td>
                     <td>
                         {% if strain.getCgc == 1 %}
-                            &#10004;
+                            <img src="/img/cleangreen.png"  style="height: 3em;" alt="" />
+
                         {% else %}
-                            &#x2718;
+
                         {% endif %}
                     </td>
                     <td>
@@ -61,6 +62,8 @@
             </tr>
             {% endif %}
         </table>
-            {% include '/includes/home_form.html.twig' %}
+        {% include '/includes/dispensary_demands.html.twig' %}<br>
+        {% include '/includes/grower_supply.html.twig' %}<br>
+        {% include '/includes/home_form.html.twig' %}
     </body>
 </html>

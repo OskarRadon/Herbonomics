@@ -9,7 +9,7 @@
     </head>
     <body>
         <h2>{{ dispensary.getName }} Account</h2>
-        <a href="/dispensary/{{ dispensary.getId }}/edit_account_info">Edit</a>
+        {% include '/includes/dispensary_edit.html.twig' %}
         <a href="/dispensary_profile/{{ dispensary.getId }}">View Profile</a>
 
         <h3>Here are your existing demands:</h3>
@@ -68,8 +68,8 @@
           <button type="submit" name="button">Add this Demand</button>
         </form>
         <br>
-        <a href="/dispensary_demands">Browse Dispensary Demands</a><br>
-        <a href="/grower_supply">Browse Grower Supply</a><br>
+        {% include '/includes/dispensary_demands.html.twig' %}<br>
+        {% include '/includes/grower_supply.html.twig' %}<br>
         {% include '/includes/home_form.html.twig' %}
 
     </body>
