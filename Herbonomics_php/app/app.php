@@ -5,7 +5,6 @@
     require_once __DIR__."/../src/Grower.php";
     require_once __DIR__."/../src/GrowersStrains.php";
 
-    $app['debug'] = true;
     $server = 'mysql:host=localhost;dbname=herbonomics';
     $username = 'root';
     $password = 'root';
@@ -18,6 +17,7 @@
 
     use Symfony\Component\Debug\Debug;
 
+    $app['debug'] = true;
 
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views'

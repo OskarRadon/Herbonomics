@@ -5,9 +5,8 @@
                <th>THC %</th>
                <th>CBD %</th>
                <th>Price ($/lb)</th>
-               <th>Clean Green Certified</th>
+               <th>CGC</th>
                <th>Grower</th>
-               <th>Edit</th>
            </tr>
            {% if strains is not empty %}
                {% for strain in strains %}
@@ -29,18 +28,14 @@
                    </td>
                    <td>
                        {% if strain.getCgc == 1 %}
-                           &#10004;
+                           <img src="/img/cleangreen.png"  style="height: 3em;" alt="" />
+
                        {% else %}
-                           &#x2718;
+
                        {% endif %}
                    </td>
                    <td>
                        {{ strain.findGrowerName(strain.getGrowersId) }}
-                   </td>
-                   <td>
-                       <a href='/strain/{{strain.getId}}/edit_strain'><img style="height: 2em;" class="glyph" src="/img/glyph_edit.png" alt="" /></a>
-
-                       <a href='/strain/{{strain.getId}}/delete_strain'><img class="glyph" style="height: 2em;" src="/img/glyph_delete.png" alt="" /></a>
                    </td>
                </tr>
                {% endfor %}

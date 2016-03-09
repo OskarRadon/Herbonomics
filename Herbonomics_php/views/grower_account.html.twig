@@ -7,16 +7,63 @@
     <body>
       <div>
         <h1>{{ grower.getName }}</h1>
-         <form action="/grower/{{ grower.getId }}/edit_account_info" method="get">
-              <button type="submit">Edit Account Details</button>
-        </form>
-        <form action="" method="get">
-             <button type="submit">View Profile</button>
-        </form>
+              {% include '/includes/grower_edit.html.twig' %}<br>
+              {% include '/includes/view_grower_profile.html.twig' %}<br>
 
-               {% include '/includes/dispensary_demands.html.twig' %}<br>
-               {% include '/includes/grower_supply.html.twig' %}<br>
-               {% include '/includes/home_form.html.twig' %}
+              <table border = "1" cellpadding = "15">
+                         <tr>
+                             <th>Strain</th>
+                             <th>Phenotype</th>
+                             <th>THC %</th>
+                             <th>CBD %</th>
+                             <th>Price ($/lb)</th>
+                             <th>CGC</th>
+                             <th>Edit</th>
+                         </tr>
+                         {% if strains is not empty %}
+                             {% for strain in strains %}
+                             <tr>
+                                 <td>
+                                     {{ strain.getStrainName }}
+                                 </td>
+                                 <td>
+                                     {{ strain.getPheno }}
+                                 </td>
+                                 <td>
+                                     {{ strain.getThc }}
+                                 </td>
+                                 <td>
+                                     {{ strain.getCbd }}
+                                 </td>
+                                 <td>
+                                     {{ strain.getPrice }}
+                                 </td>
+                                 <td>
+                                     {% if strain.getCgc == 1 %}
+                                         <img src="/img/cleangreen.png"  style="height: 3em;" alt="" />
+
+                                     {% else %}
+
+                                     {% endif %}
+                                 </td>
+
+                                 <td>
+                                     <a href='/strain/{{strain.getId}}/edit_strain'><img style="height: 2em;" class="glyph" src="/img/glyph_edit.png" alt="" /></a>
+
+                                     <a href='/strain/{{strain.getId}}/delete_strain'><img class="glyph" style="height: 2em;" src="/img/glyph_delete.png" alt="" /></a>
+                                 </td>
+                             </tr>
+                             {% endfor %}
+                         {% else %}
+                         <tr>
+                             <td colspan = "8">
+                                  No Strains Available
+                             </td>
+                         </tr>
+                         {% endif %}
+                     </table>
+
+
 
 
          <h3>Add a new strain:</h3>
@@ -51,14 +98,9 @@
              <button class="info" type='submit'>Add the Strain</button>
          </form>
 
-         <form action="/dispensary_demands" method="get">
-              <button type="submit">Browse Retailer Demands</button>
-         </form>
 
-         <form action="/grower_supply" method="get">
-              <button type="submit">Browse Cultivator Supply</button>
-         </form>
-
+         {% include '/includes/dispensary_demands.html.twig' %}<br>
+         {% include '/includes/grower_supply.html.twig' %}<br>
          {% include '/includes/home_form.html.twig' %}
     </div>
 </body>
