@@ -17,7 +17,7 @@ body {
 footer {
   display: flex;
   flex-direction: column;
-  background: #444;
+  background: darkgray;
   margin-top: 40px;
   font-family: 'Montserrat', serif;
   font-weight: 400;
