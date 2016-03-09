@@ -196,19 +196,22 @@
     //*Updates grower account detail information and routes back to individual account home*//
     $app->patch("/grower/{id}/edit_account_info", function($id) use ($app) {
         $grower = Grower::findById($id);
+
         $grower->update($_POST['name'], $_POST['website'], $_POST['email'], $_POST['username'], $_POST['password']);
 
-        $strains = GrowersStrains::findById($id);
+        $strains = GrowersStrains::findByGrower($id);
 
         return $app['twig']->render('grower_account.html.twig', array('grower' => $grower, 'strains' => $strains));
     });
 
     //* Update to capture grower ID and be returned to the correct growers account page*//
     $app->patch("/strain/{id}/edit_strain", function($id) use ($app) {
-        $strains = GrowersStrains::findById($id);
-        $strains->update($_POST['strain_name'], $_POST['pheno'], $_POST['thc'], $_POST['cbd'], $_POST['cgc'], $_POST['price']);
+        $strain = GrowersStrains::findById($id);
 
-        $grower = Grower::findById($id);
+        $strain->update($_POST['strain_name'], $_POST['pheno'], $_POST['thc'], $_POST['cbd'], $_POST['cgc'], $_POST['price']);
+
+        $grower = Grower::findById($strain->getGrowersId());
+        $strains = GrowersStrains::findByGrower($strain->getGrowersId());
 
         return $app['twig']->render('grower_account.html.twig', array('grower' => $grower, 'strains' => $strains));
     });

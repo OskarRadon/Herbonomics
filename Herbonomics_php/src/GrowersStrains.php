@@ -161,7 +161,7 @@ class GrowersStrains
 
     function update($strain_name, $pheno, $thc, $cbd, $cgc, $price)
     {
-        $GLOBALS['DB']->exec("UPDATE strains_growers SET strain_name = '{$strain_name}', pheno = '{$pheno}', thc = {$thc}, cbd = {$cbd}, price = {$price} WHERE id = {$this->getId()}");
+        $GLOBALS['DB']->exec("UPDATE growers_strains SET strain_name = '{$strain_name}', pheno = '{$pheno}', thc = {$thc}, cbd = {$cbd}, cgc = {$cgc}, price = {$price} WHERE id = {$this->getId()};");
         $this->setStrainName($strain_name);
         $this->setPheno($pheno);
         $this->setThc($thc);
