@@ -162,47 +162,4 @@ form button {
   color: white;
   border-bottom: 3px solid #d30e00; }
 
-main {
-  display: flex;
-  flex-direction: column;
-  padding-top: 10px; }
-  @media (min-width: 600px) {
-    main {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around; }
-      main .sep {
-        align-self: flex-end;
-        height: 290px;
-        border-right: 1px solid #bababa; } }
-  main h2 {
-    font-family: 'Montserrat', serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    color: #009B3E;
-    padding: 20px 0 15px;
-    margin-bottom: 0; }
-  main form {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-    main form label {
-      font-family: 'Istok Web', serif;
-      font-weight: 400;
-      font-style: normal;
-      margin: 5px 0 2px; }
-    main form input, main form footer button, footer main form button {
-      width: 70%;
-      border: 1px solid #bababa;
-      border-radius: 3px;
-      padding: 3px; }
-      @media (min-width: 600px) {
-        main form input, main form footer button, footer main form button {
-          width: 40vw; } }
-    main form button {
-      margin-top: 10px;
-      padding: 5px 10px;
-      font-size: 1em; }
-
-/*# sourceMappingURL=sign-up.css.map */
+/*# sourceMappingURL=profile.css.map */

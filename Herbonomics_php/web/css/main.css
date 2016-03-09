@@ -124,6 +124,10 @@ header {
       color: white;
       border-bottom: 3px solid #d30e00; }
 
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto; }
+
 footer {
   display: flex;
   flex-direction: column;

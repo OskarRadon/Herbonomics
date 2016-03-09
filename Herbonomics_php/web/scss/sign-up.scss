@@ -1,7 +1,20 @@
 @import 'layout/global';
 
+
 main {
+  display: flex;
+  flex-direction: column;
   padding-top: 10px;
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    .sep {
+      align-self: flex-end;
+      height: 290px;
+      border-right: 1px solid $color-border;
+    }
+  }
   h2  {
     @include Montserrat;
     text-align: center;
@@ -22,6 +35,9 @@ main {
       border: 1px solid $color-border;
       border-radius: 3px;
       padding: 3px;
+      @include tablet {
+        width: 40vw;
+      }
     }
     button {
       margin-top: 10px;
