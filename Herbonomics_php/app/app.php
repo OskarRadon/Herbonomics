@@ -213,7 +213,7 @@
         return $app['twig']->render('grower_account.html.twig', array('grower' => $grower, 'strains' => $strains));
     });
 
-    $app->get("/allstrains", function() use ($app) {
+    $app->get("/grower_supply", function() use ($app) {
         //all strains page
         $strains = GrowersStrains::getAll();
         return $app['twig']->render('grower_supply.html.twig', array(
