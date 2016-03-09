@@ -23,19 +23,22 @@
   background-size: cover; }
 
 body {
-  margin: 0;
-  background: white; }
+  margin: 80px 0 0;
+  background: #E1DEE3; }
 
 header {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  height: 80px;
   font-family: 'Montserrat', serif;
   font-weight: 400;
-  font-style: normal; }
+  font-style: normal;
+  width: 100%;
+  height: 80px;
+  background: white;
+  position: fixed;
+  top: 0; }
   header a {
     color: #009B3E;
     text-decoration: none; }
@@ -158,8 +161,9 @@ footer {
       footer nav a:hover {
         color: #FF473A; }
 
-button {
+form button {
   border: none;
+  border-radius: 3px;
   background: #FF473A;
   color: white;
   border-bottom: 3px solid #d30e00; }

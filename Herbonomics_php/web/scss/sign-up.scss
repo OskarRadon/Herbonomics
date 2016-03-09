@@ -1,1 +1,21 @@
 @import 'layout/global';
+
+
+
+h2  {
+  @include Montserrat;
+  text-align: center;
+  color: $color-green;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  input {
+    width: 70%;
+    border: 1px solid $color-darkgray;
+    border-radius: 3px;
+    padding: 3px;
+  }
+}

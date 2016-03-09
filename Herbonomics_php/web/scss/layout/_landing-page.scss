@@ -1,5 +1,5 @@
 .hero {
-  color: $color-background;
+  color: $color-white;
   @include Montserrat();
   background: url(../img/hero.jpg);
   background-position: center;
@@ -26,7 +26,7 @@
         margin-right: 40px;
       }
       a {
-        color: $color-background;
+        color: $color-white;
         text-decoration: none;
         font-size: 0.9em;
         &:first-of-type {
@@ -84,7 +84,7 @@
         border-radius: 2px;
         margin-top: 10px;
         background: $color-red;
-        color: $color-background;
+        color: $color-white;
         border-bottom: 3px solid $color-darkred;
         @include tablet {
           width: 120px;
