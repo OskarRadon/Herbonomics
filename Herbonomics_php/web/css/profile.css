@@ -1,5 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Cardo:400,700,400italic|Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Istok+Web:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Cardo:400,700,400italic|Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Istok+Web:400,400italic,700,700italic);
+#img1 {
+  background: url("../img/1.jpg");
+  background-position: top;
+  background-size: cover; }
+
+#img2 {
+  background: url("../img/2.jpg");
+  background-position: top;
+  background-size: cover; }
+
 #img1 {
   background: url("../img/1.jpg");
   background-position: top;
