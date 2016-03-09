@@ -71,7 +71,7 @@ header {
 footer {
   display: flex;
   flex-direction: column;
-  background: darkgray;
+  background: #353535;
   margin-top: 40px;
   font-family: 'Montserrat', serif;
   font-weight: 400;
@@ -232,7 +232,7 @@ button {
     align-items: center; }
     .remodal form input, .remodal form footer button, footer .remodal form button, .remodal .hero .search-wrap form button, .hero .search-wrap .remodal form button {
       width: 70%;
-      border: 1px solid darkgray;
+      border: 1px solid #353535;
       border-radius: 3px;
       padding: 3px; }
       @media (min-width: 600px) {

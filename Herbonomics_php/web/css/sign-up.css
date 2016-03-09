@@ -59,7 +59,7 @@ header {
 footer {
   display: flex;
   flex-direction: column;
-  background: darkgray;
+  background: #353535;
   margin-top: 40px;
   font-family: 'Montserrat', serif;
   font-weight: 400;
