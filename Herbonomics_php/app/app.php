@@ -5,7 +5,7 @@
     require_once __DIR__."/../src/Grower.php";
     require_once __DIR__."/../src/GrowersStrains.php";
 
-
+    $app['debug'] = true;
     $server = 'mysql:host=localhost;dbname=herbonomics';
     $username = 'root';
     $password = 'root';
@@ -17,7 +17,7 @@
     $app = new Silex\Application();
 
     use Symfony\Component\Debug\Debug;
-    $app['debug'] = true;
+
 
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views'
@@ -30,12 +30,8 @@
         return $app['twig']->render('index.html.twig');
     });
 
-
-    $app->get("/login", function() use ($app) {
-        return $app['twig']->render('login.html.twig');
-    });
-
     $app->get("/sign_up", function() use ($app) {
+        //home page
         return $app['twig']->render('sign_up.html.twig');
     });
 
@@ -44,7 +40,7 @@
         $dispensary = Dispensary::signIn($_GET['username'], $_GET['password']);
 
         if ($dispensary == null) {
-            return $app['twig']->render('login.html.twig');
+            return $app['twig']->render('index.html.twig');
         } else
 
         $demands =
@@ -59,7 +55,7 @@
 
 
         if ($grower == null) {
-            return $app['twig']->render('login.html.twig');
+            return $app['twig']->render('index.html.twig');
         } else
 
         $strains = GrowersStrains::findByGrower($grower->getId());
