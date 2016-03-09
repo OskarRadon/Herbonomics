@@ -11,7 +11,10 @@ header {
   width: 100%;
   height: 80px;
   @include Montserrat();
-  color: $color-green;
+  a {
+    color: $color-green;
+    text-decoration: none;
+  }
   h4 {
     margin-left: 20px;
     font-size: 1.2em;
