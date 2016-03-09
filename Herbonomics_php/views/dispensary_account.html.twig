@@ -8,14 +8,11 @@
         <title>Dispensary Account</title>
     </head>
     <body>
-        <h2>{{ dispensary.getName }} </h2>
 
-        <form action="/dispensary/{{ dispensary.getId }}/edit_account_info" method="get">
-             <button type="submit">Edit Account Details</button>
-        </form>
-        <form action="/dispensary_profile/{{ dispensary.getId }}" method="get">
-                <button type="submit">View Profile</button>
-        </form>
+        <h2>{{ dispensary.getName }}</h2>
+        {% include '/includes/dispensary_edit.html.twig' %}
+        {% include '/includes/view_dispensary_profile.html.twig' %}
+
 
         <h3>Here are your existing demands:</h3>
 
@@ -73,6 +70,7 @@
           <button type="submit" name="button">Add this Demand</button>
         </form>
         <br>
+<<<<<<< HEAD
         <form action="/dispensary_demands" method="get">
              <button type="submit">Browse Retailer Demands</button>
         </form>
@@ -80,6 +78,10 @@
         <form action="/grower_supply" method="get">
              <button type="submit">Browse Cultivator Supply</button>
         </form>
+=======
+        {% include '/includes/dispensary_demands.html.twig' %}<br>
+        {% include '/includes/grower_supply.html.twig' %}<br>
+>>>>>>> dispensaries
         {% include '/includes/home_form.html.twig' %}
 
     </body>
