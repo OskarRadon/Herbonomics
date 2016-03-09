@@ -275,17 +275,14 @@
         return $app['twig']->render('dispensary_demand.html.twig', array('demands' => $demands));
     });
 
+
     $app->get("/dispensary_demands/pheno_search", function() use ($app) {
-
         $demands = DispensaryDemand::filterPhenotype($_GET['search']);
-
         return $app['twig']->render('dispensary_demand.html.twig', array('demands' => $demands));
     });
 
     $app->get("/dispensary_demands/search", function() use ($app) {
-
         $demands = DispensaryDemand::search($_GET['search']);
-
         return $app['twig']->render('dispensary_demand.html.twig', array('demands' => $demands));
     });
 
