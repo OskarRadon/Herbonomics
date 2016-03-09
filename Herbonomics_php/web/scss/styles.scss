@@ -111,11 +111,14 @@ body {
   width: 90%;
   padding: 0;
   border-radius: 3px;
-  @include Istok();
   text-align: center;
+  @include Istok();
   @include tablet {
     height: 68%;
     width: 60%;
+  }
+  @media (orientation: landscape) {
+    font-size: .8rem;
   }
   h2 {
     @include Montserrat();
@@ -141,7 +144,7 @@ body {
     label:nth-of-type(even) {
       margin-top: 10px;
     }
-   button {
+    button {
       margin-top: 10px;
       width: 80px;
       padding: 5px;

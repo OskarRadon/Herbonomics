@@ -97,14 +97,17 @@ body {
   width: 90%;
   padding: 0;
   border-radius: 3px;
+  text-align: center;
   font-family: 'Istok Web', serif;
   font-weight: 400;
-  font-style: normal;
-  text-align: center; }
+  font-style: normal; }
   @media (min-width: 600px) {
     .remodal {
       height: 68%;
       width: 60%; } }
+  @media (orientation: landscape) {
+    .remodal {
+      font-size: .8rem; } }
   .remodal h2 {
     font-family: 'Montserrat', serif;
     font-weight: 400;
