@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Dispensary Demand</title>
+        <title>Retailer Demand</title>
     </head>
     <body>
-        <h3>Dispensary Demand:</h3>
+        <h3>Retailer Demand:</h3>
 
         <form class="" action="/dispensary_demands/search" method="get">
             <label>Search Strain Name</label>
@@ -18,7 +18,7 @@
                 <th>Strain</th>
                 <th>Phenotype</th>
                 <th>Quantity</th>
-                <th>Dispensary</th>
+                <th>Retailer</th>
             </tr>
             {% if demands is not empty %}
                 {% for demand in demands %}
@@ -47,8 +47,8 @@
         </table>
 
         <br>
-        <a href="/dispensary_demands">Browse Dispensary Demands</a><br>
-        <a href="/grower_supply">Browse Grower Supply</a><br>
+        <a href="/dispensary_demands">Browse Retailer Demands</a><br>
+        <a href="/grower_supply">Browse Cultivator Supply</a><br>
         {% include '/includes/home_form.html.twig' %}
     </body>
 </html>

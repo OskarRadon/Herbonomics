@@ -4,7 +4,7 @@
         <title>Herbonomics</title>
     </head>
     <body>
-        <h3>Growers Strains</h3>
+        <h3>Cultivators Strains</h3>
 
         <form class="" action="/grower_supply/search" method="get">
             <label>Search Strain Name</label>
@@ -20,7 +20,7 @@
                 <th>CBD %</th>
                 <th>Price ($/lb)</th>
                 <th>Clean Green Certified</th>
-                <th>Grower</th>
+                <th>Cultivator</th>
             </tr>
             {% if strains is not empty %}
                 {% for strain in strains %}
@@ -48,8 +48,7 @@
                         {% endif %}
                     </td>
                     <td>
-                        {{ strain.findGrowerName(strain.getGrowersId) }}
-                        <!--How do I get the specific grower's name here?-->
+                        <a href="/grower_profile/{{ strain.getGrowersId }}">{{ strain.findGrowerName(strain.getGrowersId) }}</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -61,6 +60,9 @@
             </tr>
             {% endif %}
         </table>
-            {% include '/includes/home_form.html.twig' %}
+        <br>
+        <a href="/dispensary_demands">Browse Retailer Demands</a><br>
+        <a href="/grower_supply">Browse Cultivator Supply</a><br>
+        {% include '/includes/home_form.html.twig' %}
     </body>
 </html>

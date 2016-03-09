@@ -169,7 +169,6 @@
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
     });
 
-    //*Deletes single demand from dispensaries account and returns to dispensary account page*//
     $app->get("/dispensary_profile/{id}", function($id) use ($app) {
         $dispensary = Dispensary::find($id);
         $demands = DispensaryDemand::findByDispensary($id);
@@ -179,6 +178,18 @@
         ));
     });
 
+    //*Take you to the individual cultivator profile*//
+    $app->get("/grower_profile/{id}", function($id) use ($app) {
+        $grower = Grower::findById($id);
+        $strains = GrowersStrains::findByGrower($id);
+        return $app['twig']->render('grower_profile.html.twig', array(
+          'grower' => $grower,
+          'strains' => $strains
+        ));
+    });
+
+
+    //*Deletes single demand from dispensaries account and returns to dispensary account page*//
     $app->get("/demand/{id}/delete", function($id) use ($app) {
         $demand = DispensaryDemand::find($id);
         $demand_id = $demand->getDispensaryId();
@@ -263,6 +274,8 @@
 
         return $app['twig']->render('dispensary_demand.html.twig', array('demands' => $demands));
     });
+
+
 
 
 

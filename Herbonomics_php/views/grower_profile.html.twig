@@ -2,3 +2,28 @@
 
 Grower's Bio
 Grower's Inventory-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cultivator Profile</title>
+    </head>
+    <body>
+      <h1>{{ grower.getName }}</h1>
+
+      <h3>Contact Information:</h3>
+      <p>
+        <a href="{{ grower.getWebsite }}">{{ grower.getWebsite }}</a><br>
+        {{ grower.getEmail }}
+      </p>
+
+        <h4>Current inventory:</h4>
+        {% include '/includes/all_strains.html.twig' %}
+
+        <br>
+        <a href="/dispensary_demands">Browse Dispensary Demands</a><br>
+        <a href="/grower_supply">Browse Cultivator Supply</a><br>
+        {% include '/includes/home_form.html.twig' %}
+    </body>
+</html>
