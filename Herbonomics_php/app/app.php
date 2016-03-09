@@ -171,8 +171,10 @@
 
     $app->get("/dispensary_profile/{id}", function($id) use ($app) {
         $dispensary = Dispensary::find($id);
+        $demands = DispensaryDemand::findByDispensary($id);
         return $app['twig']->render('dispensary_profile.html.twig', array(
-          'dispensary' => $dispensary
+          'dispensary' => $dispensary,
+          'demands' => $demands
         ));
     });
 
