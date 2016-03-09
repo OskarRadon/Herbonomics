@@ -1,3 +1,52 @@
 @import 'utils/module';
 @import 'base/module';
 @import 'layout/global';
+
+body {
+  @include Montserrat;
+}
+
+main {
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+table {
+  // border: 1px solid $color-red;
+  border-collapse: collapse;
+  background: lighten($color-background, 20%);
+  th {
+    @include Montserrat;
+    border: 1px solid darken($color-green, 2%);
+    padding: 15px;
+  }
+  td {
+    border: 1px solid darken($color-green, 2%);
+    padding: 15px;
+  }
+  @include Istok;
+}
+
+#add-strain {
+  // width: 500px;
+}
+
+.account {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  h1 {
+    margin-right: 2em;
+  }
+  .account-buttons {
+    form {
+      margin: 0;
+    }
+    display: flex;
+    align-items: center;
+    button {
+      margin-right: 20px;
+    }
+  }
+}

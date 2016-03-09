@@ -2,10 +2,7 @@
 
 
 main {
-  display: flex;
-  flex-direction: column;
   padding-top: 10px;
-  flex-grow: 1;
   @include tablet {
     display: flex;
     flex-direction: row;
