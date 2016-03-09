@@ -24,7 +24,6 @@
     ));
  // instantiate Silex app, add twig capability to app
 
-
     $app->get("/", function() use ($app) {
         //home page
         return $app['twig']->render('index.html.twig');
@@ -264,20 +263,31 @@
         ));
     });
 
+    $app->get("/grower_supply/pheno_search", function() use ($app) {
+        $strains = GrowersStrains::filterPhenotype($_GET['search']);
+        return $app['twig']->render('grower_supply.html.twig', array(
+            'strains' => $strains
+        ));
+    });
+
     $app->get("/dispensary_demands", function() use ($app) {
         $demands = DispensaryDemand::getAll();
         return $app['twig']->render('dispensary_demand.html.twig', array('demands' => $demands));
     });
 
-    $app->get("/dispensary_demands/search", function() use ($app) {
-        $demands = DispensaryDemand::search($_GET['search']);
+    $app->get("/dispensary_demands/pheno_search", function() use ($app) {
+
+        $demands = DispensaryDemand::filterPhenotype($_GET['search']);
 
         return $app['twig']->render('dispensary_demand.html.twig', array('demands' => $demands));
     });
 
+    $app->get("/dispensary_demands/search", function() use ($app) {
 
+        $demands = DispensaryDemand::search($_GET['search']);
 
-
+        return $app['twig']->render('dispensary_demand.html.twig', array('demands' => $demands));
+    });
 
     return $app;
 ?>
