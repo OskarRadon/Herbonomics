@@ -51,6 +51,59 @@ header {
   }
 }
 
+// MODAL STYLING
+
+.remodal {
+  height: 90%;
+  width: 90%;
+  padding: 0;
+  border-radius: 3px;
+  text-align: center;
+  @include Istok();
+  @include tablet {
+    height: 68%;
+    width: 60%;
+  }
+  @media (orientation: landscape) {
+    font-size: .8rem;
+  }
+  h2 {
+    @include Montserrat();
+    font-size: 1.4em;
+    color: $color-green;
+    @include tablet {
+      margin-top: 40px;
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input {
+      width: 70%;
+      border: 1px solid $color-darkgray;
+      border-radius: 3px;
+      padding: 3px;
+      @include tablet {
+        width: 50%;
+      }
+    }
+    label:nth-of-type(even) {
+      margin-top: 10px;
+    }
+    button {
+      margin-top: 10px;
+      width: 80px;
+      padding: 5px;
+      border: none;
+      font-size: .9em;
+      background: $color-red;
+      color: $color-background;
+      border-bottom: 3px solid $color-darkred;
+    }
+  }
+}
+
 footer {
   display: flex;
   flex-direction: column;
