@@ -1,5 +1,5 @@
 # Herbonomics
-##### Connects Cannabis Retailers and Cultivators together.
+##### Connects Cannabis Retailers and Cultivators
 
 #### By Ryan Brown, Alex Fallenstedt, Schuyler Klaassen, Matt Knuttson, Oskar Radon, Adam Ross Russell
 
