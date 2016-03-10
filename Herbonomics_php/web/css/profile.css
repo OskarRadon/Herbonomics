@@ -178,4 +178,58 @@ form button {
   color: white;
   border-bottom: 3px solid #d30e00; }
 
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; }
+
+body {
+  font-family: 'Montserrat', serif;
+  font-weight: 400;
+  font-style: normal; }
+
+main {
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; }
+
+table {
+  border-collapse: collapse;
+  background: white;
+  font-family: 'Istok Web', serif;
+  font-weight: 400;
+  font-style: normal; }
+  table th {
+    font-family: 'Montserrat', serif;
+    font-weight: 400;
+    font-style: normal;
+    border: 1px solid #00913a;
+    padding: 15px; }
+  table td {
+    border: 1px solid #00913a;
+    padding: 15px; }
+
+.account {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px; }
+  .account h1 {
+    margin-right: 2em; }
+  .account .account-buttons {
+    display: flex;
+    align-items: center; }
+    .account .account-buttons form {
+      margin: 0; }
+    .account .account-buttons button {
+      margin-right: 20px; }
+
+.supply h3 {
+  text-align: center; }
+.supply label {
+  margin-bottom: 20px; }
+.supply input, .supply footer button, footer .supply button {
+  margin: 0 20px 20px 0; }
+.supply table {
+  margin: 0 auto; }
+
 /*# sourceMappingURL=profile.css.map */

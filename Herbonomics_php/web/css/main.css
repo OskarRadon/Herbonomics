@@ -178,6 +178,11 @@ form button {
   color: white;
   border-bottom: 3px solid #d30e00; }
 
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; }
+
 .hero {
   color: white;
   font-family: 'Montserrat', serif;

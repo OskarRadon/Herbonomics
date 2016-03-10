@@ -172,3 +172,9 @@ form button {
   color: $color-white;
   border-bottom: 3px solid $color-darkred;
 }
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}

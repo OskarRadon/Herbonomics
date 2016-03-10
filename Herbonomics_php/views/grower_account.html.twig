@@ -9,95 +9,103 @@
   <body>
     {% include '/includes/header.html.twig' %}
     {% include '/includes/sign-in.html.twig' %}
-    <div>
-      <h1>{{ grower.getName }}</h1>
-      {% include '/includes/grower_edit.html.twig' %}<br>
-      {% include '/includes/view_grower_profile.html.twig' %}<br>
-      <h3>Here is your current supply:</h3>
-      <table border = "1" cellpadding = "15">
-        <tr>
-          <th>Strain</th>
-          <th>Phenotype</th>
-          <th>THC %</th>
-          <th>CBD %</th>
-          <th>Price ($/lb)</th>
-          <th>CGC</th>
-          <th>Edit</th>
-        </tr>
-        {% if strains is not empty %}
-        {% for strain in strains %}
-        <tr>
-          <td>
-            {{ strain.getStrainName }}
-          </td>
-          <td>
-            {{ strain.getPheno }}
-          </td>
-          <td>
-            {{ strain.getThc }}
-          </td>
-          <td>
-            {{ strain.getCbd }}
-          </td>
-          <td>
-            ${{ strain.getPrice }}
-          </td>
-          <td>
-            {% if strain.getCgc == 1 %}
-            <img src="/img/cleangreen.png"  style="height: 3em;" alt="" />
-            {%else %}
-            {% endif %}
-          </td>
-          <td>
-            <a href='/strain/{{strain.getId}}/edit_strain'><img style="height: 2em;" class="glyph" src="/img/glyph_edit.png" alt="" /></a>
+    <main>
+      <!-- {% include '/includes/dispensary_demands.html.twig' %} -->
+      <!-- {% include '/includes/grower_supply.html.twig' %} -->
+      <!-- {% include '/includes/home_form.html.twig' %} -->
+      <div class="account">
+        <h1>{{ grower.getName }}</h1>
+        <div class="account-buttons">
+          {% include '/includes/grower_edit.html.twig' %}<br>
+          {% include '/includes/view_grower_profile.html.twig' %}<br>
+        </div>
+      </div>
 
-            <a href='/strain/{{strain.getId}}/delete_strain'><img class="glyph" style="height: 2em;" src="/img/glyph_delete.png" alt="" /></a>
-          </td>
-        </tr>
-        {% endfor %}
-        {% else %}
-        <tr>
-          <td colspan = "8">
-            No Strains Available
-          </td>
-        </tr>
-        {% endif %}
-      </table>
-      <h3>Add a new strain:</h3>
-      <form action='/grower/add_strain' method='post'>
-          <input id="growers_id" name="growers_id" type="hidden" value="{{ grower.getId }}">
+      <div class="supply">
+        <h3>Add a new strain:</h3>
+        <form id="add-strain" action='/grower/add_strain' method='post'>
+            <input id="growers_id" name="growers_id" type="hidden" value="{{ grower.getId }}">
 
-          <label for="strain_name">Strain Name</label>
-          <input id='strain_name' name='strain_name' type='text'>
+            <label for="strain_name">Strain Name</label>
+            <input id='strain_name' name='strain_name' type='text'>
 
-          <label for='pheno'>Pheno Type</label>
-          <select class="" name="pheno">
-            <option value="Sativa">Sativa</option>
-            <option value="Hybrid">Hybrid</option>
-            <option value="Indica">Indica</option>
-          </select>
+            <label for='pheno'>Phenotype</label>
+            <select class="" name="pheno">
+              <option value="Sativa">Sativa</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="Indica">Indica</option>
+            </select>
 
-          <label for='thc'>THC Content</label>
-          <input id='thc' name='thc' type='number' step="any" min="0"/>
+            <label for='thc'>THC Content</label>
+            <input id='thc' name='thc' type='number' step="any" min="0"/>
 
-          <label for='cbd'>CBD Content</label>
-          <input id='cbd' name='cbd' type='number' step="any" min="0"/>
+            <label for='cbd'>CBD Content</label>
+            <input id='cbd' name='cbd' type='number' step="any" min="0"/>
 
-          <label>Clean Grean Certified?</label>
-          <select class="" name="cgc">
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-          </select>
+            <label>Clean Grean Certified?</label>
+            <select class="" name="cgc">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
 
-          <label for='price'>Price</label>
-          <input id='price' name='price' type='int'>
+            <label for='price'>Price</label>
+            <input id='price' name='price' type='int'>
 
-          <button class="info" type='submit'>Add the Strain</button>
-       </form>
+            <button class="info" type='submit'>Add the Strain</button>
+         </form>
 
-      {% include '/includes/dispensary_demands.html.twig' %}<br>
-      {% include '/includes/grower_supply.html.twig' %}<br>
-      {% include '/includes/home_form.html.twig' %}
-    </div>
+        <h3>Here is your current supply:</h3>
+        <table>
+          <tr>
+            <th>Strain</th>
+            <th>Phenotype</th>
+            <th>THC %</th>
+            <th>CBD %</th>
+            <th>Price ($/lb)</th>
+            <th>CGC</th>
+            <th>Edit</th>
+          </tr>
+          {% if strains is not empty %}
+          {% for strain in strains %}
+          <tr>
+            <td>
+              {{ strain.getStrainName }}
+            </td>
+            <td>
+              {{ strain.getPheno }}
+            </td>
+            <td>
+              {{ strain.getThc }}
+            </td>
+            <td>
+              {{ strain.getCbd }}
+            </td>
+            <td>
+              ${{ strain.getPrice }}
+            </td>
+            <td>
+              {% if strain.getCgc == 1 %}
+              <img src="/img/cleangreen.png"  style="height: 3em;" alt="" />
+              {%else %}
+              {% endif %}
+            </td>
+            <td>
+              <a href='/strain/{{strain.getId}}/edit_strain'><img style="height: 2em;" class="glyph" src="/img/glyph_edit.png" alt="" /></a>
+
+              <a href='/strain/{{strain.getId}}/delete_strain'><img class="glyph" style="height: 2em;" src="/img/glyph_delete.png" alt="" /></a>
+            </td>
+          </tr>
+          {% endfor %}
+          {% else %}
+          <tr>
+            <td colspan = "8">
+              No Strains Available
+            </td>
+          </tr>
+          {% endif %}
+        </table>
+      </div>
+    </main>
+    {% include '/includes/footer.html.twig' %}
   </body>
 </html>
