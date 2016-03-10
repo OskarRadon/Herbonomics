@@ -28,7 +28,7 @@
             <input id="growers_id" name="growers_id" type="hidden" value="{{ grower.getId }}">
 
             <label for="strain_name">Strain Name</label>
-            <input id='strain_name' name='strain_name' type='text'>
+            <input id='strain_name' name='strain_name' type='text' required="">
 
             <label for='pheno'>Phenotype</label>
             <select class="" name="pheno">
@@ -38,10 +38,10 @@
             </select>
 
             <label for='thc'>THC Content</label>
-            <input id='thc' name='thc' type='number' step="any" min="0"/>
+            <input id='thc' name='thc' type='number' step="any" min="0" required=""/>
 
             <label for='cbd'>CBD Content</label>
-            <input id='cbd' name='cbd' type='number' step="any" min="0"/>
+            <input id='cbd' name='cbd' type='number' step="any" min="0" required=""/>
 
             <label>Clean Grean Certified?</label>
             <select class="" name="cgc">
@@ -50,7 +50,7 @@
             </select>
 
             <label for='price'>Price</label>
-            <input id='price' name='price' type='int'>
+            <input id='price' name='price' type='int' required="">
 
             <button class="info" type='submit'>Add the Strain</button>
          </form>
