@@ -7,7 +7,21 @@
     </head>
     <body>
         {% include '/includes/header.html.twig' %}
-      <h1>{{ dispensary.getName }}</h1>
+        <main>
+          <h1>{{ dispensary.getName }}</h1>
+
+      {% if session.type == "grower" %}
+        {% if dispensary.checkFollow(session.id) == true %}
+          <form>
+            <button type="button" name="button">Following!</button>
+          </form>
+        {% else %}
+        <form class="" action="/follow_dispensary/{{ dispensary.getId }}" method="post">
+          <button type="submit" name="button">Follow this cultivator</button>
+        </form>
+        {% endif %}
+      {% endif %}
+
 
       <h3>Contact Information:</h3>
       <p>
@@ -15,37 +29,39 @@
         {{ dispensary.getEmail }}
       </p>
 
-        <h4>This dispensary is currently looking for:</h4>
-        <table border = "1" cellpadding = "15">
-            <tr>
-                <th>Strain</th>
-                <th>Phenotype</th>
-                <th>Quantity</th>
-            </tr>
-            {% if demands is not empty %}
-                {% for demand in demands %}
+            <h4>This dispensary is currently looking for:</h4>
+            <table border = "1" cellpadding = "15">
                 <tr>
-                    <td>
-                        {{ demand.getStrainName }}
-                    </td>
-                    <td>
-                        {{ demand.getPheno }}
-                    </td>
-                    <td>
-                        {{ demand.getQuantity }}lbs
+                    <th>Strain</th>
+                    <th>Phenotype</th>
+                    <th>Quantity</th>
+                </tr>
+                {% if demands is not empty %}
+                    {% for demand in demands %}
+                    <tr>
+                        <td>
+                            {{ demand.getStrainName }}
+                        </td>
+                        <td>
+                            {{ demand.getPheno }}
+                        </td>
+                        <td>
+                            {{ demand.getQuantity }}lbs
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan = "7">
+                         No Strains Available
                     </td>
                 </tr>
-                {% endfor %}
-            {% else %}
-            <tr>
-                <td colspan = "7">
-                     No Strains Available
-                </td>
-            </tr>
-            {% endif %}
-        </table>
-        <br>
-        {% include '/includes/dispensary_demands.html.twig' %}<br>
-        {% include '/includes/grower_supply.html.twig' %}<br>
+                {% endif %}
+            </table>
+            <br>
+            {% include '/includes/dispensary_demands.html.twig' %}<br>
+            {% include '/includes/grower_supply.html.twig' %}<br>
+        </main>
+{% include '/includes/footer.html.twig' %}
     </body>
 </html>

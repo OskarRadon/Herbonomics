@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css"> -->
+    <link rel="stylesheet" href="/css/profile.css" type="text/css">
 
     <script src="js/jquery-1.12.0.js"></script>
     <script src="js/scripts.js"></script>
@@ -12,31 +12,33 @@
   </head>
   <body>
       {% include '/includes/header.html.twig' %}
-      <div class="container">
-          <h1>Edit your account details:</h1>
+      <main>
+        <h1>Edit your account details:</h1>
 
-          <form action="/grower/{{ grower.getId }}/edit_account_info" method="post">
-            <input name="_method" type="hidden" value="patch">
+        <form action="/grower/{{ grower.getId }}/edit_account_info" method="post">
+          <input name="_method" type="hidden" value="patch">
 
-            <label for="name">Update Name:</label>
-            <input id="name" name="name" type="text" value="{{ grower.getName }}">
+          <label for="name">Update Name:</label>
+          <input id="name" name="name" type="text" value="{{ grower.getName }}">
 
-            <label for="description">Update Website:</label>
-            <input id="website" name="website" type="text" value="{{ grower.getWebsite }}">
+          <label for="description">Update Website:</label>
+          <input id="website" name="website" type="text" value="{{ grower.getWebsite }}">
 
-            <label for="website">Update Email:</label>
-            <input id="email" name="email" type="text" value="{{ grower.getEmail }}">
+          <label for="website">Update Email:</label>
+          <input id="email" name="email" type="text" value="{{ grower.getEmail }}">
 
-            <label for="location">Update Username:</label>
-            <input id="username" name="username" type="text" value="{{ grower.getUsername }}">
+          <label for="location">Update Username:</label>
+          <input id="username" name="username" type="text" value="{{ grower.getUsername }}">
 
-            <label for="phone">Update Password:</label>
-            <input id="password" name="password" type="text"value="{{ grower.getPassword }}">
+          <label for="phone">Update Password:</label>
+          <input id="password" name="password" type="text"value="{{ grower.getPassword }}">
 
-            <button type="submit">Edit</button>
-          </form>
+          <button type="submit">Submit</button>
+        </form>
+
+      </main>
 
           <!-- <p><a href='/'>Home</a></p> -->
-      </div>
+{% include '/includes/footer.html.twig' %}
     </body>
 </html>

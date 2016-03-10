@@ -10,67 +10,85 @@
     <body>
         {% include '/includes/header.html.twig' %}
         {% include '/includes/sign-in.html.twig' %}
-        <h1>{{ dispensary.getName }}</h1>
-        {% include '/includes/dispensary_edit.html.twig' %}
-        {% include '/includes/view_dispensary_profile.html.twig' %}
+        <main>
+          <div class="account">
+            <h1>{{ dispensary.getName }}</h1>
+            <div class="account-buttons">
+            {% include '/includes/dispensary_edit.html.twig' %}
+            {% include '/includes/view_dispensary_profile.html.twig' %}
+            </div>
+          </div>
 
 
-        <h3>Here are your existing demands:</h3>
+          <div class="supply">
+            <h3>Add a new demand:</h3>
+            <form class="" action="/dispensary/demand_add" method="post">
+                <input name="dispensary_id" type="hidden" value="{{ dispensary.getId }}">
+                <label>Strain Name</label>
+                <input type="text" name="strain_name" required="">
+                <label>Phenotype</label>
+                <select class="" name="pheno">
+                    <option value="Sativa">Sativa</option>
+                    <option value="Indica">Indica</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+                <label>Quantity (lbs)</label>
+                <input type="number" name="quantity" step="any" min="0" required="">
+              <button type="submit" name="button">Add this Demand</button>
+            </form>
 
-        <table border = "1" cellpadding = "15">
-            <tr>
-                <th>Strain</th>
-                <th>Phenotype</th>
-                <th>Quantity</th>
-                <th>Edit</th>
-            </tr>
-            {% if demands is not empty %}
-                {% for demand in demands %}
-                <tr>
-                    <td>
-                        {{ demand.getStrainName }}
-                    </td>
-                    <td>
-                        {{ demand.getPheno }}
-                    </td>
-                    <td>
-                        {{ demand.getQuantity }}lbs
-                    </td>
-                    <td>
-                        <a href="/dispensary_demand/{{ demand.getId }}/edit"><img style="height: 2em;" class="glyph" src="/img/glyph_edit.png" alt="" /></a> <a href="/demand/{{ demand.getId }}/delete"><img class="glyph" style="height: 2em;" src="/img/glyph_delete.png" alt="" /></a>
-                    </td>
-                </tr>
-                {% endfor %}
-            {% else %}
-            <tr>
-                <td colspan = "7">
-                     No Strains Available
-                </td>
-            </tr>
-            {% endif %}
-        </table>
+          <h3>Your existing demands:</h3>
+
+          <table border = "1" cellpadding = "15">
+              <tr>
+                  <th>Strain</th>
+                  <th>Phenotype</th>
+                  <th>Quantity</th>
+                  <th>Edit</th>
+              </tr>
+              {% if demands is not empty %}
+                  {% for demand in demands %}
+                  <tr>
+                      <td>
+                          {{ demand.getStrainName }}
+                      </td>
+                      <td>
+                          {{ demand.getPheno }}
+                      </td>
+                      <td>
+                          {{ demand.getQuantity }}lbs
+                      </td>
+                      <td>
+                          <a href="/dispensary_demand/{{ demand.getId }}/edit"><img style="height: 2em;" class="glyph" src="/img/glyph_edit.png" alt="" /></a> <a href="/demand/{{ demand.getId }}/delete"><img class="glyph" style="height: 2em;" src="/img/glyph_delete.png" alt="" /></a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              {% else %}
+              <tr>
+                  <td colspan = "7">
+                       No Strains Available
+                  </td>
+              </tr>
+              {% endif %}
+          </table>
 
 
-        <h3>Add a new demand:</h3>
-        <form class="" action="/dispensary/demand_add" method="post">
-            <input name="dispensary_id" type="hidden" value="{{ dispensary.getId }}">
-            <label>Strain Name</label>
-            <input type="text" name="strain_name">
-            <label>Phenotype</label>
-            <select class="" name="pheno">
-                <option value="Sativa">Sativa</option>
-                <option value="Indica">Indica</option>
-                <option value="Hybrid">Hybrid</option>
-            </select>
-            <label>Quantity (lbs)</label>
-            <input type="number" name="quantity" step="any" min="0">
-          <button type="submit" name="button">Add this Demand</button>
-        </form>
-        <br>
 
-        {% include '/includes/dispensary_demands.html.twig' %}<br>
-        {% include '/includes/grower_supply.html.twig' %}<br>
+          <br>
 
+          {% include '/includes/dispensary_demands.html.twig' %}<br>
+          {% include '/includes/grower_supply.html.twig' %}<br>
+
+        <h3>You are Following:</h3>
+
+          {% if follows is not empty %}
+            {% for follow in follows %}
+              <a href="/grower_profile/{{ follow.getId }}">{{follow.getName}}</a>
+            {% endfor %}
+          {% endif %}
+          </div>
+        </main>
+{% include '/includes/footer.html.twig' %}
     </body>
 </html>
 

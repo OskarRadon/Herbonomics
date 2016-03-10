@@ -107,6 +107,11 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center; }
+    @media (min-width: 600px) {
+      .remodal form {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%; } }
     .remodal form input, .remodal form footer button, footer .remodal form button {
       width: 70%;
       border: 1px solid #bababa;
@@ -127,6 +132,37 @@ header {
       color: white;
       border-bottom: 3px solid #d30e00; }
 
+* form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10px; }
+  @media (min-width: 600px) {
+    * form {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 350px; } }
+  @media (min-width: 600px) {
+    * form label {
+      margin: 0 10px 10px 0; } }
+  * form input, * form footer button, footer * form button {
+    border: 1px solid #bababa;
+    border-radius: 3px;
+    padding: 3px;
+    margin: 0 10px 10px 0; }
+  * form select {
+    margin: 0 0 10px; }
+    @media (min-width: 600px) {
+      * form select {
+        width: 150px; } }
+  * form button {
+    margin-top: 10px;
+    border: none;
+    font-size: .9em;
+    background: #FF473A;
+    color: white;
+    border-bottom: 3px solid #d30e00; }
+
 .wrapper {
   max-width: 1200px;
   margin: 0 auto; }
@@ -142,6 +178,11 @@ footer {
   font-style: normal;
   align-items: center;
   color: white; }
+  @media (min-width: 600px) {
+    footer form {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      width: 100%; } }
   footer input, footer button {
     outline: none;
     font-size: .8em;
@@ -169,7 +210,7 @@ footer {
     footer nav a {
       color: white; }
       footer nav a:hover {
-        color: #FF473A; }
+        color: #009B3E; }
 
 form button {
   border: none;
@@ -182,6 +223,32 @@ main {
   flex-grow: 1;
   display: flex;
   flex-direction: column; }
+  main a {
+    color: #009B3E; }
+
+table {
+  margin-top: 20px; }
+  table a {
+    color: #009B3E; }
+  table th {
+    font-size: 0.7em;
+    text-align: center; }
+    @media (min-width: 600px) {
+      table th {
+        text-align: left;
+        font-size: 1em;
+        padding: 12px; } }
+  table td {
+    font-size: 0.7em;
+    text-align: center;
+    width: 10vw; }
+    @media (min-width: 600px) {
+      table td {
+        font-size: 1em;
+        padding: 12px; } }
+    @media all and (min-width: 1200px) {
+      table td {
+        width: 100px; } }
 
 body {
   font-family: 'Montserrat', serif;
@@ -203,11 +270,9 @@ table {
     font-family: 'Montserrat', serif;
     font-weight: 400;
     font-style: normal;
-    border: 1px solid #00913a;
-    padding: 15px; }
+    border: 1px solid #00913a; }
   table td {
-    border: 1px solid #00913a;
-    padding: 15px; }
+    border: 1px solid #00913a; }
 
 .account {
   display: flex;
@@ -219,17 +284,16 @@ table {
     display: flex;
     align-items: center; }
     .account .account-buttons form {
-      margin: 0; }
+      margin: 0 10px 0;
+      width: 33%; }
     .account .account-buttons button {
       margin-right: 20px; }
 
 .supply h3 {
+  margin-top: 20px;
   text-align: center; }
-.supply label {
-  margin-bottom: 20px; }
-.supply input, .supply footer button, footer .supply button {
-  margin: 0 20px 20px 0; }
-.supply table {
-  margin: 0 auto; }
+  @media (min-width: 600px) {
+    .supply h3:first-of-type {
+      text-align: left; } }
 
 /*# sourceMappingURL=profile.css.map */

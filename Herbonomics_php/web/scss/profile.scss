@@ -19,14 +19,15 @@ table {
   th {
     @include Montserrat;
     border: 1px solid darken($color-green, 2%);
-    padding: 15px;
+    // padding: 15px;
   }
   td {
     border: 1px solid darken($color-green, 2%);
-    padding: 15px;
+    // padding: 15px;
   }
   @include Istok;
 }
+
 
 #add-strain {
   // width: 500px;
@@ -41,7 +42,8 @@ table {
   }
   .account-buttons {
     form {
-      margin: 0;
+      margin: 0 10px 0;
+      width: 33%;
     }
     display: flex;
     align-items: center;
@@ -53,15 +55,12 @@ table {
 
 .supply {
   h3 {
-  text-align: center;
-}
-  label {
-    margin-bottom: 20px;
-  }
-  input {
-    margin: 0 20px 20px 0;
-  }
-  table {
-    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    &:first-of-type {
+      @include tablet {
+        text-align: left;
+      }
+    }
   }
 }

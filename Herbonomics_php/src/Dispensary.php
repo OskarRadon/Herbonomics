@@ -157,6 +157,41 @@
             $_SESSION['type'] = null;
         }
 
+        function addGrower($grower_id)
+        {
+         $GLOBALS['DB']->exec("INSERT INTO dispensaries_growers (dispensary_id, grower_id) VALUES ({$this->getId()}, {$grower_id}) ;");
+        }
+
+        function getGrowers()
+        {
+         $query = $GLOBALS['DB']->query("SELECT growers.* FROM dispensaries JOIN dispensaries_growers ON (dispensaries.id = dispensaries_growers.dispensary_id) JOIN growers ON (dispensaries_growers.grower_id = growers.id) WHERE dispensaries.id = {$this->getId()}; ");
+         $returned_growers = array();
+         $returned_growers = $query->fetchAll(PDO::FETCH_ASSOC);
+         $growers = array();
+         foreach($returned_growers as $grower) {
+             $id = $grower['id'];
+             $name = $grower['name'];
+             $website = $grower['website'];
+             $email = $grower['email'];
+             $username = $grower['username'];
+             $password = $grower['password'];
+             $new_grower = new Grower($id, $name, $website, $email, $username, $password);
+             array_push($growers, $new_grower);
+         }
+         return $growers;
+       }
+
+       function checkFollow($grower_id)
+       {
+         $existing_follows = $GLOBALS['DB']->query("SELECT * FROM dispensaries_growers");
+         			foreach ($existing_follows as $follow) {
+         				if ($follow['grower_id'] == $grower_id and $follow['dispensary_id'] == $this->getId()) {
+         					return true;
+         				}
+         			}
+              return false;
+       }
+
     }
 
  ?>
