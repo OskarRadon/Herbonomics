@@ -186,15 +186,23 @@ table {
   th {
     font-size: 0.7em;
     text-align: center;
-    
+    @include tablet {
+      text-align: left;
+      font-size: 1em;
+      padding: 12px;
+
+    }
   }
   td {
     font-size: 0.7em;
     text-align: center;
     width: 10vw;
-    
-    img {
-
+    @include tablet {
+      font-size: 1em;
+      padding: 12px;
+    }
+    @include desktop {
+      width: 100px;
     }
   }
 }

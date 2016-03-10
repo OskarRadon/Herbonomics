@@ -187,10 +187,22 @@ main {
 table th {
   font-size: 0.7em;
   text-align: center; }
+  @media (min-width: 600px) {
+    table th {
+      text-align: left;
+      font-size: 1em;
+      padding: 12px; } }
 table td {
   font-size: 0.7em;
   text-align: center;
   width: 10vw; }
+  @media (min-width: 600px) {
+    table td {
+      font-size: 1em;
+      padding: 12px; } }
+  @media all and (min-width: 1200px) {
+    table td {
+      width: 100px; } }
 
 .hero {
   color: white;
