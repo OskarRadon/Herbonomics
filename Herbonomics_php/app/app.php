@@ -23,6 +23,7 @@
         $_SESSION['type'] = null;
     }
 
+    // instantiate Silex app, add twig capability to app
     $app = new Silex\Application();
 
     use Symfony\Component\Debug\Debug;
@@ -38,8 +39,6 @@
         return $twig;
     }));
 
- // instantiate Silex app, add twig capability to app
-
     $app->get("/", function() use ($app) {
         //home page
         return $app['twig']->render('index.html.twig');
@@ -50,11 +49,12 @@
         return $app['twig']->render('sign_up.html.twig');
     });
 
-    $app->get("/dispensary/sign_in", function() use ($app) {//get or post?
+    $app->get("/dispensary/sign_in", function() use ($app) {
 
         $dispensary = Dispensary::signIn($_GET['username'], $_GET['password']);
 
         if ($dispensary == null) {
+            echo "<script>alert('Username and password do not match. Please try again.');</script>";
             return $app['twig']->render('index.html.twig');
         } else
 
@@ -66,12 +66,13 @@
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands, 'follows' => $follows));
     });
 
-    $app->get("/grower/sign_in", function() use ($app) {//get or post?
+    $app->get("/grower/sign_in", function() use ($app) {
 
         $grower = Grower::signIn($_GET['username'], $_GET['password']);
 
 
         if ($grower == null) {
+            echo "<script>alert('Username and password do not match. Please try again.');</script>";
             return $app['twig']->render('index.html.twig');
         } else
 
@@ -85,6 +86,8 @@
             'follows' => $follows
         ));
     });
+
+
 
     //*takes user to the individual grower account page*//
     $app->get("/grower/{id}/account", function() use ($app) {
@@ -114,7 +117,7 @@
         return $app['twig']->render('grower_strain_edit.html.twig', array('strain' => $strain));
     });
 
-    $app->post("/dispensary/sign_up", function() use ($app) {//get or post?
+    $app->post("/dispensary/sign_up", function() use ($app) {
         $name = $_POST['name'];
         $website = $_POST['website'];
         $email = $_POST['email'];
@@ -130,7 +133,7 @@
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands, 'follows' => $follows));
     });
 
-    $app->post("/grower/sign_up", function() use ($app) {//get or post?
+    $app->post("/grower/sign_up", function() use ($app) {
         $name = $_POST['name'];
         $website = $_POST['website'];
         $email = $_POST['email'];
@@ -152,7 +155,7 @@
         ));
     });
 
-    $app->post("/dispensary/demand_add", function() use ($app) {//get or post?
+    $app->post("/dispensary/demand_add", function() use ($app) {
         $strain_name = $_POST['strain_name'];
         $pheno = $_POST['pheno'];
         $dispensary_id = $_POST['dispensary_id'];
@@ -168,7 +171,7 @@
     });
 
     //*adds new strain to growers inventory returns to growers account page*//
-    $app->post("/grower/add_strain", function() use ($app) {//get or post?
+    $app->post("/grower/add_strain", function() use ($app) {
         $strain_name = $_POST['strain_name'];
         $pheno = $_POST['pheno'];
         $thc = $_POST['thc'];
