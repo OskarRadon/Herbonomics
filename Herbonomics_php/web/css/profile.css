@@ -91,15 +91,23 @@ header {
     .remodal {
       height: 68%;
       width: 60%; } }
-  @media (orientation: landscape) {
-    .remodal {
-      font-size: .8rem; } }
+  .remodal .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: center; }
+    @media (max-height: 850px) {
+      .remodal .flex-container {
+        flex-direction: row; } }
   .remodal h2 {
     font-family: 'Montserrat', serif;
     font-weight: 400;
     font-style: normal;
     font-size: 1.4em;
     color: #009B3E; }
+    @media (max-height: 850px) {
+      .remodal h2 {
+        padding: 20px; } }
     @media (min-width: 600px) {
       .remodal h2 {
         margin-top: 40px; } }
@@ -116,12 +124,15 @@ header {
       width: 70%;
       border: 1px solid #bababa;
       border-radius: 3px;
-      padding: 3px; }
+      padding: 3px;
+      margin: 0; }
       @media (min-width: 600px) {
         .remodal form input, .remodal form footer button, footer .remodal form button {
           width: 50%; } }
-    .remodal form label:nth-of-type(even) {
-      margin-top: 10px; }
+    .remodal form label {
+      margin: 0; }
+      .remodal form label:nth-of-type(even) {
+        margin-top: 10px; }
     .remodal form button {
       margin-top: 10px;
       width: 80px;

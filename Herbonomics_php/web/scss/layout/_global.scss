@@ -72,13 +72,22 @@ header {
     height: 68%;
     width: 60%;
   }
-  @media (orientation: landscape) {
-    font-size: .8rem;
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: center;
+    @media (max-height: 850px) {
+      flex-direction: row;
+    }
   }
   h2 {
     @include Montserrat();
     font-size: 1.4em;
     color: $color-green;
+    @media (max-height: 850px) {
+      padding: 20px;
+    }
     @include tablet {
       margin-top: 40px;
     }
@@ -97,12 +106,16 @@ header {
       border: 1px solid $color-border;
       border-radius: 3px;
       padding: 3px;
+      margin: 0;
       @include tablet {
         width: 50%;
       }
     }
-    label:nth-of-type(even) {
-      margin-top: 10px;
+    label {
+      margin: 0;
+      &:nth-of-type(even) {
+        margin-top: 10px;
+      }
     }
     button {
       margin-top: 10px;
