@@ -1,7 +1,7 @@
 # Herbonomics
 ##### Connects Cannabis Retailers and Cultivators
 
-#### By Ryan Brown, Alex Fallenstedt, Schuyler Klaassen, Matt Knuttson, Oskar Radon, Adam Ross Russell
+#### By Ryan Brown, Alex Fallenstedt, Schuyler Klaassen, Matt Knutson, Oskar Radon, Adam Ross Russell
 
 ## Description
 
@@ -29,6 +29,7 @@ Future versions could include product transparency and online ordering for each 
 
 None at this time.
 
+4. Potentially give an alert that the password or user name was incorrect upon login attempt.
 
 ## Setup
 
@@ -69,7 +70,7 @@ None at this time.
 
 ### Legal
 
-Copyright (c) 2016, Ryan Brown, Alex Fallenstedt, Schuyler Klaassen, Matt Knuttson, Oskar Radon, Adam Ross Russell
+Copyright (c) 2016, Ryan Brown, Alex Fallenstedt, Schuyler Klaassen, Matt Knutson, Oskar Radon, Adam Ross Russell
 
 This software is licensed under the MIT license.
 

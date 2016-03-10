@@ -121,6 +121,8 @@
         $dispensary = new Dispensary($name, $website, $email, $username, $password);
         $dispensary->save();
 
+        $dispensary->saveId();
+
         $demands = array();
 
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
@@ -134,6 +136,8 @@
         $password = $_POST['password'];
         $grower = new Grower($id = null, $name, $website, $email, $username, $password);
         $grower->save();
+
+        $grower->saveId();
 
         $strains = array();
 
