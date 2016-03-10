@@ -341,7 +341,7 @@ table {
           border-bottom: 3px solid #d30e00; }
           @media (min-width: 600px) {
             .hero .search-wrap form .landing-buttons button {
-              width: 120px;
+              width: 240px;
               margin: 0 0 0 10px; } }
 
 main {
