@@ -7,20 +7,23 @@
     </head>
     <body>
         {% include '/includes/header.html.twig' %}
-        <h1>Edit your account info:</h1>
-        <form class="" action="/dispensary/{{ dispensary.getId }}/edit_account_info" method="post">
-            <input name="_method" type="hidden" value="patch">
-            <label>New Account Name</label>
-            <input type="text" name="name" value="{{ dispensary.getName }}">
-            <label>Edit Website URL:</label>
-            <input type="text" name="website" value="{{ dispensary.getWebsite }}">
-            <label>Edit Primary Email Address:</label>
-            <input type="text" name="email" value="{{ dispensary.getEmail }}">
-            <label>Edit Username:</label>
-            <input type="text" name="username" value="{{ dispensary.getUsername }}">
-            <label>Edit Password:</label>
-            <input type="password" name="password" value="{{ dispensary.getPassword }}">
-          <button type="submit" name="button">Edit</button>
-        </form>
+        <main>
+          <h1>Edit your account info:</h1>
+          <form class="" action="/dispensary/{{ dispensary.getId }}/edit_account_info" method="post">
+              <input name="_method" type="hidden" value="patch">
+              <label>New Account Name</label>
+              <input type="text" name="name" value="{{ dispensary.getName }}">
+              <label>Edit Website URL:</label>
+              <input type="text" name="website" value="{{ dispensary.getWebsite }}">
+              <label>Edit Primary Email Address:</label>
+              <input type="text" name="email" value="{{ dispensary.getEmail }}">
+              <label>Edit Username:</label>
+              <input type="text" name="username" value="{{ dispensary.getUsername }}">
+              <label>Edit Password:</label>
+              <input type="password" name="password" value="{{ dispensary.getPassword }}">
+            <button type="submit" name="button">Edit</button>
+          </form>
+        </main>
+
     </body>
 </html>

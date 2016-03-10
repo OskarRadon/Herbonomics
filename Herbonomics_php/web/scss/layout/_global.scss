@@ -233,6 +233,10 @@ main {
 // TABLE STYLING
 
 table {
+  a {
+    color: $color-red;
+    text-decoration: none;
+  }
   th {
     font-size: 0.7em;
     text-align: center;

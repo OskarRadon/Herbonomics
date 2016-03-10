@@ -7,39 +7,42 @@
     </head>
     <body>
         {% include '/includes/header.html.twig' %}
-        <h4>Edit the Strain:</h4>
+        <main>
+          <h4>Edit the Strain:</h4>
 
-        <form action='/strain/{{strain.getId}}/edit_strain' method='post'>
-            <input id="strain_id" name="stain_id" type="hidden" value="{{ strain.getId }}">
-            <input value="patch" type="hidden" name='_method'>
+          <form action='/strain/{{strain.getId}}/edit_strain' method='post'>
+              <input id="strain_id" name="stain_id" type="hidden" value="{{ strain.getId }}">
+              <input value="patch" type="hidden" name='_method'>
 
-            <label for="strain_name">Strain Name</label>
-            <input id='strain_name' name='strain_name' value="{{ strain.getStrainName }}" type='text'>
+              <label for="strain_name">Strain Name</label>
+              <input id='strain_name' name='strain_name' value="{{ strain.getStrainName }}" type='text'>
 
-            <label for='pheno'>Pheno Type</label>
-            <select class="" name="pheno">
-               <option value="Sativa">Sativa</option>
-               <option value="Hybrid">Hybrid</option>
-               <option value="Indica">Indica</option>
-            </select>
+              <label for='pheno'>Pheno Type</label>
+              <select class="" name="pheno">
+                 <option value="Sativa">Sativa</option>
+                 <option value="Hybrid">Hybrid</option>
+                 <option value="Indica">Indica</option>
+              </select>
 
-            <label for='thc'>THC Content</label>
-            <input id='thc' name='thc' type='number' value="{{ strain.getThc }}" step="any" min="0"/>
+              <label for='thc'>THC Content</label>
+              <input id='thc' name='thc' type='number' value="{{ strain.getThc }}" step="any" min="0"/>
 
-            <label for='cbd'>CBD Content</label>
-            <input id='cbd' name='cbd' type='number' value="{{ strain.getCbd }}" step="any" min="0"/>
+              <label for='cbd'>CBD Content</label>
+              <input id='cbd' name='cbd' type='number' value="{{ strain.getCbd }}" step="any" min="0"/>
 
-            <label>Clean Grean Certified?</label>
-            <select class="" name="cgc">
-               <option value="1">Yes</option>
-               <option value="0">No</option>
-            </select>
+              <label>Clean Grean Certified?</label>
+              <select class="" name="cgc">
+                 <option value="1">Yes</option>
+                 <option value="0">No</option>
+              </select>
 
-            <label for='price'>Price</label>
-            <input id='price' name='price' value="{{ strain.getPrice }}"type='int'>
+              <label for='price'>Price</label>
+              <input id='price' name='price' value="{{ strain.getPrice }}"type='int'>
 
-            <button class="info" type='submit'>Edit</button>
-        </form>
+              <button class="info" type='submit'>Edit</button>
+          </form>
+        </main>
+
 
     </body>
 </html>

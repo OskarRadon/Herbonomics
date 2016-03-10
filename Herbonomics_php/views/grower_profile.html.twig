@@ -11,72 +11,74 @@ Grower's Inventory-->
         <title>Cultivator Profile</title>
     </head>
     <body>
+
         {% include '/includes/header.html.twig' %}
-      <h1>{{ grower.getName }}</h1>
+        <main>
+          <h1>{{ grower.getName }}</h1>
 
-      {% if session.type == "dispensary" %}
-        <form class="" action="/follow_grower/{{ grower.getId }}" method="post">
-          <button type="submit" name="button">Follow this cultivator</button>
-        </form>
-      {% endif %}
+          {% if session.type == "dispensary" %}
+            <form class="" action="/follow_grower/{{ grower.getId }}" method="post">
+              <button type="submit" name="button">Follow this cultivator</button>
+            </form>
+          {% endif %}
 
-      <h3>Contact Information:</h3>
-      <p>
-        <a href="{{ grower.getWebsite }}">{{ grower.getWebsite }}</a><br>
-        {{ grower.getEmail }}
-      </p>
-
-        <h4>Current inventory:</h4>
-        <table border = "1" cellpadding = "15">
-                   <tr>
-                       <th>Strain</th>
-                       <th>Phenotype</th>
-                       <th>THC %</th>
-                       <th>CBD %</th>
-                       <th>Price ($/lb)</th>
-                       <th>CGC</th>
-
-                   </tr>
-                   {% if strains is not empty %}
-                       {% for strain in strains %}
+          <h3>Contact Information:</h3>
+          <p>
+            <a href="{{ grower.getWebsite }}">{{ grower.getWebsite }}</a><br>
+            {{ grower.getEmail }}
+          </p>
+            <h4>Current inventory:</h4>
+            <table>
                        <tr>
-                           <td>
-                               {{ strain.getStrainName }}
-                           </td>
-                           <td>
-                               {{ strain.getPheno }}
-                           </td>
-                           <td>
-                               {{ strain.getThc }}
-                           </td>
-                           <td>
-                               {{ strain.getCbd }}
-                           </td>
-                           <td>
-                               {{ strain.getPrice }}
-                           </td>
-                           <td>
-                               {% if strain.getCgc == 1 %}
-                                   <img src="/img/cleangreen.png"  style="height: 3em;" alt="" />
+                           <th>Strain</th>
+                           <th>Phenotype</th>
+                           <th>THC %</th>
+                           <th>CBD %</th>
+                           <th>Price ($/lb)</th>
+                           <th>CGC</th>
 
-                               {% else %}
+                       </tr>
+                       {% if strains is not empty %}
+                           {% for strain in strains %}
+                           <tr>
+                               <td>
+                                   {{ strain.getStrainName }}
+                               </td>
+                               <td>
+                                   {{ strain.getPheno }}
+                               </td>
+                               <td>
+                                   {{ strain.getThc }}
+                               </td>
+                               <td>
+                                   {{ strain.getCbd }}
+                               </td>
+                               <td>
+                                   {{ strain.getPrice }}
+                               </td>
+                               <td>
+                                   {% if strain.getCgc == 1 %}
+                                       <img src="/img/cleangreen.png"  style="height: 3em;" alt="" />
 
-                               {% endif %}
+                                   {% else %}
+
+                                   {% endif %}
+                               </td>
+                           </tr>
+                           {% endfor %}
+                       {% else %}
+                       <tr>
+                           <td colspan = "8">
+                                No Strains Available
                            </td>
                        </tr>
-                       {% endfor %}
-                   {% else %}
-                   <tr>
-                       <td colspan = "8">
-                            No Strains Available
-                       </td>
-                   </tr>
-                   {% endif %}
-               </table>
+                       {% endif %}
+                   </table>
 
+            <br>
+            {% include '/includes/dispensary_demands.html.twig' %}
+            {% include '/includes/grower_supply.html.twig' %}
+        </main>
 
-        <br>
-        {% include '/includes/dispensary_demands.html.twig' %}
-        {% include '/includes/grower_supply.html.twig' %}
     </body>
 </html>

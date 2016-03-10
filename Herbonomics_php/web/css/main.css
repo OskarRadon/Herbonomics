@@ -224,6 +224,9 @@ main {
   display: flex;
   flex-direction: column; }
 
+table a {
+  color: #FF473A;
+  text-decoration: none; }
 table th {
   font-size: 0.7em;
   text-align: center; }

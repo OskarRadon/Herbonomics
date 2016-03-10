@@ -7,78 +7,83 @@
     </head>
     <body>
         {% include '/includes/header.html.twig' %}
+
         <!-- MODAL -->
         {% include '/includes/sign-in.html.twig' %}
-        <h3>Cultivators Strains</h3>
 
-        <form class="" action="/grower_supply/search" method="get">
-            <label>Search Strain Name</label>
-            <input type="text" name="search">
-          <button type="submit" name="button">Search</button>
-        </form>
+        <main>
+          <h3>Cultivators Strains</h3>
 
-        <form class="" action="/grower_supply/pheno_search" method="get">
-            <label>Search by Phenotype</label>
-            <select class="" name="search">
-                <option value="Sativa">Sativa</option>
-                <option value="Indica">Indica</option>
-                <option value="Hybrid">Hybrid</option>
-            </select>
-          <button type="submit" name="button">Search</button>
-        </form>
+          <form class="" action="/grower_supply/search" method="get">
+              <label>Search Strain Name</label>
+              <input type="text" name="search">
+            <button type="submit" name="button">Search</button>
+          </form>
 
-        <table border = "1" cellpadding = "15">
-            <tr>
-                <th>Strain</th>
-                <th>Phenotype</th>
-                <th>THC %</th>
-                <th>CBD %</th>
-                <th>Price ($/lb)</th>
-                <th>CGC</th>
-                <th>Cultivator</th>
-            </tr>
-            {% if strains is not empty %}
-                {% for strain in strains %}
-                <tr>
-                    <td>
-                        {{ strain.getStrainName }}
-                    </td>
-                    <td>
-                        {{ strain.getPheno }}
-                    </td>
-                    <td>
-                        {{ strain.getThc }}
-                    </td>
-                    <td>
-                        {{ strain.getCbd }}
-                    </td>
-                    <td>
-                        {{ strain.getPrice }}
-                    </td>
-                    <td>
-                        {% if strain.getCgc == 1 %}
-                            <img src="/img/cleangreen.png"  style="height: 3em;" alt="" />
+          <form class="" action="/grower_supply/pheno_search" method="get">
+              <label>Search by Phenotype</label>
+              <select class="" name="search">
+                  <option value="Sativa">Sativa</option>
+                  <option value="Indica">Indica</option>
+                  <option value="Hybrid">Hybrid</option>
+              </select>
+            <button type="submit" name="button">Search</button>
+          </form>
 
-                        {% else %}
+          <table border = "1" cellpadding = "15">
+              <tr>
+                  <th>Strain</th>
+                  <th>Phenotype</th>
+                  <th>THC %</th>
+                  <th>CBD %</th>
+                  <th>Price ($/lb)</th>
+                  <th>CGC</th>
+                  <th>Cultivator</th>
+              </tr>
+              {% if strains is not empty %}
+                  {% for strain in strains %}
+                  <tr>
+                      <td>
+                          {{ strain.getStrainName }}
+                      </td>
+                      <td>
+                          {{ strain.getPheno }}
+                      </td>
+                      <td>
+                          {{ strain.getThc }}
+                      </td>
+                      <td>
+                          {{ strain.getCbd }}
+                      </td>
+                      <td>
+                          {{ strain.getPrice }}
+                      </td>
+                      <td>
+                          {% if strain.getCgc == 1 %}
+                              <img src="/img/cleangreen.png"  style="height: 3em;" alt="" />
 
-                        {% endif %}
-                    </td>
-                    <td>
-                        <a href="/grower_profile/{{ strain.getGrowersId }}">{{ strain.findGrowerName(strain.getGrowersId) }}</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            {% else %}
-            <tr>
-                <td colspan = "7">
-                     No Strains Available
-                </td>
-            </tr>
-            {% endif %}
-        </table>
-        <br>
+                          {% else %}
 
-        {% include '/includes/dispensary_demands.html.twig' %}<br>
+                          {% endif %}
+                      </td>
+                      <td>
+                          <a href="/grower_profile/{{ strain.getGrowersId }}">{{ strain.findGrowerName(strain.getGrowersId) }}</a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              {% else %}
+              <tr>
+                  <td colspan = "7">
+                       No Strains Available
+                  </td>
+              </tr>
+              {% endif %}
+          </table>
+          <br>
+
+          {% include '/includes/dispensary_demands.html.twig' %}<br>
+
+        </main>
 
     </body>
 </html>
