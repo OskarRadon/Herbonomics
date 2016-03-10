@@ -11,16 +11,20 @@ Grower's Inventory-->
         <title>Cultivator Profile</title>
     </head>
     <body>
-
         {% include '/includes/header.html.twig' %}
-        <main>
-          <h1>{{ grower.getName }}</h1>
+      <h1>{{ grower.getName }}</h1>
 
-          {% if session.type == "dispensary" %}
-            <form class="" action="/follow_grower/{{ grower.getId }}" method="post">
-              <button type="submit" name="button">Follow this cultivator</button>
-            </form>
-          {% endif %}
+      {% if session.type == "dispensary" %}
+        {% if grower.checkFollow(session.id) == true %}
+          <form>
+            <button type="button" name="button">Following!</button>
+          </form>
+        {% else %}
+        <form class="" action="/follow_grower/{{ grower.getId }}" method="post">
+          <button type="submit" name="button">Follow this cultivator</button>
+        </form>
+        {% endif %}
+      {% endif %}
 
           <h3>Contact Information:</h3>
           <p>
