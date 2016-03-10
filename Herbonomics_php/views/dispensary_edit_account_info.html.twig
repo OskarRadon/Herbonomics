@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="/css/profile.css" media="screen" title="no title" charset="utf-8">
         <meta charset="utf-8">
         <title>Herbonomics</title>
     </head>
     <body>
+        {% include '/includes/header.html.twig' %}
         <h1>Edit your account info:</h1>
         <form class="" action="/dispensary/{{ dispensary.getId }}/edit_account_info" method="post">
             <input name="_method" type="hidden" value="patch">
