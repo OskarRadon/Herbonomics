@@ -233,9 +233,10 @@ main {
 // TABLE STYLING
 
 table {
+  margin-top: 20px;
   a {
-    color: $color-red;
-    text-decoration: none;
+    color: $color-green;
+    // text-decoration: none;
   }
   th {
     font-size: 0.7em;
