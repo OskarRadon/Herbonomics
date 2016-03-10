@@ -105,6 +105,13 @@
           </tr>
           {% endif %}
         </table>
+
+      <h3>You are Following:</h3>
+          {% if follows is not empty %}
+            {% for follow in follows %}
+                <a href="/dispensary_profile/{{ follow.getId }}">{{follow.getName}}</a>
+            {% endfor %}
+          {% endif %}
       </div>
     </main>
     {% include '/includes/footer.html.twig' %}
