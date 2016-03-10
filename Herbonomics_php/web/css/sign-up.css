@@ -96,6 +96,11 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center; }
+    @media (min-width: 600px) {
+      .remodal form {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%; } }
     .remodal form input, .remodal form footer button, footer .remodal form button {
       width: 70%;
       border: 1px solid #bababa;
