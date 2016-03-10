@@ -19,14 +19,15 @@ table {
   th {
     @include Montserrat;
     border: 1px solid darken($color-green, 2%);
-    padding: 15px;
+    // padding: 15px;
   }
   td {
     border: 1px solid darken($color-green, 2%);
-    padding: 15px;
+    // padding: 15px;
   }
   @include Istok;
 }
+
 
 #add-strain {
   // width: 500px;

@@ -27,7 +27,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 80px 0 0;
-  background: #E1DEE3; }
+  background: #E1DEE3;
+  min-height: 100%; }
 
 header {
   display: flex;
@@ -183,6 +184,14 @@ main {
   display: flex;
   flex-direction: column; }
 
+table th {
+  font-size: 0.7em;
+  text-align: center; }
+table td {
+  font-size: 0.7em;
+  text-align: center;
+  width: 10vw; }
+
 body {
   font-family: 'Montserrat', serif;
   font-weight: 400;
@@ -203,11 +212,9 @@ table {
     font-family: 'Montserrat', serif;
     font-weight: 400;
     font-style: normal;
-    border: 1px solid #00913a;
-    padding: 15px; }
+    border: 1px solid #00913a; }
   table td {
-    border: 1px solid #00913a;
-    padding: 15px; }
+    border: 1px solid #00913a; }
 
 .account {
   display: flex;

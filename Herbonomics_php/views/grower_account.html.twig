@@ -23,6 +23,7 @@
 
       <div class="supply">
         <h3>Add a new strain:</h3>
+
         <form id="add-strain" action='/grower/add_strain' method='post'>
             <input id="growers_id" name="growers_id" type="hidden" value="{{ grower.getId }}">
 
@@ -55,7 +56,7 @@
          </form>
 
         <h3>Here is your current supply:</h3>
-        <table>
+          <table>
           <tr>
             <th>Strain</th>
             <th>Phenotype</th>

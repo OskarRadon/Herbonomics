@@ -15,7 +15,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 80px 0 0;
-  background: #E1DEE3; }
+  background: #E1DEE3;
+  min-height: 100%; }
 
 header {
   display: flex;
@@ -170,6 +171,14 @@ main {
   flex-grow: 1;
   display: flex;
   flex-direction: column; }
+
+table th {
+  font-size: 0.7em;
+  text-align: center; }
+table td {
+  font-size: 0.7em;
+  text-align: center;
+  width: 10vw; }
 
 main {
   padding-top: 10px; }
