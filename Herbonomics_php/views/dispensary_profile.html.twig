@@ -9,6 +9,12 @@
         {% include '/includes/header.html.twig' %}
       <h1>{{ dispensary.getName }}</h1>
 
+      {% if session.type == "grower" %}
+        <form class="" action="/follow_dispensary/{{ dispensary.getId }}" method="post">
+          <button type="submit" name="button">Follow this retailer</button>
+        </form>
+      {% endif %}
+
       <h3>Contact Information:</h3>
       <p>
         <a href="{{ dispensary.getWebsite }}">{{ dispensary.getWebsite }}</a><br>

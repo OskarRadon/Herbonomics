@@ -172,6 +172,29 @@ class Grower
         $_SESSION['type'] = "grower";
     }
 
+    function addDispensary($dispensary_id)
+    {
+      $GLOBALS['DB']->exec("INSERT INTO dispensaries_growers (grower_id, dispensary_id) VALUES ({$this->getId()}, {$dispensary_id}) ;");
+    }
+
+    function getDispensaries()
+    {
+      $query = $GLOBALS['DB']->query("SELECT dispensaries.* FROM growers JOIN dispensaries_growers ON (growers.id = dispensaries_growers.grower_id) JOIN dispensaries ON (dispensaries_growers.dispensary_id = dispensaries.id) WHERE growers.id = {$this->getId()}; ");
+      $returned_dispensaries = $query->fetchAll(PDO::FETCH_ASSOC);
+      $dispensaries = array();
+      foreach($returned_dispensaries as $dispensary){
+         $name = $dispensary['name'];
+         $website = $dispensary['website'];
+         $email = $dispensary['email'];
+         $username = $dispensary['username'];
+         $password = $dispensary['password'];
+         $id = $dispensary['id'];
+         $new_dispensary = new Dispensary($name, $website, $email, $username, $password, $id);
+         array_push($dispensaries, $new_dispensary);
+        }
+      return $dispensaries;
+    }
+
 }
 
  ?>
