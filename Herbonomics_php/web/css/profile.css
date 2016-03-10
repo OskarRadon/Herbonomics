@@ -268,7 +268,8 @@ table {
     display: flex;
     align-items: center; }
     .account .account-buttons form {
-      margin: 0; }
+      margin: 0 10px 0;
+      width: 33%; }
     .account .account-buttons button {
       margin-right: 20px; }
 
