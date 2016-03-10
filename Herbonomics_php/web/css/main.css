@@ -141,7 +141,7 @@ header {
     * form {
       flex-direction: row;
       flex-wrap: wrap;
-      width: 300px; } }
+      width: 330px; } }
   @media (min-width: 600px) {
     * form label {
       margin: 0 10px 10px 0; } }
@@ -154,7 +154,7 @@ header {
     margin: 0 0 10px; }
     @media (min-width: 600px) {
       * form select {
-        width: 100px; } }
+        width: 150px; } }
   * form button {
     margin-top: 10px;
     border: none;
