@@ -23,6 +23,8 @@
         $_SESSION['type'] = null;
     }
 
+
+
     $app = new Silex\Application();
 
     use Symfony\Component\Debug\Debug;
@@ -55,6 +57,7 @@
         $dispensary = Dispensary::signIn($_GET['username'], $_GET['password']);
 
         if ($dispensary == null) {
+            // echo "<script>alert('Failure.');</script>";
             return $app['twig']->render('index.html.twig');
         } else
 
@@ -72,6 +75,7 @@
 
 
         if ($grower == null) {
+            // echo "<script>alert('Failure.');</script>";
             return $app['twig']->render('index.html.twig');
         } else
 
