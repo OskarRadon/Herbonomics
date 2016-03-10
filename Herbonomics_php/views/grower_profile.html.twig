@@ -15,9 +15,15 @@ Grower's Inventory-->
       <h1>{{ grower.getName }}</h1>
 
       {% if session.type == "dispensary" %}
+        {% if grower.checkFollow(session.id) == true %}
+          <form>
+            <button type="button" name="button">Following!</button>
+          </form>
+        {% else %}
         <form class="" action="/follow_grower/{{ grower.getId }}" method="post">
           <button type="submit" name="button">Follow this cultivator</button>
         </form>
+        {% endif %}
       {% endif %}
 
       <h3>Contact Information:</h3>
