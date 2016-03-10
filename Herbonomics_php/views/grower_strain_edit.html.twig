@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="/css/profile.css" media="screen" title="no title" charset="utf-8">
         <meta charset="utf-8">
         <title>Herbonomics</title>
     </head>
-    <body><h4>Edit the Strain:</h4>
+    <body>
+        {% include '/includes/header.html.twig' %}
+        <h4>Edit the Strain:</h4>
 
         <form action='/strain/{{strain.getId}}/edit_strain' method='post'>
             <input id="strain_id" name="stain_id" type="hidden" value="{{ strain.getId }}">

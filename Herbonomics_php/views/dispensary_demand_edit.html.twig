@@ -2,10 +2,12 @@
 <html>
     <head>
         {% include '/includes/head.html.twig' %}
+         <link rel="stylesheet" href="/css/profile.css" media="screen" title="no title" charset="utf-8">
         <meta charset="utf-8">
         <title>Herbonomics</title>
     </head>
     <body>
+        {% include '/includes/header.html.twig' %}
         <h2>{{ demand.getStrainName }}</h2>
         <h3>Edit demand:</h3>
         <form class="" action="/dispensary_demand/{{ demand.getId }}/edit_post" method="post">
