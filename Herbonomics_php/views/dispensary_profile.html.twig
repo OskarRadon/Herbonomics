@@ -10,17 +10,24 @@
         <main>
           <h1>{{ dispensary.getName }}</h1>
 
-          {% if session.type == "grower" %}
-            <form class="" action="/follow_dispensary/{{ dispensary.getId }}" method="post">
-              <button type="submit" name="button">Follow this retailer</button>
-            </form>
-          {% endif %}
+      {% if session.type == "grower" %}
+        {% if dispensary.checkFollow(session.id) == true %}
+          <form>
+            <button type="button" name="button">Following!</button>
+          </form>
+        {% else %}
+        <form class="" action="/follow_dispensary/{{ dispensary.getId }}" method="post">
+          <button type="submit" name="button">Follow this cultivator</button>
+        </form>
+        {% endif %}
+      {% endif %}
 
-          <h3>Contact Information:</h3>
-          <p>
-            <a href="{{ dispensary.getWebsite }}">{{ dispensary.getWebsite }}</a><br>
-            {{ dispensary.getEmail }}
-          </p>
+
+      <h3>Contact Information:</h3>
+      <p>
+        <a href="{{ dispensary.getWebsite }}">{{ dispensary.getWebsite }}</a><br>
+        {{ dispensary.getEmail }}
+      </p>
 
             <h4>This dispensary is currently looking for:</h4>
             <table border = "1" cellpadding = "15">

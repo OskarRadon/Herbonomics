@@ -181,6 +181,17 @@
          return $growers;
        }
 
+       function checkFollow($grower_id)
+       {
+         $existing_follows = $GLOBALS['DB']->query("SELECT * FROM dispensaries_growers");
+         			foreach ($existing_follows as $follow) {
+         				if ($follow['grower_id'] == $grower_id and $follow['dispensary_id'] == $this->getId()) {
+         					return true;
+         				}
+         			}
+              return false;
+       }
+
     }
 
  ?>

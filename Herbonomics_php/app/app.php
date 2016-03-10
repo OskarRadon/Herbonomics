@@ -350,10 +350,10 @@
     $app->get("/profile", function() use ($app) {
         if ($_SESSION['type'] == "dispensary") {
             $dispensary = Dispensary::find($_SESSION['id']);
-
+            $follows = $dispensary->getGrowers();
             $demands =
             DispensaryDemand::findByDispensary($dispensary->getId());
-            return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands ));
+            return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands, 'follows'=> $follows ));
         } else if ($_SESSION['type'] == "grower") {
             $grower = Grower::findById($_SESSION['id']);
             $follows = $grower->getDispensaries();
