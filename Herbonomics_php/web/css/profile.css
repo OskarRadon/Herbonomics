@@ -141,7 +141,7 @@ header {
     * form {
       flex-direction: row;
       flex-wrap: wrap;
-      width: 330px; } }
+      width: 350px; } }
   @media (min-width: 600px) {
     * form label {
       margin: 0 10px 10px 0; } }
