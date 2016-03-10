@@ -178,6 +178,11 @@ footer {
   font-style: normal;
   align-items: center;
   color: white; }
+  @media (min-width: 600px) {
+    footer form {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      width: 100%; } }
   footer input, footer button {
     outline: none;
     font-size: .8em;

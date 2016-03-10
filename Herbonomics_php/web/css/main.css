@@ -113,13 +113,13 @@ header {
         flex-direction: column;
         flex-wrap: nowrap;
         width: 100%; } }
-    .remodal form input, .remodal form footer button, footer .remodal form button, .remodal .hero .search-wrap form button, .hero .search-wrap .remodal form button {
+    .remodal form input, .remodal form footer button, footer .remodal form button, .remodal .hero .search-wrap form .landing-buttons button, .hero .search-wrap .remodal form .landing-buttons button {
       width: 70%;
       border: 1px solid #bababa;
       border-radius: 3px;
       padding: 3px; }
       @media (min-width: 600px) {
-        .remodal form input, .remodal form footer button, footer .remodal form button, .remodal .hero .search-wrap form button, .hero .search-wrap .remodal form button {
+        .remodal form input, .remodal form footer button, footer .remodal form button, .remodal .hero .search-wrap form .landing-buttons button, .hero .search-wrap .remodal form .landing-buttons button {
           width: 50%; } }
     .remodal form label:nth-of-type(even) {
       margin-top: 10px; }
@@ -145,7 +145,7 @@ header {
   @media (min-width: 600px) {
     * form label {
       margin: 0 10px 10px 0; } }
-  * form input, * form footer button, footer * form button, * .hero .search-wrap form button, .hero .search-wrap * form button {
+  * form input, * form footer button, footer * form button, * .hero .search-wrap form .landing-buttons button, .hero .search-wrap * form .landing-buttons button {
     border: 1px solid #bababa;
     border-radius: 3px;
     padding: 3px;
@@ -178,7 +178,12 @@ footer {
   font-style: normal;
   align-items: center;
   color: white; }
-  footer input, footer button, footer .hero .search-wrap form button, .hero .search-wrap form footer button {
+  @media (min-width: 600px) {
+    footer form {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      width: 100%; } }
+  footer input, footer button, footer .hero .search-wrap form .landing-buttons button, .hero .search-wrap form .landing-buttons footer button {
     outline: none;
     font-size: .8em;
     padding: 4px;
@@ -186,7 +191,7 @@ footer {
     text-align: center;
     border-radius: 2px; }
     @media (min-width: 600px) {
-      footer input, footer button, footer .hero .search-wrap form button, .hero .search-wrap form footer button {
+      footer input, footer button, footer .hero .search-wrap form .landing-buttons button, .hero .search-wrap form .landing-buttons footer button {
         font-size: 1em;
         padding: 10px;
         width: 250px; } }
@@ -299,8 +304,11 @@ table td {
       padding: 0 20px; }
       @media (min-width: 600px) {
         .hero .search-wrap form {
-          margin-top: 25vh; } }
-      .hero .search-wrap form input, .hero .search-wrap form button {
+          margin-top: 25vh;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          width: 100%; } }
+      .hero .search-wrap form input, .hero .search-wrap form footer button, footer .hero .search-wrap form button, .hero .search-wrap form .landing-buttons button {
         width: 90%;
         font-size: 1em;
         padding: 7px;
@@ -310,22 +318,25 @@ table td {
         text-align: center;
         display: inline-block; }
         @media (min-width: 600px) {
-          .hero .search-wrap form input, .hero .search-wrap form button {
+          .hero .search-wrap form input, .hero .search-wrap form footer button, footer .hero .search-wrap form button, .hero .search-wrap form .landing-buttons button {
             display: inline;
             font-size: 1.5em;
             width: calc(90% - 130px);
             padding: 15px 0; } }
-      .hero .search-wrap form button {
-        width: 90px;
-        border-radius: 2px;
-        margin-top: 10px;
-        background: #FF473A;
-        color: white;
-        border-bottom: 3px solid #d30e00; }
-        @media (min-width: 600px) {
-          .hero .search-wrap form button {
-            width: 120px;
-            margin: 0 0 0 10px; } }
+      .hero .search-wrap form .landing-buttons {
+        display: flex;
+        align-content: center; }
+        .hero .search-wrap form .landing-buttons button {
+          width: 120px;
+          border-radius: 2px;
+          margin-top: 10px;
+          background: #FF473A;
+          color: white;
+          border-bottom: 3px solid #d30e00; }
+          @media (min-width: 600px) {
+            .hero .search-wrap form .landing-buttons button {
+              width: 120px;
+              margin: 0 0 0 10px; } }
 
 main {
   font-family: 'Istok Web', serif;

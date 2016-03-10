@@ -172,6 +172,13 @@ footer {
   @include Montserrat();
   align-items: center;
   color: $color-white;
+  form {
+    @include tablet {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+  }
   input {
     outline: none;
     font-size: .8em;

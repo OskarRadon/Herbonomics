@@ -61,6 +61,9 @@
       padding: 0 20px;
       @include tablet {
         margin-top: 25vh;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
       }
       input {
         width: 90%;
@@ -78,17 +81,21 @@
           padding: 15px 0;
         }
       }
-      button {
-        @extend input;
-        width: 90px;
-        border-radius: 2px;
-        margin-top: 10px;
-        background: $color-red;
-        color: $color-white;
-        border-bottom: 3px solid $color-darkred;
-        @include tablet {
+      .landing-buttons {
+        display: flex;
+        align-content: center;
+        button {
+          @extend input;
           width: 120px;
-          margin: 0 0 0 10px;
+          border-radius: 2px;
+          margin-top: 10px;
+          background: $color-red;
+          color: $color-white;
+          border-bottom: 3px solid $color-darkred;
+          @include tablet {
+            width: 120px;
+            margin: 0 0 0 10px;
+          }
         }
       }
     }
