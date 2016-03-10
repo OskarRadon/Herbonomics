@@ -23,8 +23,6 @@
         $_SESSION['type'] = null;
     }
 
-
-
     $app = new Silex\Application();
 
     use Symfony\Component\Debug\Debug;
@@ -57,7 +55,7 @@
         $dispensary = Dispensary::signIn($_GET['username'], $_GET['password']);
 
         if ($dispensary == null) {
-            // echo "<script>alert('Failure.');</script>";
+            echo "<script>alert('Username and password do not match. Please try again.');</script>";
             return $app['twig']->render('index.html.twig');
         } else
 
@@ -75,7 +73,7 @@
 
 
         if ($grower == null) {
-            // echo "<script>alert('Failure.');</script>";
+            echo "<script>alert('Username and password do not match. Please try again.');</script>";
             return $app['twig']->render('index.html.twig');
         } else
 
@@ -87,6 +85,8 @@
             'strains' => $strains
         ));
     });
+
+
 
     //*takes user to the individual grower account page*//
     $app->get("/grower/{id}/account", function() use ($app) {
