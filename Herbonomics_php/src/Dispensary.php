@@ -145,6 +145,18 @@
             return $user;
         }
 
+        function saveId()
+        {
+            $_SESSION['id'] = $this->id;
+            $_SESSION['type'] = "dispensary";
+        }
+
+        static function signOut()
+        {
+            $_SESSION['id'] = null;
+            $_SESSION['type'] = null;
+        }
+
     }
 
  ?>
