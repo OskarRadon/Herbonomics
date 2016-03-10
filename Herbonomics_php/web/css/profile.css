@@ -27,8 +27,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 80px 0 0;
-  background: #E1DEE3;
-  min-height: 100%; }
+  background: #E1DEE3; }
 
 header {
   display: flex;
