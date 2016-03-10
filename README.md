@@ -1,27 +1,34 @@
 # Herbonomics
-##### Connects farmers and dispensaries together.
+##### Connects Cannabis Retailers and Cultivators together.
 
 #### By Ryan Brown, Alex Fallenstedt, Schuyler Klaassen, Matt Knuttson, Oskar Radon, Adam Ross Russell
 
 ## Description
 
-Herbonomics makes it easy for dispensaries and farms to connect with each other and do business.  
+Herbonomics makes it easy for retailers and cultivators to connect with each other and do business.
 
-As a dispensary, you can make your own profile and display what strains and the quantity you need.  You can also search for a strain or farm and see what is available on the market.  If you find a farm that suits your need, you can contact them and make a bid on their product.
+Each cultivator can make a profile and post what cannabis strains the cultivator are selling. Each strain has details regarding
+* THC & CBD content
+* Strain name
+* Species
+* [Clean Green Certification](http://cleangreencert.com/home/)
+*  Price (Dollars / Pound).
 
-Similarly, as a farm you can make your own profile and can display what products you have on hand.  You can search for dispensaries or strains and see the current product demand on the market.  If you see a dispensary that suits your need, you can contact them and make them an offer for your product.
+The cultivator has full CRUD (Create, Read, Update, and Delete) capability when managing their strains, making it easy for keeping an up-to-date inventory on the marketplace.
+
+A retailer can also make a profile to post the amount of a specific cannabis strains a retailer is in need of. Each offer a retailer makes has full CRUD capability, which allows the retailer to manage their demands and only request offers from specific cultivators.
+
+Cultivators and retailers can both browse the marketplace for strains that are in demand by retailers and are offered by cultivators. This saves time for both parties by eliminating countless phone calls, emails, and store visits by connecting specific retailer demands to cultivator who has that supply.
+
+Future versions could include product transparency and online ordering for each cannabis flower posted to the marketplace. This would include:
+* Full product descriptions
+* Reviews of the product and the cultivator
+* Sample requests
 
 ## Bug list
 
-<<<<<<< HEAD
-1. Updated grower account name, but upon return to grower account page all strains are missing.
+None at this time.
 
-2. Upon editing a strain user is taken to the incorrect grower account page.
-
-3. If I attempt to sign in and mess up my password or username, I am taken back to the home screen. When I click "log in" again, nothing happens. Something is funky with the URL that we are routing too. 
-=======
-1. None at this time.
->>>>>>> master
 
 ## Setup
 
@@ -31,10 +38,10 @@ Similarly, as a farm you can make your own profile and can display what products
 4. Change directory into the `web` folder and run the command `php -S localhost:8000` start your server.
 5. Navigate your browser to the home page at the root address  `http://localhost:8000`.
 6. Open `localhost:8888/phpmyadmin` in your browser. Enter the user name `root` and the password `root`.
-7. Choose the `Import` tab, select the database file named `herbonomics.sql.zip` (from the project folder) and click `Go`. You should now be able to see the `shoes` database in your phpMyAdmin.
+7. Choose the `Import` tab, select the database file named `herbonomics.sql.zip` (from the project folder) and click `Go`. You should now be able to see the `herbonomics` database in your phpMyAdmin.
 8. Repeat step 7 with the file named `herbonomics_test.sql.zip` in order to run tests.
 
-## MySQL Commands Used
+## MySQL Commands
 
 1. `CREATE DATABASE herbonomics;`
 
@@ -52,7 +59,13 @@ Similarly, as a farm you can make your own profile and can display what products
 
 ## Technologies Used
 
-HTML5, CSS3, SASS, PHP, Silex, Twig, PHPUnit, mySQL
+* HTML5
+* CSS3
+* SASS
+* PHP
+* Silex & Twig
+* PHPUnit for testing
+* MySQL
 
 ### Legal
 
