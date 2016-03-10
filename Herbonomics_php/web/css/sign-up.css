@@ -116,6 +116,36 @@ header {
       color: white;
       border-bottom: 3px solid #d30e00; }
 
+* form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  @media (min-width: 600px) {
+    * form {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 300px; } }
+  @media (min-width: 600px) {
+    * form label {
+      margin: 0 10px 10px 0; } }
+  * form input, * form footer button, footer * form button {
+    border: 1px solid #bababa;
+    border-radius: 3px;
+    padding: 3px;
+    margin: 0 10px 10px 0; }
+  * form select {
+    margin: 0 0 10px; }
+    @media (min-width: 600px) {
+      * form select {
+        width: 100px; } }
+  * form button {
+    margin-top: 10px;
+    border: none;
+    font-size: .9em;
+    background: #FF473A;
+    color: white;
+    border-bottom: 3px solid #d30e00; }
+
 .wrapper {
   max-width: 1200px;
   margin: 0 auto; }
