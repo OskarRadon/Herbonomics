@@ -72,6 +72,14 @@
         {% include '/includes/grower_supply.html.twig' %}<br>
         {% include '/includes/home_form.html.twig' %}
 
+      <h3>You are Following:</h3>
+
+        {% if follows is not empty %}
+          {% for follow in follows %}
+            <a href="/grower_profile/{{ follow.getId }}">{{follow.getName}}</a>
+          {% endfor %}
+        {% endif %}
+
     </body>
 </html>
 

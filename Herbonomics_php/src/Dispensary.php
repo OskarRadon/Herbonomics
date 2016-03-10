@@ -164,7 +164,8 @@
 
         function getGrowers()
         {
-         $query = $GLOBALS['DB']->query("SELECT growers.* FROM dispensaries JOIN dispensaries_growers ON (dispensaries.id = dispensaries_growers.dispensary_id) JOIN growers ON (dispensaries_growers.grower_id = growers.id) WHERE dispensary.id = {$this->getId()}; ");
+         $query = $GLOBALS['DB']->query("SELECT growers.* FROM dispensaries JOIN dispensaries_growers ON (dispensaries.id = dispensaries_growers.dispensary_id) JOIN growers ON (dispensaries_growers.grower_id = growers.id) WHERE dispensaries.id = {$this->getId()}; ");
+         $returned_growers = array();
          $returned_growers = $query->fetchAll(PDO::FETCH_ASSOC);
          $growers = array();
          foreach($returned_growers as $grower) {
