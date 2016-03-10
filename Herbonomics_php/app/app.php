@@ -314,6 +314,22 @@
         return $app['twig']->render('index.html.twig');
     });
 
+    $app->post("/follow_grower/{id}", function($id) use ($app) {
+        $dispensary = Dispensary::find($_SESSION['id']);
+        $dispensary->addGrower($id);
+        $grower = Grower::findbyId($id);
+        $strains = GrowersStrains::findByGrower($id);
+        return $app['twig']->render('grower_profile.html.twig', array('grower' => $grower, 'strains' => $strains));
+    });
+
+    $app->post("/follow_dispensary/{id}", function($id) use ($app) {
+        $grower = Grower::findById($_SESSION['id']);
+        $grower->addDispensary($id);
+        $dispensary = Dispensary::find($id);
+        $demands = DispensaryDemand::findByDispensary($id);
+        return $app['twig']->render('dispensary_profile.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
+    });
+
 
     $app->get("/profile", function() use ($app) {
         if ($_SESSION['type'] == "dispensary") {

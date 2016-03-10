@@ -14,6 +14,12 @@ Grower's Inventory-->
         {% include '/includes/header.html.twig' %}
       <h1>{{ grower.getName }}</h1>
 
+      {% if session.type == "dispensary" %}
+        <form class="" action="/follow_grower/{{ grower.getId }}" method="post">
+          <button type="submit" name="button">Follow this cultivator</button>
+        </form>
+      {% endif %}
+
       <h3>Contact Information:</h3>
       <p>
         <a href="{{ grower.getWebsite }}">{{ grower.getWebsite }}</a><br>
