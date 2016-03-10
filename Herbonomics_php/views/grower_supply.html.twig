@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% include '/includes/head.html.twig' %}
         <link rel="stylesheet" href="/css/profile.css" media="screen" title="no title" charset="utf-8">
         <title>Herbonomics</title>
     </head>
     <body>
         {% include '/includes/header.html.twig' %}
+        <!-- MODAL -->
+        {% include '/includes/sign-in.html.twig' %}
         <h3>Cultivators Strains</h3>
 
         <form class="" action="/grower_supply/search" method="get">
@@ -31,7 +34,7 @@
                 <th>THC %</th>
                 <th>CBD %</th>
                 <th>Price ($/lb)</th>
-                <th>Clean Green Certified</th>
+                <th>CGC</th>
                 <th>Cultivator</th>
             </tr>
             {% if strains is not empty %}
@@ -76,9 +79,6 @@
         <br>
 
         {% include '/includes/dispensary_demands.html.twig' %}<br>
-        {% include '/includes/home_form.html.twig' %}
-        <form class="" action="/profile" method="get">
-            <button type="submit" name="button">Profile</button>
-        </form>
+
     </body>
 </html>

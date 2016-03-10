@@ -1,7 +1,7 @@
 # Herbonomics
 ##### Connects farmers and dispensaries together.
 
-#### By Ryan Brown, Alex Fallenstedt, Schuyler Klaassen, Matt Knuttson, Oskar Radon, Adam Ross Russell
+#### By Ryan Brown, Alex Fallenstedt, Schuyler Klaassen, Matt Knutson, Oskar Radon, Adam Ross Russell
 
 ## Description
 
@@ -13,15 +13,13 @@ Similarly, as a farm you can make your own profile and can display what products
 
 ## Bug list
 
-<<<<<<< HEAD
-1. Updated grower account name, but upon return to grower account page all strains are missing.
 
-2. Upon editing a strain user is taken to the incorrect grower account page.
 
-3. If I attempt to sign in and mess up my password or username, I am taken back to the home screen. When I click "log in" again, nothing happens. Something is funky with the URL that we are routing too. 
-=======
-1. None at this time.
->>>>>>> master
+4. Potentially give an alert that the password or user name was incorrect upon login attempt.
+
+
+
+
 
 ## Setup
 
@@ -56,7 +54,7 @@ HTML5, CSS3, SASS, PHP, Silex, Twig, PHPUnit, mySQL
 
 ### Legal
 
-Copyright (c) 2016, Ryan Brown, Alex Fallenstedt, Schuyler Klaassen, Matt Knuttson, Oskar Radon, Adam Ross Russell
+Copyright (c) 2016, Ryan Brown, Alex Fallenstedt, Schuyler Klaassen, Matt Knutson, Oskar Radon, Adam Ross Russell
 
 This software is licensed under the MIT license.
 
