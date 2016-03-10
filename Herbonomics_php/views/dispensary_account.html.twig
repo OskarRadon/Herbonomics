@@ -21,9 +21,23 @@
 
 
           <div class="supply">
+            <h3>Add a new demand:</h3>
+            <form class="" action="/dispensary/demand_add" method="post">
+                <input name="dispensary_id" type="hidden" value="{{ dispensary.getId }}">
+                <label>Strain Name</label>
+                <input type="text" name="strain_name" required="">
+                <label>Phenotype</label>
+                <select class="" name="pheno">
+                    <option value="Sativa">Sativa</option>
+                    <option value="Indica">Indica</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+                <label>Quantity (lbs)</label>
+                <input type="number" name="quantity" step="any" min="0" required="">
+              <button type="submit" name="button">Add this Demand</button>
+            </form>
 
-
-          <h3>Here are your existing demands:</h3>
+          <h3>Your existing demands:</h3>
 
           <table border = "1" cellpadding = "15">
               <tr>
@@ -59,21 +73,7 @@
           </table>
 
 
-          <h3>Add a new demand:</h3>
-          <form class="" action="/dispensary/demand_add" method="post">
-              <input name="dispensary_id" type="hidden" value="{{ dispensary.getId }}">
-              <label>Strain Name</label>
-              <input type="text" name="strain_name" required="">
-              <label>Phenotype</label>
-              <select class="" name="pheno">
-                  <option value="Sativa">Sativa</option>
-                  <option value="Indica">Indica</option>
-                  <option value="Hybrid">Hybrid</option>
-              </select>
-              <label>Quantity (lbs)</label>
-              <input type="number" name="quantity" step="any" min="0" required="">
-            <button type="submit" name="button">Add this Demand</button>
-          </form>
+
           <br>
 
           {% include '/includes/dispensary_demands.html.twig' %}<br>
