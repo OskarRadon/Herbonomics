@@ -106,6 +106,9 @@
           {% endif %}
         </table>
 
+        {% include '/includes/dispensary_demands.html.twig' %}
+        {% include '/includes/grower_supply.html.twig' %}
+
       <h3>You are Following:</h3>
           {% if follows is not empty %}
             {% for follow in follows %}
