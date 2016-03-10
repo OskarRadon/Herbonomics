@@ -13,6 +13,16 @@
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
 
+    session_start();
+
+    if (empty($_SESSION['id'])) {
+        $_SESSION['id'] = null;
+    }
+
+    if (empty($_SESSION['type'])) {
+        $_SESSION['type'] = null;
+    }
+
     $app = new Silex\Application();
 
     use Symfony\Component\Debug\Debug;
@@ -22,6 +32,12 @@
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views'
     ));
+
+    $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
+        $twig->addGlobal('session', $_SESSION);
+        return $twig;
+    }));
+
  // instantiate Silex app, add twig capability to app
 
     $app->get("/", function() use ($app) {
@@ -45,6 +61,8 @@
         $demands =
         DispensaryDemand::findByDispensary($dispensary->getId());
 
+        $dispensary->saveId();
+
         return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands));
     });
 
@@ -57,6 +75,8 @@
             return $app['twig']->render('index.html.twig');
         } else
 
+        $grower->saveId();
+
         $strains = GrowersStrains::findByGrower($grower->getId());
         return $app['twig']->render('grower_account.html.twig', array(
             'grower' => $grower,
@@ -67,6 +87,7 @@
     //*takes user to the individual grower account page*//
     $app->get("/grower/{id}/account", function() use ($app) {
         $grower = Grower::find($id);
+
         return $app['twig']->render('grower_account.html.twig', array('$grower' => $grower));
     });
 
@@ -80,6 +101,7 @@
     //*takes grower to the add strain page*//
     $app->get("/grower/{id}/add_strain", function($id) use ($app) {
         $grower = Grower::findById($id);
+
         return $app['twig']->render('grower_strain_add.html.twig', array('grower' => $grower));
     });
 
@@ -170,6 +192,7 @@
 
     $app->get("/dispensary_profile/{id}", function($id) use ($app) {
         $dispensary = Dispensary::find($id);
+
         $demands = DispensaryDemand::findByDispensary($id);
         return $app['twig']->render('dispensary_profile.html.twig', array(
           'dispensary' => $dispensary,
@@ -285,6 +308,31 @@
         $demands = DispensaryDemand::search($_GET['search']);
         return $app['twig']->render('dispensary_demand.html.twig', array('demands' => $demands));
     });
+
+    $app->get("/sign_out", function() use ($app) {
+        Dispensary::signOut();
+        return $app['twig']->render('index.html.twig');
+    });
+
+
+    $app->get("/profile", function() use ($app) {
+        if ($_SESSION['type'] == "dispensary") {
+            $dispensary = Dispensary::find($_SESSION['id']);
+
+            $demands =
+            DispensaryDemand::findByDispensary($dispensary->getId());
+            return $app['twig']->render('dispensary_account.html.twig', array('dispensary' => $dispensary, 'demands' => $demands ));
+        } else if ($_SESSION['type'] == "grower") {
+            $grower = Grower::findById($_SESSION['id']);
+
+            $strains =
+            GrowersStrains::findByGrower($grower->getId());
+            return $app['twig']->render('grower_account.html.twig', array('grower' => $grower, 'strains' => $strains ));
+        } else
+        return $app['twig']->render('index.html.twig');
+    });
+
+
 
     return $app;
 ?>

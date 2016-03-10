@@ -165,6 +165,13 @@ class Grower
        }
        return $user;
     }
+
+    function saveId()
+    {
+        $_SESSION['id'] = $this->id;
+        $_SESSION['type'] = "grower";
+    }
+
 }
 
  ?>
